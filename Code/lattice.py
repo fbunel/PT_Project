@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.patches import Ellipse
+from random import randint
 
 class lattice:
 
@@ -21,7 +21,7 @@ class lattice:
             self.neighboor=np.array([[0,0,1],[0,0,-1],[0,1,0],[0,-1,0],[1,0,0],[-1,0,0]])
 
     def randomConfiguration(self):
-        """Function qui initialise une configuration aleatoire"""
+        """Function qui initialise une configuration aléatoire"""
 
         for loc in np.nditer(self.latticeArray, op_flags=['writeonly']):
             loc[...]=randomOrientation()
@@ -30,24 +30,18 @@ class lattice:
         """Fonction qui permet d'afficher une image de la lattice"""
 
     def nearestNeighboor(self, loc):
-        """Fonction qui retourne les coordonnees des plus proches voisins d'un site donne
-        en prenant en prenant en compte les conditions aux limites periodiques"""
+        """Fonction qui retourne les coordonnées des plus proches voisins d'un site donné
+        en prenant en prenant en compte les conditions aux limites périodiques"""
 
         return periodicLoc(self.neighboor+loc)
 
-
     def periodicLoc(self, loc):
-        """Fonction qui retourne les coordonnees periodisees."""
+        """Fonction qui retourne les coordonnées periodisées."""
         return loc%self.dim
 
-    def angle(self, loc):
-        """Fonction qui retourne la/les valeurs de l'angle d'un site donne"""
-
-
-
     def randomLoc(self):
-        """Fonction qui renvoie un site aleatoire de la lattice"""
-
+        """Fonction qui renvoie un site aléatoire de la lattice"""
+        return randint(self.size,size=2) 
 
 
 
