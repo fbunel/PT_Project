@@ -79,13 +79,13 @@ if __name__ == '__main__':
     #directement (via "python3 lattice.py" par ex)  
 
     
-    print('2D')
+    print('test display 2D')
     test2D = lattice(size=2,dim=2)
     test2D.latticeArray = np.random.rand(*test2D.latticeArray.shape)*360
     print(test2D.latticeArray[:,:,0])
     test2D.display()
 
-    print('3D')
+    print('test display 3D')
     test3D = lattice(size=2,dim=3)
     test3D.latticeArray = np.random.rand(*test3D.latticeArray.shape)*360
     print(test3D.latticeArray[:,:,:,0])
