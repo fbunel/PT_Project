@@ -28,12 +28,13 @@ class lattice:
 
         # de manière generale avec numpy il faut à tout prix éviter 
         # les boucles for pour itérer sur un array
-        for loc in np.nditer(self.latticeArray, op_flags=['writeonly']):
-            loc[...]=randomOrientation()
+        #for loc in np.nditer(self.latticeArray, op_flags=['writeonly']):
+        #    loc[...]=self.randomOrientation()
 
         # exemple de la "bonne manière" d'assigner des valeurs 
         # aléatoire entre 0 et Pi :
-        #self.latticeArray = np.random.rand(self.latticeArray.shape)*np.pi
+        self.latticeArray = np.random.rand(*self.latticeArray.shape)*np.pi
+
 
     def display(self):
         """Fonction qui permet d'afficher une image de la lattice"""
