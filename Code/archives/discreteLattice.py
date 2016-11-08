@@ -1,5 +1,4 @@
 from lattice import lattice
-from random import randint
 import numpy as np
 
 class discreteLattice(lattice):
@@ -25,9 +24,16 @@ class discreteLattice(lattice):
 
     def randomOrientation(self):
         """Fonction qui renvoie une orientation aléatoire parmis celles autorisées."""
-        
+
         return (self.possibleAngle[np.random.randint(self.angleSize)])
 
+    def randomConfiguration(self):
+        """Function qui initialise une configuration aléatoire"""
+
+        temp=np.random.randint(self.angleSize, size=(self.size,self.size,self.size))
+
+        for i, angle in enumerate(self.possibleAngle) :
+            self.latticeArray[temp==i]=angle
 
     def changeOrientation(self, loc, angle):
         """Fonction qui change l'orientation d'un site a une nouvelle valeur angle."""
@@ -43,10 +49,11 @@ if __name__ == '__main__':
     print('test 2D')
     test = discreteLattice(size=2,dim=2,angleSize=3)
     print(test.randomOrientation())
-
+    test.randomConfiguration()
+    print(test.latticeArray)
 
     print('test 3D')
     test = discreteLattice(size=2,dim=3,angleSize=3)
     print(test.randomOrientation())
-
-
+    test.randomConfiguration()
+    print(test.latticeArray)

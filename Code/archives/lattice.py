@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
-from random import randint
 
 class lattice:
 
@@ -22,11 +21,7 @@ class lattice:
             # dans le cas 3d on a trois dimensions d'espace et 2 angles
             self.latticeArray=np.zeros((size,size,size,2))
             self.neighboor=np.array([[0,0,1],[0,0,-1],[0,1,0],[0,-1,0],[1,0,0],[-1,0,0]])
-
-    def randomConfiguration(self):
-        """Function qui initialise une configuration aléatoire"""
-
-        
+  
     def display(self):
         """Fonction qui permet d'afficher une image de la lattice"""
         if self.dim == 2:
@@ -63,7 +58,7 @@ class lattice:
 
     def randomLoc(self):
         """Fonction qui renvoie un site aléatoire de la lattice"""
-        return randint(self.size,size=self.dim) 
+        return np.random.randint(self.size,size=self.dim) 
 
 
 if __name__ == '__main__':
