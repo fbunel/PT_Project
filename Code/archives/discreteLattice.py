@@ -35,6 +35,12 @@ class discreteLattice(lattice):
         for i, angle in enumerate(self.possibleAngle) :
             self.latticeArray[temp==i]=angle
 
+    def randomConfiguration(self):
+        """Function qui initialise une configuration aléatoire"""
+
+        self.latticeArray = np.random.randint(self.angleSize,
+                size=self.latticeArray.shape)*np.pi/self.angleSize
+
     def changeOrientation(self, loc, angle):
         """Fonction qui change l'orientation d'un site a une nouvelle valeur angle."""
         
