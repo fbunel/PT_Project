@@ -34,7 +34,7 @@ class discreteLattice2D:
     def nearestNeighboorAngle(self, loc):
         """Fonction qui retourne les valeurs des angles des voisins d'un site donné """
 
-        return self.latticeArray[tuple(self.nearestNeighboor(loc).transpose())] 
+        return self.latticeArray[tuple(self.nearestNeighboor(loc).T)] 
 
     def periodicLoc(self, loc):
         """Fonction qui retourne les coordonnées periodisées."""

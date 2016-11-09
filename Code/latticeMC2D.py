@@ -4,7 +4,7 @@ from discreteLattice2D import discreteLattice2D
 class latticeMC2D:
 
     def __init__(self, size, angleSize, sample, energieRatio):
-        """Constructeur de la classe qui initialise :
+        """Constructeu r de la classe qui initialise :
         - la lattice à l'aide de size et anglesize
         - sample le nombre de Monte-Carlo step que l'on veut faire 
         - energieRatio qui est kbT/epsilon"""
@@ -57,31 +57,41 @@ class latticeMC2D:
             print("\n \n \n")
             
             #On ajoute la nouvelle configuration aux résultats
-            #if i==0 :
-            #    energies[0] = self.energie()
-            #else :
-            #    energies[i] = energie[i-1] + energieVariation
+            if i==0 :
+                self.energies[0] = self.energie()
+            else :
+                self.energies[i] = self.energies[i-1] + energieVariation
 
-            #self.partitionFunction += self.boltzmannFactor(energies[i])
+            self.partitionFunction += self.boltzmannFactor(self.energies[i])
 
 
     def energie(self):
         """Fonction qui renvoie l'énergie de la configuration actuelle"""
+        arr = self.discreteLattice2D.latticeArray
+        
+        totEnergy = (
+             (3*np.cos(arr - np.roll(arr, 1,axis=0))**2-1)/2
+            +(3*np.cos(arr - np.roll(arr,-1,axis=0))**2-1)/2
+            +(3*np.cos(arr - np.roll(arr, 1,axis=1))**2-1)/2
+            +(3*np.cos(arr - np.roll(arr,-1,axis=1))**2-1)/2
+            ).sum()
+
+        return totEnergy
         #HADRI REMPLI CA SALE BATARD DE NOOB#
         #QUAND T'AS FINI DECOMENTE LA PARTIE DE CODE COMMENTE DANS runMC OU JTE BAISE#
 
     def energieVariation(self, newAngle, loc):
-        """Fonction qui renvoie la variation d'énergie associée
+        """Fonction qui ren voie la variation d'énergie associée
          au changement d'un spin"""
 
         nearestNeighboorAngle=self.discreteLattice2D.nearestNeighboorAngle(loc)
        
-        oldEnergy = sum((3*np.cos(
+        oldEnergy = ((3*np.cos(
                 nearestNeighboorAngle-self.discreteLattice2D.latticeArray[tuple(loc)])
-                **2-1)/2)
+                **2-1)/2).sum()
         
-        newEnergy = sum(
-            (3*np.cos(nearestNeighboorAngle-newAngle)**2-1)/2)
+        newEnergy = (
+            (3*np.cos(nearestNeighboorAngle-newAngle)**2-1)/2).sum()
         print("Old Energy and New Energy")
         print (oldEnergy,newEnergy)
 
