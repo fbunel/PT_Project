@@ -59,8 +59,7 @@ class latticeMC2D:
 
         nearestNeighboorAngle=self.discreteLattice2D.nearestNeighboorAngle(loc)
        
-        oldEnergy = sum(
-            (3*np.cos(
+        oldEnergy = sum((3*np.cos(
                 nearestNeighboorAngle-self.discreteLattice2D.latticeArray[tuple(loc)])
                 **2-1)/2)
         
