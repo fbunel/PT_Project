@@ -25,19 +25,36 @@ class latticeMC2D:
 
         for i in range(self.sample) :
 
+            print("Lattice :")
+            print(self.discreteLattice2D.latticeArray)
+
             #On prends un site et un angle au hasard
             randomLoc = self.discreteLattice2D.randomLoc()
+
+            print("New loc")
+            print(randomLoc)
+
+            print("Old Angle")
             newAngle = self.discreteLattice2D.latticeArray[tuple(randomLoc)]
+            print(newAngle)
             while newAngle==self.discreteLattice2D.latticeArray[tuple(randomLoc)]:
                 newAngle = self.discreteLattice2D.randomOrientation()
+            print("New Angle")
+            print(newAngle)
 
             #On calcule la variation d'énergie
             energieVariation = self.energieVariation(newAngle, randomLoc)
+            
             #On calcule la probabilité que le pas soit accepté
+            print("Acceptance probability")
             acceptanceProbability = self.boltzmannFactor(energieVariation)
+            print(acceptanceProbability)
             #On teste cette proba
-            if np.random.rand(1)>acceptanceProbability :
+            if np.random.rand(1)<acceptanceProbability :
                 self.discreteLattice2D.latticeArray[tuple(randomLoc)] = newAngle
+                print("Step accepted")
+
+            print("\n \n \n")
             
             #On ajoute la nouvelle configuration aux résultats
             #if i==0 :
@@ -65,7 +82,7 @@ class latticeMC2D:
         
         newEnergy = sum(
             (3*np.cos(nearestNeighboorAngle-newAngle)**2-1)/2)
-        
+        print("Old Energy and New Energy")
         print (oldEnergy,newEnergy)
 
         return(oldEnergy-newEnergy)
@@ -79,5 +96,5 @@ class latticeMC2D:
 if __name__ == '__main__':
 
     print('Test 2D')
-    test2D = latticeMC2D(8,2,5,1)
+    test2D = latticeMC2D(3,2,5,5)
     test2D.runMC()
