@@ -45,10 +45,51 @@ class continuousLattice3D:
         http://mathworld.wolfram.com/SpherePointPicking.html
         """
         alpha = 0
+        counter = 0
         while alpha<=dmin*np.pi/2 or alpha>=dmax*np.pi/2 :
+            counter += 1
             newAngle = np.array(
                 [np.arccos(np.random.rand(1)),2*np.pi*np.random.rand(1)])
             alpha = np.arccos(self.cosAngle(oldAngle,newAngle))
+
+        print(counter)
+        print(newAngle.reshape(2))
+        return newAngle.reshape(2)
+
+    def newNearRandomOrientation(self, oldAngle, dmin, dmax):
+        """Fonction qui renvoie une orientation aléatoire de la sphère unité
+        Les orientations tirées au hasard sont uniformément répartis sur la demi-sphère
+        unité supérieure
+        http://mathworld.wolfram.com/SpherePointPicking.html
+        """
+        alpha = 0
+        counter = 0
+        while alpha<=dmin*np.pi/2 or alpha>=dmax*np.pi/2 :
+            counter+=1
+            
+            #On tire au hasard un deltaPhi et un deltacosTheta à la distance 
+            #que l'on veut
+            deltaPhi = 2*np.pi*np.random.rand(1)*dmax
+            deltaCosTheta = np.random.rand(1)*dmax
+            
+            #On gère le cas ou on sort de [0,1] pour un cosinus...
+            #et on stocke le nouvel angle
+            if 1>=np.cos(oldAngle[0]) + deltaCosTheta>=0 :
+                newAngle = np.array(
+                [np.arccos(np.cos(oldAngle[0])+deltaCosTheta), oldAngle[1] + deltaPhi])
+            
+            elif np.cos(oldAngle[0]) + deltaCosTheta>1 :
+                newAngle = np.array(
+                [np.arccos(2-(np.cos(oldAngle[0])+deltaCosTheta)), (oldAngle[1] + deltaPhi + np.pi)%(2*np.pi)])
+
+            elif np.cos(oldAngle[0]) + deltaCosTheta<0 :
+                newAngle = np.array(
+                [np.arccos(-(np.cos(oldAngle[0])+deltaCosTheta)), (oldAngle[1] + deltaPhi + np.pi)%(2*np.pi)])
+
+            alpha = np.arccos(self.cosAngle(oldAngle,newAngle))
+        print(counter)
+        print(newAngle.reshape(2))
+
         return newAngle.reshape(2)
 
     def cosAngle(self, oldAngle, newAngle):
@@ -108,8 +149,11 @@ if __name__ == '__main__':
     print('test display 3D')
     test3D = continuousLattice3D(size=5)
     test3D.randomConfiguration()
-    test3D.nearRandomOrientation(test3D.randomOrientation(),0,1)
-    test3D.display()    
+    for i in range(1,10000):
+        print(i)
+        test3D.newNearRandomOrientation(test3D.randomOrientation(),0,0.005)
+        test3D.nearRandomOrientation(test3D.randomOrientation(),0,0.005)
+        print("\n")
 
 
 
