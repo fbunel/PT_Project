@@ -5,13 +5,14 @@ from matplotlib.patches import Ellipse
 class continuousLattice3D:
 
     def __init__(self, size):
-        """Constructeur de la cl asse qui initialise :
-        -la taille de la lattice dans une dimension
-        -le nombre de dimension 
-        -la lattice"""
+        """Constructeur de la classe qui nécessite :
+        -la taille de la lattice"""
 
-        self.size = size
+        self.size = size 
+        
+        #Lattice, la dernière dimension corrspond aux deux angles theta et phi
         self.latticeArray=np.zeros((size,size,size,2))
+        #Liste des plus proches voisins
         self.neighboor=np.array([[0,0,1],[0,0,-1],[0,1,0],[0,-1,0],[1,0,0],[-1,0,0]])
 
     def randomOrientation(self):
@@ -23,12 +24,12 @@ class continuousLattice3D:
         return np.array([np.arccos(np.random.rand(1)),2*np.pi*np.random.rand(1)]).reshape(2)
 
     def groundstateConfiguration(self):
-        """Function qui initialise une configuration dans l'état fondamental"""
+        """Function qui initialise/reset la lattice dans l'état fondamental"""
         
         self.latticeArray=np.zeros((self.size,self.size,self.size,2))
 
     def randomConfiguration(self):
-        """Function qui initialise une configuration aléatoire
+        """Function qui initialise/reset la lattice dans un état random
         Les orientations tirées au hasard sont uniformément répartis sur la demi-sphère
         unité supérieure
         http://mathworld.wolfram.com/SpherePointPicking.html
@@ -39,29 +40,27 @@ class continuousLattice3D:
             2*np.pi*np.random.rand(self.size,self.size,self.size)]).T
   
     def nearRandomOrientation(self, oldAngle, dmin, dmax):
-        """Fonction qui renvoie une orientation aléatoire de la sphère unité
-        Les orientations tirées au hasard sont uniformément répartis sur la demi-sphère
-        unité supérieure
-        http://mathworld.wolfram.com/SpherePointPicking.html
-        """
-        alpha = 0
-        while alpha<=dmin*np.pi/2 or alpha>=dmax*np.pi/2 :
+        """Fonction qui renvoie une orientation aléatoire de la sphère unité mais à une distance entre dmin et dmax de l'angle fourni en argument."""
+        
+
+        alpha = 0 #Angle avec l'ancien angle
+        while alpha/(np.pi/2)<=dmin or alpha/(np.pi/2)>=dmax :
+
+            #On tire au hasard un deltaPhi et un deltacosTheta qui implique chacun au 
+            #maximum une distance dmax de l'ancien angle
+            deltaPhi = (np.random.rand(1)*2-1)*np.pi/2*dmax
+            deltaCosTheta = (np.random.rand(1)*2-1)*(
+                np.cos(np.pi/2*dmax+oldAngle[0])-np.cos(oldAngle[0]))
             
-            #On tire au hasard un deltaPhi et un deltacosTheta à la distance 
-            #que l'on veut
-            deltaPhi = 2*np.pi*np.random.rand(1)*dmax
-            deltaCosTheta = np.random.rand(1)*dmax
-            
-            #On gère le cas ou on sort de [0,1] pour un cosinus...
-            #et on stocke le nouvel angle
+            #Si tout se passe bien
             if 1>=np.cos(oldAngle[0]) + deltaCosTheta>=0 :
                 newAngle = np.array(
                 [np.arccos(np.cos(oldAngle[0])+deltaCosTheta), oldAngle[1] + deltaPhi])
-            
+            #Si le cosinus est supérieur à 1
             elif np.cos(oldAngle[0]) + deltaCosTheta>1 :
                 newAngle = np.array(
                 [np.arccos(2-(np.cos(oldAngle[0])+deltaCosTheta)), (oldAngle[1] + deltaPhi + np.pi)%(2*np.pi)])
-
+            #Si il est inférieur à 0 (pour rester dans la demi sphère supérieure)
             elif np.cos(oldAngle[0]) + deltaCosTheta<0 :
                 newAngle = np.array(
                 [np.arccos(-(np.cos(oldAngle[0])+deltaCosTheta)), (oldAngle[1] + deltaPhi + np.pi)%(2*np.pi)])
@@ -77,17 +76,16 @@ class continuousLattice3D:
             np.sin(oldAngle[0])*np.sin(newAngle[0])*np.cos(newAngle[1]-oldAngle[1])
             + np.cos(oldAngle[0])*np.cos(newAngle[0]))
 
-
-    def nearestNeighboor(self, loc):
-        """Fonction qui retourne les coordonnées des plus proches voisins d'un site donné
-        en prenant en prenant en compte les conditions aux limites périodiques"""
-
-        return self.periodicLoc(self.neighboor+loc)
-
     def nearestNeighboorAngle(self, loc):
         """Fonction qui retourne les valeurs des angles des voisins d'un site donné """
 
-        return self.latticeArray[tuple(self.nearestNeighboor(loc).T)] 
+        return self.latticeArray[tuple(self.nearestNeighboor(loc).T)]
+
+    def nearestNeighboor(self, loc):
+        """Fonction qui retourne les coordonnées des plus proches voisins d'un site 
+        donné en prenant en prenant en compte les conditions aux limites périodiques"""
+
+        return self.periodicLoc(self.neighboor+loc)
 
     def periodicLoc(self, loc):
         """Fonction qui retourne les coordonnées periodisées."""
@@ -121,17 +119,14 @@ class continuousLattice3D:
 
 
 if __name__ == '__main__':
-    #tout ce qui est ici n'est exécuté que si ce script est exécuté 
-    #directement (via "python3 lattice.py" par ex)  
-
 
     print('test display 3D')
     test3D = continuousLattice3D(size=5)
     test3D.randomConfiguration()
-    for i in range(1,10000):
+    for i in range(1,100000):
         print(i)
         oldAngle=test3D.randomOrientation()
-        test3D.nearRandomOrientation(oldAngle,0,0.005)
+        test3D.nearRandomOrientation(oldAngle,0,1)
         print("\n")
 
 

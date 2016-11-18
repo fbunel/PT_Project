@@ -1,42 +1,65 @@
-import numpy as np
-import matplotlib.pyplot as plt
 from continuousLattice3D import continuousLattice3D
+import numpy as np
+
+import matplotlib.pyplot as plt
 
 class latticeMC3Dcontinuous:
 
     def __init__(self, size, sample, meanSample, energieRatio, start):
-        """Constructeu de la classe """
+        """Constructeur de la classe qui nécessite :
+        - la taille de la lattice
+        - le nombre de sample
+        - le nombre de sample sur lequel on calcule la moyenne
+        - la température qui intervient par enegieratio = kbT/epsilon
+        - l'information si on part d'une configuration random ou de l'état fondamental
+        """
 
-        self.size = size
-        self.lattice = continuousLattice3D(self.size)
+        self.size = size                    
         self.sample = sample
         self.meanSample = meanSample
         self.energieRatio = energieRatio
+        self.lattice = continuousLattice3D(self.size)
 
-        self.accepted = np.zeros(sample)
+
+        #Energies au step i
         self.energies = np.zeros(sample)
-        self.energiesForMean = np.zeros(meanSample)
-        self.boltzmannFactors = np.zeros(meanSample)
-        self.partitionFunction = 0
+        #Energie de l'état fondamentale utilisé pour plot les énergies toujours 
+        #par rapport à la même référence
         self.minEnergy = -3*size**3
-        self.referenceEnergy = 0 
 
+        #Energie de référence pour le calcul des facteurs de Boltzmann,
+        self.referenceEnergy = 0
+        #Les facteurs de boltzmann qui ne servent à rien au final...
+        self.boltzmannFactors = np.zeros(meanSample)
+        #Fonction de martition : somme des facteurs de Boltzmann
+        self.partitionFunction = 0
+
+        #1 si le step i accepté, 0 sinon
+        self.accepted = np.zeros(sample)
+        self.acceptedSample = 1000
+        #Variables pour des test sur les variations imposées à l'angle
         self.dminArray = np.zeros(sample)
         self.dmaxArray = np.zeros(sample)
 
-        #Initialise une configuration aléatoire pour la lattice
+
+        #Initialise une configuration aléatoire pour la lattice et pour dmin/dmax
         if start == 'random' :
             self.lattice.randomConfiguration()
+            self.dmin = 0
+            self.dmax = 1
         elif start == 'groundstate' :
             self.lattice.groundstateConfiguration()
+            self.dmin = 0
+            self.dmax = 0.02
+
+
+
 
 
     def runMC(self):
         """Fonction qui lance une simulation Monte-Carlo"""
 
-        dmin = 0
-        dmax = 1
-        nAccepted = 100
+        
 
         for i in range(self.sample) :
 
@@ -45,10 +68,9 @@ class latticeMC3Dcontinuous:
             #On prends un site et un angle au hasard
             randomLoc = self.lattice.randomLoc()
 
-            #On choisit un nouvel angle au hasard
-            #newAngle = self.lattice.randomOrientation()
+            #On choisit un nouvel angle presque au hasard
             newAngle = self.lattice.nearRandomOrientation(
-                self.lattice.latticeArray[tuple(randomLoc)], dmin, dmax)
+                self.lattice.latticeArray[tuple(randomLoc)], self.dmin, self.dmax)
 
             #On calcule la variation d'énergie
             energieVariation = self.energieVariation(newAngle, randomLoc)
@@ -69,36 +91,26 @@ class latticeMC3Dcontinuous:
             else :
                 self.energies[i] = self.energies[i-1] + energieVariation
 
-            #On adapte la vitesse de changement en fonction de l'angle
-            
-            if(i>=nAccepted) :
-                stat = sum(self.accepted[i-nAccepted:i])/nAccepted
-                dmax = max(0.01, min(1, dmax + (stat - 1/2)/1000))
-                dmin = max(0, min(0.3, dmax-0.01, dmin + (stat - 1/2)/2000))
+            #On adapte l'amplitude de variation des angles en fonctions des statistiques
+            if(i>=self.acceptedSample) :
+                stat = sum(self.accepted[i-self.acceptedSample:i])/self.acceptedSample
             else :
-                stat = sum(self.accepted[0:i])/i
-                dmax = max(0.01, min(1, dmax + (stat - 1/2)/1000))
-                dmin = max(0, min(0.3, dmax-0.01, dmin + (stat - 1/2)/2000))
-            
-            self.dminArray[i] = dmin
-            self.dmaxArray[i] = dmax
+                stat = sum(self.accepted[0:i])/(i+1)
 
+            self.dmax = max(0.01, min(1, self.dmax + (stat - 1/2)/10000))
+            self.dmin = max(0, min(0.3, self.dmax-0.01, self.dmin + (stat - 1/2)/20000))
+            self.dminArray[i] = self.dmin
+            self.dmaxArray[i] = self.dmax
+
+        #Plot de test qui deviendra inutile ensuite
         plt.plot(self.dminArray)
         plt.plot(self.dmaxArray)
+        plt.title('dmin et dmax')
         plt.show()
-
-    def postMC(self):
-
-        #Les facteurs de Boltzmanns et la fonction de partition sont calculés avec un
-        #spectre d'énergie décalé par l'énergie minimale observée
-        self.energiesForMean = self.energies[-self.meanSample:]
-        self.referenceEnergy = min(self.energiesForMean)
-        self.boltzmannFactors = self.boltzmannFactor(
-            self.energiesForMean - self.referenceEnergy)
-        self.partitionFunction = sum(self.boltzmannFactors)
 
     def energie(self):
         """Fonction qui renvoie l'énergie de la configuration actuelle"""
+        
         arr = self.lattice.latticeArray.T
 
         totEnergy = (
@@ -113,9 +125,11 @@ class latticeMC3Dcontinuous:
         return totEnergy
 
     def energieVariation(self, newAngle, loc):
-        """Fonction qui ren voie la variation d'énergie associée
-         au changement d'un spin"""
+        """Fonction qui renvoie la variation d'énergie associée au changement du site
+        loc de la lattice vers newAngle. La fonction ne calcule que les variations 
+        locales pour gagner du temps"""
 
+        #Valeurs des angles des voisins
         nNA=self.lattice.nearestNeighboorAngle(loc)
 
         oldEnergy = (
@@ -134,31 +148,23 @@ class latticeMC3Dcontinuous:
         return(np.exp(-energie/self.energieRatio))
 
     def meanEnergy(self):
-        """Fonction qui renvoie l'énergie moyenne sur la simulation Monte Carlo"""
-        return(np.dot(self.boltzmannFactors,self.energies/self.size**3)/self.partitionFunction)
+        """Fonction qui renvoie l'énergie moyenne sur les meanSample derniers sample"""
+        return(np.mean(self.energies[-meanSample:]))
 
 
     def displayEnergies(self):
-        """display the energy per site"""
+        """Fonction qui affiche l'évolution de l'énergie"""
 
         plt.plot((self.energies-self.minEnergy)/self.size**3)
-        plt.title('Energy per site')
-        plt.show()
-
-    def displayBoltzmannFactors(self):
-        """display the energy per site"""
-
-        plt.plot(self.boltzmannFactors)
+        plt.title('Energie par site en unité de epsilon')
         plt.show()
 
 
 if __name__ == '__main__':
 
     print('Test 3D')
-    test3D = latticeMC3Dcontinuous(10,200000,50000,0.01,'groundstate')
+    test3D = latticeMC3Dcontinuous(10,200000,10000,0.01,'groundstate')
     test3D.runMC()
-    test3D.postMC()
-    #test3D.lattice.display()    
+    test3D.lattice.display()    
     test3D.displayEnergies()
-    test3D.displayBoltzmannFactors()
-    print(sum(test3D.accepted))
+    print(sum(test3D.accepted)/test3D.sample)
