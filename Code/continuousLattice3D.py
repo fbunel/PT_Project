@@ -45,27 +45,7 @@ class continuousLattice3D:
         http://mathworld.wolfram.com/SpherePointPicking.html
         """
         alpha = 0
-        counter = 0
         while alpha<=dmin*np.pi/2 or alpha>=dmax*np.pi/2 :
-            counter += 1
-            newAngle = np.array(
-                [np.arccos(np.random.rand(1)),2*np.pi*np.random.rand(1)])
-            alpha = np.arccos(self.cosAngle(oldAngle,newAngle))
-
-        print(counter)
-        print(newAngle.reshape(2))
-        return newAngle.reshape(2)
-
-    def newNearRandomOrientation(self, oldAngle, dmin, dmax):
-        """Fonction qui renvoie une orientation aléatoire de la sphère unité
-        Les orientations tirées au hasard sont uniformément répartis sur la demi-sphère
-        unité supérieure
-        http://mathworld.wolfram.com/SpherePointPicking.html
-        """
-        alpha = 0
-        counter = 0
-        while alpha<=dmin*np.pi/2 or alpha>=dmax*np.pi/2 :
-            counter+=1
             
             #On tire au hasard un deltaPhi et un deltacosTheta à la distance 
             #que l'on veut
@@ -87,16 +67,15 @@ class continuousLattice3D:
                 [np.arccos(-(np.cos(oldAngle[0])+deltaCosTheta)), (oldAngle[1] + deltaPhi + np.pi)%(2*np.pi)])
 
             alpha = np.arccos(self.cosAngle(oldAngle,newAngle))
-        print(counter)
-        print(newAngle.reshape(2))
 
         return newAngle.reshape(2)
 
     def cosAngle(self, oldAngle, newAngle):
+        """Fonction qui retourne le cosinus de la différence de 2 directions"""
 
         return abs(
-            np.sin(oldAngle[1])*np.sin(newAngle[1])*np.cos(newAngle[0]-oldAngle[0])
-            + np.cos(oldAngle[1])*np.cos(newAngle[1]))
+            np.sin(oldAngle[0])*np.sin(newAngle[0])*np.cos(newAngle[1]-oldAngle[1])
+            + np.cos(oldAngle[0])*np.cos(newAngle[0]))
 
 
     def nearestNeighboor(self, loc):
@@ -151,8 +130,8 @@ if __name__ == '__main__':
     test3D.randomConfiguration()
     for i in range(1,10000):
         print(i)
-        test3D.newNearRandomOrientation(test3D.randomOrientation(),0,0.005)
-        test3D.nearRandomOrientation(test3D.randomOrientation(),0,0.005)
+        oldAngle=test3D.randomOrientation()
+        test3D.nearRandomOrientation(oldAngle,0,0.005)
         print("\n")
 
 

@@ -36,7 +36,7 @@ class latticeMC3Dcontinuous:
 
         dmin = 0
         dmax = 1
-        nAccepted = 20
+        nAccepted = 100
 
         for i in range(self.sample) :
 
@@ -70,15 +70,18 @@ class latticeMC3Dcontinuous:
                 self.energies[i] = self.energies[i-1] + energieVariation
 
             #On adapte la vitesse de changement en fonction de l'angle
+            
             if(i>=nAccepted) :
                 stat = sum(self.accepted[i-nAccepted:i])/nAccepted
-                dmax = max(0.05, min(1, dmax + (stat - 1/2)/10))
-                dmin = max(0, min(0.3, dmax-0.05, dmin + (stat - 1/2)/20))
-
+                dmax = max(0.01, min(1, dmax + (stat - 1/2)/1000))
+                dmin = max(0, min(0.3, dmax-0.01, dmin + (stat - 1/2)/2000))
+            else :
+                stat = sum(self.accepted[0:i])/i
+                dmax = max(0.01, min(1, dmax + (stat - 1/2)/1000))
+                dmin = max(0, min(0.3, dmax-0.01, dmin + (stat - 1/2)/2000))
+            
             self.dminArray[i] = dmin
             self.dmaxArray[i] = dmax
-
-            
 
         plt.plot(self.dminArray)
         plt.plot(self.dmaxArray)
@@ -139,6 +142,7 @@ class latticeMC3Dcontinuous:
         """display the energy per site"""
 
         plt.plot((self.energies-self.minEnergy)/self.size**3)
+        plt.title('Energy per site')
         plt.show()
 
     def displayBoltzmannFactors(self):
@@ -151,7 +155,7 @@ class latticeMC3Dcontinuous:
 if __name__ == '__main__':
 
     print('Test 3D')
-    test3D = latticeMC3Dcontinuous(10,100000,50000,0.01,'groundstate')
+    test3D = latticeMC3Dcontinuous(10,200000,50000,0.01,'groundstate')
     test3D.runMC()
     test3D.postMC()
     #test3D.lattice.display()    
