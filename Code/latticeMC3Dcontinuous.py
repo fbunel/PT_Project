@@ -159,7 +159,7 @@ class latticeMC3Dcontinuous:
 if __name__ == '__main__':
 
     print('Test 3D')
-    test3D = latticeMC3Dcontinuous(30,50,10000,0.01,'groundstate')
+    test3D = latticeMC3Dcontinuous(30,400,10000,1,'groundstate')
     test3D.runMC()    
     test3D.displayEnergies()
     print(sum(test3D.accepted)/(test3D.sample*test3D.size**3))
