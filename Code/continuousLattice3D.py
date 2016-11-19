@@ -11,9 +11,11 @@ class continuousLattice3D:
         self.size = size 
         
         #Lattice, la dernière dimension corrspond aux deux angles theta et phi
-        self.latticeArray=np.zeros((size,size,size,2))
+        self.latticeArray = np.zeros((size,size,size,2))
         #Liste des plus proches voisins
-        self.neighboor=np.array([[0,0,1],[0,0,-1],[0,1,0],[0,-1,0],[1,0,0],[-1,0,0]])
+        self.neighboor = np.array([[0,0,1],[0,0,-1],[0,1,0],[0,-1,0],[1,0,0],[-1,0,0]])
+        #Liste ordonné de manière random des sites de la lattice
+        self.randomOrderSite = np.arange(size**3)
 
     def randomOrientation(self):
         """Fonction qui renvoie une orientation aléatoire de la sphère unité
@@ -96,10 +98,23 @@ class continuousLattice3D:
         """Fonction qui renvoie un site aléatoire de la lattice"""
         return np.random.randint(self.size, size=3)
 
+    def randomOrder(self):
+        """Fonction qui rend la liste des sites de la lattice de manière random"""
+        np.random.shuffle(self.randomOrderSite)
+
+    def randomLocOrdered(self, i):
+        """Fonction qui renvoie le site correspondant au numéro donné"""
+        site = self.randomOrderSite[i]
+        loc = np.zeros(3)
+        loc[0] = site%self.size
+        loc[1]= (site - loc[0])/self.size %self.size
+        loc[2]= (site - self.size*loc[1]- loc[0])/self.size**2 %self.size
+        return(loc.astype(int))
+
     def display(self):
         """Fonction qui permet d'afficher une image de la lattice"""
 
-        angle=self.latticeArray[:,:,:,0]
+        angle=self.latticeArray[:,:,:,1]
 
         x,y=np.indices(angle.shape)[[0,1]]
         # on prend -angle a cause de l'inversion finale de l'axe y
@@ -121,12 +136,12 @@ class continuousLattice3D:
 if __name__ == '__main__':
 
     print('test display 3D')
-    test3D = continuousLattice3D(size=5)
-    test3D.randomConfiguration()
-    for i in range(1,100000):
+    test3D = continuousLattice3D(size=30)
+    test3D.randomOrder()
+    for i in range(1,27000):
         print(i)
-        oldAngle=test3D.randomOrientation()
-        test3D.nearRandomOrientation(oldAngle,0,1)
+        print(test3D.randomOrderSite[i])
+        print(test3D.randomLocOrdered(i))
         print("\n")
 
 
