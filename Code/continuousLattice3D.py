@@ -10,7 +10,7 @@ class continuousLattice3D:
 
         self.size = size 
         
-        #Lattice, la dernière dimension corrspond aux deux angles theta et phi
+        #Lattice, la dernière dimension corrspond aux deux angles costheta et phi
         self.latticeArray = np.zeros((size,size,size,2))
         #Liste des plus proches voisins
         self.neighboor = np.array([[0,0,1],[0,0,-1],[0,1,0],[0,-1,0],[1,0,0],[-1,0,0]])
@@ -23,7 +23,7 @@ class continuousLattice3D:
         unité supérieure
         http://mathworld.wolfram.com/SpherePointPicking.html
         """
-        return np.array([np.arccos(np.random.rand(1)),2*np.pi*np.random.rand(1)]).reshape(2)
+        return np.array([2*np.random.rand(1)-1,2*np.pi*np.random.rand(1)]).reshape(2)
 
     def groundstateConfiguration(self):
         """Function qui initialise/reset la lattice dans l'état fondamental"""
@@ -38,45 +38,33 @@ class continuousLattice3D:
         """
         
         self.latticeArray = np.array(
-            [np.arccos(np.random.rand(self.size,self.size,self.size)),
+            [2*np.random.rand(self.size,self.size,self.size)-1,
             2*np.pi*np.random.rand(self.size,self.size,self.size)]).T
   
-    def nearRandomOrientation(self, oldAngle, dmin, dmax):
-        """Fonction qui renvoie une orientation aléatoire de la sphère unité mais à une distance entre dmin et dmax de l'angle fourni en argument."""
+    def nearRandomOrientation(self, oldAngle, dmax):
+        """Fonction qui renvoie une orientation aléatoire de la sphère unité mais à une
+        distance entre dmin et dmax de l'angle fourni en argument."""
         
-
-        alpha = 0 #Angle avec l'ancien angle
-        while alpha/(np.pi/2)<=dmin or alpha/(np.pi/2)>=dmax :
-
-            #On tire au hasard un deltaPhi et un deltacosTheta qui implique chacun au 
-            #maximum une distance dmax de l'ancien angle
-            deltaPhi = (np.random.rand(1)*2-1)*np.pi/2*dmax
-            deltaCosTheta = (np.random.rand(1)*2-1)*(
-                np.cos(np.pi/2*dmax+oldAngle[0])-np.cos(oldAngle[0]))
+        #On tire au hasard un deltaPhi et un deltacosTheta qui implique chacun au 
+        #maximum une distance dmax de l'ancien angle
+        deltaPhi = (2*np.random.rand(1)-1)*np.pi*dmax
+        deltaCosTheta = (2*np.random.rand(1)-1)*dmax
             
-            #Si tout se passe bien
-            if 1>=np.cos(oldAngle[0]) + deltaCosTheta>=0 :
-                newAngle = np.array(
-                [np.arccos(np.cos(oldAngle[0])+deltaCosTheta), oldAngle[1] + deltaPhi])
-            #Si le cosinus est supérieur à 1
-            elif np.cos(oldAngle[0]) + deltaCosTheta>1 :
-                newAngle = np.array(
-                [np.arccos(2-(np.cos(oldAngle[0])+deltaCosTheta)), (oldAngle[1] + deltaPhi + np.pi)%(2*np.pi)])
-            #Si il est inférieur à 0 (pour rester dans la demi sphère supérieure)
-            elif np.cos(oldAngle[0]) + deltaCosTheta<0 :
-                newAngle = np.array(
-                [np.arccos(-(np.cos(oldAngle[0])+deltaCosTheta)), (oldAngle[1] + deltaPhi + np.pi)%(2*np.pi)])
-
-            alpha = np.arccos(self.cosAngle(oldAngle,newAngle))
-
+        newAngle = np.array([
+            (oldAngle[0] + deltaCosTheta-1)%2-1,
+            (oldAngle[1] + deltaPhi)%(2*np.pi)])
+            
         return newAngle.reshape(2)
 
     def cosAngle(self, oldAngle, newAngle):
         """Fonction qui retourne le cosinus de la différence de 2 directions"""
 
+        oldTheta = np.arccos(oldAngle[0])
+        newTheta = np.arccos(newAngle[0])
+
         return abs(
-            np.sin(oldAngle[0])*np.sin(newAngle[0])*np.cos(newAngle[1]-oldAngle[1])
-            + np.cos(oldAngle[0])*np.cos(newAngle[0]))
+            np.sin(oldTheta)*np.sin(newTheta)*np.cos(newAngle[1]-oldAngle[1])
+            + oldAngle[0]*newAngle[0])
 
     def nearestNeighboorAngle(self, loc):
         """Fonction qui retourne les valeurs des angles des voisins d'un site donné """
