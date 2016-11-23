@@ -1,9 +1,9 @@
-from continuousLattice3D import continuousLattice3D
+from Lattice import Lattice
 import numpy as np
 
 import matplotlib.pyplot as plt
 
-class latticeMC3Dcontinuous:
+class MonteCarlo:
 
     def __init__(self, size, sample, meanSample, energieRatio, start):
         """Constructeur de la classe qui nécessite :
@@ -15,13 +15,14 @@ class latticeMC3Dcontinuous:
         - l'information si on part d'une configuration random ou de l'état fondamental
         """
 
+        ##Paramètre de l'étude##
         self.size = size                    
         self.sample = sample
         self.meanSample = meanSample
         self.energieRatio = energieRatio
-        self.lattice = continuousLattice3D(self.size)
+        self.lattice = Lattice(self.size)
 
-
+        ##Paramètre d'énergie et de plots##
         #Energies au step i
         self.energies = np.zeros(sample*self.size**3)
         #Energie de l'état fondamentale utilisé pour plot les énergies toujours 
@@ -30,11 +31,14 @@ class latticeMC3Dcontinuous:
         #Absicess en termes de nombre de cycle pour les graphes
         self.cycles = np.arange(sample*self.size**3)/self.size**3
 
+        ##Paramètres pour gérer le ratio acceptance##
         #1 si le step i accepté, 0 sinon
         self.accepted = np.zeros(sample*self.size**3)
         self.acceptedSample = 10    #Variables pour des test sur les variations imposées à l'angle
         self.dmaxArray = np.zeros(sample*self.size**3)
 
+        ##Paramètre pour le paramètre d'ordre##
+        self.orderParameters = np.zeros(sample*self.size**3)
 
         #Initialise une configuration aléatoire pour la lattice et pour dmin/dmax
         if start == 'random' :
@@ -44,64 +48,89 @@ class latticeMC3Dcontinuous:
             self.lattice.groundstateConfiguration()
             self.dmax = 0.01
 
-
     def runMC(self):
         """Fonction qui lance une simulation Monte-Carlo"""
 
-        for cycle in range(self.sample) :
+        for cycle in np.arange(self.sample) :
 
             self.lattice.randomOrder()
             print(cycle)
 
-            for s in range(self.size**3) : 
-                self.moveMC(cycle,s)
-
+            for s in np.arange(self.size**3) :
+                
                 i = cycle*self.size**3 + s
+                #On prend le site aléatoire
+                loc = self.lattice.randomLocOrdered(s)
 
-                #On adapte l'amplitude de variation des angles 
-                if(i>=self.acceptedSample) :
-                    stat = sum(
-                        self.accepted[i-self.acceptedSample:i])/self.acceptedSample
-                else :  
-                    stat = sum(self.accepted[0:i])/(i+1)
+                #On sauvegarde l'ancien angle
+                oldAngle = np.copy(self.lattice.latticeArray[tuple(loc)])
+                #On réalise le move
+                energieVariation, accepted = self.moveMC(loc)
 
-                self.dmax = max(
-                    0.005, min(1, self.dmax + (stat - 1/2)/10000))
-                self.dmaxArray[i] = self.dmax
+                #On update la valeur d'energie
+                self.updateEnergie(energieVariation, i)
+                #On update la valeur de distance à l'angle précédent
+                self.updateDmax(accepted, i)
+                #On update la matrice du paramètre d'ordre
+                self.updateOrderParameter(
+                    accepted, oldAngle, self.lattice.latticeArray[tuple(loc)], i)
 
-        #Plot de test qui deviendra inutile ensuite
-        plt.plot(self.cycles,self.dmaxArray)
-        plt.title('dmax')
-        plt.show()
-
-    def moveMC(self, cycle, s):
-
-        i = cycle*self.size**3 + s
-        #On prends un site et un angle au hasard
-        randomLoc = self.lattice.randomLocOrdered(s)
+    def moveMC(self, loc):
+        """Fonction qui tente un move du site numéro s de MonteCarlo"""
 
         #On choisit un nouvel angle presque au hasard
         newAngle = self.lattice.nearRandomOrientation(
-            self.lattice.latticeArray[tuple(randomLoc)], self.dmax)
+            self.lattice.latticeArray[tuple(loc)], self.dmax)
 
         #On calcule la variation d'énergie
-        energieVariation = self.energieVariation(newAngle, randomLoc)
+        energieVariation = self.energieVariation(newAngle, loc)
             
         #On calcule la probabilité que le pas soit accepté
         acceptanceProbability = min(1,self.boltzmannFactor(energieVariation))
 
         #On teste cette proba
         if np.random.rand(1)<acceptanceProbability :
-            self.lattice.latticeArray[tuple(randomLoc)] = newAngle
-            self.accepted[i] = 1
+            self.lattice.latticeArray[tuple(loc)] = newAngle
+            return(energieVariation,1)
         else :
-            energieVariation = 0
+            return(0,0)
+
+    def updateEnergie(self, energieVariation, i):
+        """Fonction qui update les valeurs d'energies"""
 
         #On update les tableaux de résultats
         if i==0 :
             self.energies[0] = self.energie()
         else :
             self.energies[i] = self.energies[i-1] + energieVariation
+
+    def updateDmax(self, accepted, i):
+        """Fonction qui update les valeurs de dmax"""
+
+        self.accepted[i] = accepted
+
+        #On adapte l'amplitude de variation des angles 
+        if(i>=self.acceptedSample) :
+            stat = sum(
+                self.accepted[i-self.acceptedSample:i])/self.acceptedSample
+        else :  
+            stat = sum(self.accepted[0:i])/(i+1)
+
+        self.dmax = max(
+            0.005, min(1, self.dmax + (stat - 1/2)/10000))
+        self.dmaxArray[i] = self.dmax
+
+    def updateOrderParameter(self, accepted, oldAngle, newAngle, i):
+        """Fonction qui update les valeurs du paramètre d'ordre"""
+
+        #On update la  matrice d'ordre
+        if i==0 :
+            self.lattice.fillOrderMatrix()
+        else :
+            self.lattice.updateOrderMatrix(oldAngle, newAngle)
+
+        #Et on récupère le paramètre d'ordre
+        self.orderParameters[i] = self.lattice.orderParameter()
 
     def energie(self):
         """Fonction qui renvoie l'énergie de la configuration actuelle"""
@@ -146,6 +175,9 @@ class latticeMC3Dcontinuous:
         """Fonction qui renvoie l'énergie moyenne sur les meanSample derniers sample"""
         return((np.mean(self.energies[-self.meanSample*self.size**3:])-self.minEnergy)/self.size**3)
 
+    def meanOrderParameter(self):
+        """Fonction qui renvoie l'énergie moyenne sur les meanSample derniers sample"""
+        return(np.mean(self.orderParameters[-self.meanSample*self.size**3:]))
 
     def displayEnergies(self):
         """Fonction qui affiche l'évolution de l'énergie"""
@@ -154,12 +186,25 @@ class latticeMC3Dcontinuous:
         plt.title('Energie par site en unité de epsilon')
         plt.show()
 
+    def displayOrderParameter(self):
+        """Fonction qui affiche l'évolution de l'énergie"""
+
+        plt.plot(self.cycles, self.orderParameters)
+        plt.title("Paramètre d'ordre")
+        plt.show()
 
 if __name__ == '__main__':
 
     print('Test 3D')
-    test3D = latticeMC3Dcontinuous(30,100,100,0.01,'groundstate')
-    test3D.runMC()    
-    test3D.displayEnergies()
-    test3D.lattice.display()
-    print(sum(test3D.accepted)/(test3D.sample*test3D.size**3))
+    test = MonteCarlo(30,60,10,0.01,'groundstate')
+    test.runMC()
+    print('Temperature')
+    print(test.energieRatio)
+    print('Energie moyenne')
+    print(test.meanEnergy())
+    print("Paramètre d'ordre moyen")
+    print(test.meanOrderParameter())
+    test.displayEnergies()
+    test.displayOrderParameter()
+    print("Ratio d'acceptance")
+    print(sum(test.accepted)/(test.sample*test.size**3))

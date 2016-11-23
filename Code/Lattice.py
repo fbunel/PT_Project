@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
 
-class continuousLattice3D:
+class Lattice:
 
     def __init__(self, size):
         """Constructeur de la classe qui nécessite :
@@ -17,13 +17,17 @@ class continuousLattice3D:
         #Liste ordonné de manière random des sites de la lattice
         self.randomOrderSite = np.arange(size**3)
 
+        ##Paramètre pour le paramètre d'ordre##
+        self.orderMatrix = np.zeros((3,3))
+
+        
     def randomOrientation(self):
         """Fonction qui renvoie une orientation aléatoire de la sphère unité
         Les orientations tirées au hasard sont uniformément répartis sur la demi-sphère
         unité supérieure
         http://mathworld.wolfram.com/SpherePointPicking.html
         """
-        return np.array([2*np.random.rand(1)-1,2*np.pi*np.random.rand(1)]).reshape(2)
+        return np.array([2*np.random.rand(1)-1, 2*np.pi*np.random.rand(1)]).reshape(2)
 
     def groundstateConfiguration(self):
         """Function qui initialise/reset la lattice dans l'état fondamental"""
@@ -99,6 +103,49 @@ class continuousLattice3D:
         loc[2]= (site - self.size*loc[1]- loc[0])/self.size**2 %self.size
         return(loc.astype(int))
 
+    def fillOrderMatrix(self):
+        """Fonction qui calcule la matrice du paramètre d'ordre"""
+
+        latticeArrayXYZ = self.sphericalToCartesian(self.latticeArray.T).T
+
+        for i in np.arange(3):
+            for j in np.arange(3): 
+                self.orderMatrix[i,j] = np.mean(
+                    latticeArrayXYZ[:,:,:,i]*latticeArrayXYZ[:,:,:,j])
+
+        self.orderMatrix = self.orderMatrix - np.eye(3)/3
+   
+    def updateOrderMatrix(self, oldAngle, newAngle):
+        """Fonction qui update la matrice du paramètre d'ordre"""
+
+        oldXYZ = self.sphericalToCartesian(oldAngle)
+        newXYZ = self.sphericalToCartesian(newAngle)
+
+        for i in np.arange(3):
+            for j in np.arange(3): 
+                self.orderMatrix[i,j] += (
+                    newXYZ[i]*newXYZ[j]-oldXYZ[i]*oldXYZ[j])/self.size**3
+
+    def orderParameter(self):
+        """Fonction qui diagonalise la matrice d'ordre et renvoie le paramètre d'ordre
+        """
+
+        eigenValues = np.linalg.eig(self.orderMatrix)[0]
+        orderParameter = np.max(eigenValues)*3/2
+        
+        return(orderParameter)
+
+    def sphericalToCartesian(self, angle):
+        """Fonction qui transforme les coordonnées sphériques en cartesiennes"""
+
+        theta = np.arccos(angle[0])
+
+        return(np.array([
+            np.sin(theta)*np.cos(angle[1]),
+            np.sin(theta)*np.sin(angle[1]),
+            angle[0]
+            ]))
+
     def display(self):
         """Fonction qui permet d'afficher une image de la lattice"""
 
@@ -124,7 +171,7 @@ class continuousLattice3D:
 if __name__ == '__main__':
 
     print('test display 3D')
-    test3D = continuousLattice3D(size=30)
+    test3D = Lattice(size=30)
     test3D.randomOrder()
     for i in range(1,27000):
         print(i)
