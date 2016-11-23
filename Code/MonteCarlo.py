@@ -1,6 +1,6 @@
 from Lattice import Lattice
-import numpy as np
 
+import numpy as np
 import matplotlib.pyplot as plt
 
 class MonteCarlo:
@@ -54,7 +54,7 @@ class MonteCarlo:
         for cycle in np.arange(self.sample) :
 
             self.lattice.randomOrder()
-            print(cycle)
+            print ("Cycle {}/{}".format(cycle, self.sample), end="\r")
 
             for s in np.arange(self.size**3) :
                 
@@ -123,14 +123,19 @@ class MonteCarlo:
     def updateOrderParameter(self, accepted, oldAngle, newAngle, i):
         """Fonction qui update les valeurs du paramètre d'ordre"""
 
-        #On update la  matrice d'ordre
         if i==0 :
             self.lattice.fillOrderMatrix()
-        else :
-            self.lattice.updateOrderMatrix(oldAngle, newAngle)
+            self.orderParameters[i] = self.lattice.orderParameter()
 
-        #Et on récupère le paramètre d'ordre
-        self.orderParameters[i] = self.lattice.orderParameter()
+        else :
+            if accepted==1:
+                #On update la  matrice d'ordre
+                self.lattice.updateOrderMatrix(oldAngle, newAngle)
+                #Et on récupère le paramètre d'ordre
+                self.orderParameters[i] = self.lattice.orderParameter()
+        
+            else :
+                self.orderParameters[i] = self.orderParameters[i-1]
 
     def energie(self):
         """Fonction qui renvoie l'énergie de la configuration actuelle"""
@@ -195,8 +200,8 @@ class MonteCarlo:
 
 if __name__ == '__main__':
 
-    print('Test 3D')
-    test = MonteCarlo(30,60,10,0.01,'groundstate')
+    print('Test')
+    test = MonteCarlo(30,100,10,1,'groundstate')
     test.runMC()
     print('Temperature')
     print(test.energieRatio)
