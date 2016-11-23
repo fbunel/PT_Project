@@ -107,11 +107,10 @@ class Lattice:
         """Fonction qui calcule la matrice du paramètre d'ordre"""
 
         latticeArrayXYZ = self.sphericalToCartesian(self.latticeArray.T).T
-
-        for i in np.arange(3):
-            for j in np.arange(3): 
-                self.orderMatrix[i,j] = np.mean(
-                    latticeArrayXYZ[:,:,:,i]*latticeArrayXYZ[:,:,:,j])
+        
+        self.orderMatrix[:,:] = np.mean(latticeArrayXYZ[:,:,:,:,None]
+                *latticeArrayXYZ[:,:,:,None,:],
+                axis=(0,1,2))
 
         self.orderMatrix = self.orderMatrix - np.eye(3)/3
    
@@ -120,11 +119,8 @@ class Lattice:
 
         oldXYZ = self.sphericalToCartesian(oldAngle)
         newXYZ = self.sphericalToCartesian(newAngle)
-
-        for i in np.arange(3):
-            for j in np.arange(3): 
-                self.orderMatrix[i,j] += (
-                    newXYZ[i]*newXYZ[j]-oldXYZ[i]*oldXYZ[j])/self.size**3
+        self.orderMatrix[:,:] += (newXYZ[:,None]*newXYZ[None,:] 
+                - oldXYZ[:,None]*oldXYZ[None,:])/self.size**3
 
     def orderParameter(self):
         """Fonction qui diagonalise la matrice d'ordre et renvoie le paramètre d'ordre
