@@ -75,6 +75,21 @@ class MonteCarlo:
                 self.updateOrderParameter(
                     accepted, oldAngle, self.lattice.latticeArray[tuple(loc)], i)
 
+    def equilibrate(self, equilibrateSample):
+        """Fonction qui lance une simulation Monte-Carlo"""
+
+        for cycle in np.arange(equilibrateSample) :
+
+            self.lattice.randomOrder()
+            print ("Cycle {}/{}".format(cycle, self.sample), end="\r")
+
+            for s in np.arange(self.size**3) :
+                
+                #On prend le site aléatoire
+                loc = self.lattice.randomLocOrdered(s)
+                #On réalise le move
+                energieVariation, accepted = self.moveMC(loc)
+
     def moveMC(self, loc):
         """Fonction qui tente un move du site numéro s de MonteCarlo"""
 
@@ -178,11 +193,19 @@ class MonteCarlo:
 
     def meanEnergy(self):
         """Fonction qui renvoie l'énergie moyenne sur les meanSample derniers sample"""
-        return((np.mean(self.energies[-self.meanSample*self.size**3:])-self.minEnergy)/self.size**3)
+
+
+        return(np.array([
+            np.mean(
+                (self.energies[-self.meanSample*self.size**3:]-self.minEnergy)/self.minEnergy),
+            np.std(
+                (self.energies[-self.meanSample*self.size**3:]-self.minEnergy)/self.minEnergy)]))
 
     def meanOrderParameter(self):
         """Fonction qui renvoie l'énergie moyenne sur les meanSample derniers sample"""
-        return(np.mean(self.orderParameters[-self.meanSample*self.size**3:]))
+        return(np.array([
+            np.mean(self.orderParameters[-self.meanSample*self.size**3:]),
+            np.std(self.orderParameters[-self.meanSample*self.size**3:])]))
 
     def displayEnergies(self):
         """Fonction qui affiche l'évolution de l'énergie"""
@@ -201,10 +224,9 @@ class MonteCarlo:
 if __name__ == '__main__':
 
     print('Test')
-    test = MonteCarlo(30,100,10,1,'groundstate')
+    test = MonteCarlo(30,600,10,1.1,'groundstate')
+    print('Temperature : {}'.format(test.energieRatio))
     test.runMC()
-    print('Temperature')
-    print(test.energieRatio)
     print('Energie moyenne')
     print(test.meanEnergy())
     print("Paramètre d'ordre moyen")
