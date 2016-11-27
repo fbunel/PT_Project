@@ -95,7 +95,7 @@ class MonteCarlo:
 
         #On choisit un nouvel angle presque au hasard
         newAngle = self.lattice.nearRandomOrientation(
-            self.lattice.latticeArray[tuple(loc)], self.dmax)
+            self.lattice.latticeArray[loc], self.dmax)
 
         #On calcule la variation d'énergie
         energieVariation = self.energieVariation(newAngle, loc)
@@ -105,7 +105,7 @@ class MonteCarlo:
 
         #On teste cette proba
         if np.random.rand(1)<acceptanceProbability :
-            self.lattice.latticeArray[tuple(loc)] = newAngle
+            self.lattice.latticeArray[loc] = newAngle
             return(energieVariation,1)
         else :
             return(0,0)
@@ -177,7 +177,7 @@ class MonteCarlo:
         nNA=self.lattice.nearestNeighboorAngle(loc)
 
         oldEnergy = (
-            1-3*(self.lattice.cosAngle(nNA.T,self.lattice.latticeArray[tuple(loc)])**2).sum()
+            1-3*(self.lattice.cosAngle(nNA.T,self.lattice.latticeArray[loc])**2).sum()
             )/2
 
         newEnergy = (
