@@ -52,8 +52,8 @@ class Lattice:
         
         #On tire au hasard un deltaPhi et un deltacosTheta qui implique chacun au 
         #maximum une distance dmax de l'ancien angle
-        deltaPhi = (2*np.random.random()-1)*np.pi*dmax
-        deltaCosTheta = (2*np.random.random()-1)*dmax
+        deltaPhi = (2*random.random()-1)*np.pi*dmax
+        deltaCosTheta = (2*random.random()-1)*dmax
             
             
         #on economise le temps de creation de l'array
