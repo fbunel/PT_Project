@@ -63,7 +63,7 @@ class MonteCarlo:
                 loc = self.lattice.randomLocOrdered(s)
 
                 #On sauvegarde l'ancien angle
-                oldAngle = np.copy(self.lattice.latticeArray[tuple(loc)])
+                oldAngle = np.copy(self.lattice.latticeArray[loc])
                 #On réalise le move
                 energieVariation, accepted = self.moveMC(loc)
 
@@ -73,7 +73,7 @@ class MonteCarlo:
                 self.updateDmax(accepted, i)
                 #On update la matrice du paramètre d'ordre
                 self.updateOrderParameter(
-                    accepted, oldAngle, self.lattice.latticeArray[tuple(loc)], i)
+                    accepted, oldAngle, self.lattice.latticeArray[loc], i)
 
     def equilibrate(self, equilibrateSample):
         """Fonction qui lance une simulation Monte-Carlo"""
@@ -177,12 +177,12 @@ class MonteCarlo:
         nNA=self.lattice.nearestNeighboorAngle(loc)
 
         oldEnergy = (
-            1-3*self.lattice.cosAngle(nNA.T,self.lattice.latticeArray[tuple(loc)])**2
-            ).sum()/2
+            1-3*(self.lattice.cosAngle(nNA.T,self.lattice.latticeArray[tuple(loc)])**2).sum()
+            )/2
 
         newEnergy = (
-            1-3*self.lattice.cosAngle(nNA.T,newAngle)**2
-            ).sum()/2
+            1-3*(self.lattice.cosAngle(nNA.T,newAngle)**2
+            ).sum())/2
 
         return(newEnergy-oldEnergy)
 
@@ -224,14 +224,15 @@ class MonteCarlo:
 if __name__ == '__main__':
 
     print('Test')
-    test = MonteCarlo(30,600,10,1.1,'groundstate')
+    #test = MonteCarlo(30,600,10,1.1,'groundstate')
+    test = MonteCarlo(30,3,10,1.1,'groundstate')
     print('Temperature : {}'.format(test.energieRatio))
     test.runMC()
     print('Energie moyenne')
     print(test.meanEnergy())
     print("Paramètre d'ordre moyen")
     print(test.meanOrderParameter())
-    test.displayEnergies()
-    test.displayOrderParameter()
+    #test.displayEnergies()
+    #test.displayOrderParameter()
     print("Ratio d'acceptance")
     print(sum(test.accepted)/(test.sample*test.size**3))

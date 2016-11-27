@@ -1,4 +1,5 @@
 import numpy as np
+import random
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
 
@@ -51,22 +52,37 @@ class Lattice:
         
         #On tire au hasard un deltaPhi et un deltacosTheta qui implique chacun au 
         #maximum une distance dmax de l'ancien angle
-        deltaPhi = (2*np.random.rand(1)-1)*np.pi*dmax
-        deltaCosTheta = (2*np.random.rand(1)-1)*dmax
+        deltaPhi = (2*np.random.random()-1)*np.pi*dmax
+        deltaCosTheta = (2*np.random.random()-1)*dmax
             
+            
+        #on economise le temps de creation de l'array
+        try:
+            self.newAngle
+        except AttributeError:
+            self.newAngle = np.empty(2)
+
+        self.newAngle[0] = (oldAngle[0] + deltaCosTheta-1)%2-1
+        self.newAngle[1] = (oldAngle[1] + deltaPhi)%(2*np.pi)
+        return self.newAngle
+
         newAngle = np.array([
             (oldAngle[0] + deltaCosTheta-1)%2-1,
             (oldAngle[1] + deltaPhi)%(2*np.pi)])
-            
         return newAngle.reshape(2)
 
     def cosAngle(self, oldAngle, newAngle):
         """Fonction qui retourne le cosinus de la différence de 2 directions"""
 
+        """
+        #plus lent
+        return np.abs(
+            np.sqrt((1-oldAngle[0]**2)*(1-newAngle[0]**2))*np.cos(newAngle[1]-oldAngle[1])
+            + oldAngle[0]*newAngle[0])
+        """
         oldTheta = np.arccos(oldAngle[0])
         newTheta = np.arccos(newAngle[0])
-
-        return abs(
+        return np.abs(
             np.sin(oldTheta)*np.sin(newTheta)*np.cos(newAngle[1]-oldAngle[1])
             + oldAngle[0]*newAngle[0])
 
@@ -97,11 +113,11 @@ class Lattice:
     def randomLocOrdered(self, i):
         """Fonction qui renvoie le site correspondant au numéro donné"""
         site = self.randomOrderSite[i]
-        loc = np.zeros(3)
-        loc[0] = site%self.size
-        loc[1]= (site - loc[0])/self.size %self.size
-        loc[2]= (site - self.size*loc[1]- loc[0])/self.size**2 %self.size
-        return(loc.astype(int))
+
+        #on créé directement un tuple
+        l2, r = divmod(site,self.size**2)
+        l1, l0 = divmod(r,self.size)
+        return (l0,l1,l2)
 
     def fillOrderMatrix(self):
         """Fonction qui calcule la matrice du paramètre d'ordre"""
@@ -117,10 +133,10 @@ class Lattice:
     def updateOrderMatrix(self, oldAngle, newAngle):
         """Fonction qui update la matrice du paramètre d'ordre"""
 
-        oldXYZ = self.sphericalToCartesian(oldAngle)
+        oldXYZ = self.sphericalToCartesian(oldAngle)/self.size**3
         newXYZ = self.sphericalToCartesian(newAngle)
         self.orderMatrix[:,:] += (newXYZ[:,None]*newXYZ[None,:] 
-                - oldXYZ[:,None]*oldXYZ[None,:])/self.size**3
+                - oldXYZ[:,None]*oldXYZ[None,:])
 
     def orderParameter(self):
         """Fonction qui diagonalise la matrice d'ordre et renvoie le paramètre d'ordre
@@ -133,14 +149,27 @@ class Lattice:
 
     def sphericalToCartesian(self, angle):
         """Fonction qui transforme les coordonnées sphériques en cartesiennes"""
+        #La pluspart du temps on traite un angle unique 
+        #dans ce cas on économise la creation d'un array
+        try:
+            try:
+                self.XYZ
+            except AttributeError:
+                self.XYZ = np.empty(3)
+            sin_theta = np.sin(np.arccos(angle[0]))
+            self.XYZ[0] = sin_theta*np.cos(angle[1])
+            self.XYZ[1] = sin_theta*np.sin(angle[1])
+            self.XYZ[2] = angle[0]
+            
+            return self.XYZ
 
-        theta = np.arccos(angle[0])
-
-        return(np.array([
-            np.sin(theta)*np.cos(angle[1]),
-            np.sin(theta)*np.sin(angle[1]),
-            angle[0]
-            ]))
+        except ValueError:
+            theta = np.arccos(angle[0])
+            return(np.array([
+                np.sin(theta)*np.cos(angle[1]),
+                np.sin(theta)*np.sin(angle[1]),
+                angle[0]
+                ]))
 
     def display(self):
         """Fonction qui permet d'afficher une image de la lattice"""
