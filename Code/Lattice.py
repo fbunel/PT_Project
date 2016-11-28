@@ -121,11 +121,18 @@ class Lattice:
    
     def updateOrderMatrix(self, oldAngle, newAngle):
         """Fonction qui update la matrice du paramètre d'ordre"""
+        try:
+            self.oldXYZ
+            self.newXYZ
+        except AttributeError:
+            self.oldXYZ = np.empty(3)
+            self.newXYZ = np.empty(3)
 
-        oldXYZ = self.sphericalToCartesian(oldAngle)
-        newXYZ = self.sphericalToCartesian(newAngle)
-        self.orderMatrix[:,:] += (newXYZ[:,None]*newXYZ[None,:] 
-                - oldXYZ[:,None]*oldXYZ[None,:])
+        self.oldXYZ[:] = self.sphericalToCartesian(oldAngle)
+        self.newXYZ[:] = self.sphericalToCartesian(newAngle)
+        #print(self.oldXYZ,self.newXYZ)
+        self.orderMatrix[:,:] += (self.newXYZ[:,None]*self.newXYZ[None,:] 
+                - self.oldXYZ[:,None]*self.oldXYZ[None,:])
 
     def orderParameter(self):
         """Fonction qui diagonalise la matrice d'ordre et renvoie le paramètre d'ordre
@@ -140,7 +147,7 @@ class Lattice:
         """Fonction qui transforme les coordonnées sphériques en cartesiennes"""
         #La pluspart du temps on traite un angle unique 
         #dans ce cas on économise la creation d'un array
-        try:
+        if angle.shape == (2,):
             try:
                 self.XYZ
             except AttributeError:
@@ -152,7 +159,7 @@ class Lattice:
             
             return self.XYZ
 
-        except ValueError:
+        else:
             theta = np.arccos(angle[0])
             return(np.array([
                 np.sin(theta)*np.cos(angle[1]),
