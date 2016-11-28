@@ -8,7 +8,7 @@ import pickle
 
 class Study:
 
-    def __init__(self, size, sample, meanSample, eRstart, eRend, eRsample, start, reLoad = False, filename='studySave'):
+    def __init__(self, size, sample, meanSample, eRstart, eRend, eRsample, start, reLoad = False, filename='studySave.save'):
         """Constructeur de la classe qui nécessite :
         - la taille de la lattice
         - le nombre de cycle réalisé pour équilibrer le système à chaque température
@@ -90,5 +90,5 @@ if __name__ == '__main__':
 
     print('Test 3D')
 
-    test = Study(30,600,300,0.8,1.6,40,'groundstate', False, '08-16')
+    test = Study(30,600,300,0.5,1,40,'groundstate',True,'08-16.save')
     test.run()

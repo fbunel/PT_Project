@@ -20,7 +20,6 @@ class Lattice:
 
         ##Paramètre pour le paramètre d'ordre##
         self.orderMatrix = np.zeros((3,3))
-
         
     def randomOrientation(self):
         """Fonction qui renvoie une orientation aléatoire de la sphère unité
@@ -64,22 +63,12 @@ class Lattice:
 
         self.newAngle[0] = (oldAngle[0] + deltaCosTheta-1)%2-1
         self.newAngle[1] = (oldAngle[1] + deltaPhi)%(2*np.pi)
-        return self.newAngle
 
-        newAngle = np.array([
-            (oldAngle[0] + deltaCosTheta-1)%2-1,
-            (oldAngle[1] + deltaPhi)%(2*np.pi)])
-        return newAngle.reshape(2)
+        return self.newAngle
 
     def cosAngle(self, oldAngle, newAngle):
         """Fonction qui retourne le cosinus de la différence de 2 directions"""
 
-        """
-        #plus lent
-        return np.abs(
-            np.sqrt((1-oldAngle[0]**2)*(1-newAngle[0]**2))*np.cos(newAngle[1]-oldAngle[1])
-            + oldAngle[0]*newAngle[0])
-        """
         oldTheta = np.arccos(oldAngle[0])
         newTheta = np.arccos(newAngle[0])
         return np.abs(
@@ -124,16 +113,16 @@ class Lattice:
 
         latticeArrayXYZ = self.sphericalToCartesian(self.latticeArray.T).T
         
-        self.orderMatrix[:,:] = np.mean(latticeArrayXYZ[:,:,:,:,None]
+        self.orderMatrix[:,:] = np.sum(latticeArrayXYZ[:,:,:,:,None]
                 *latticeArrayXYZ[:,:,:,None,:],
                 axis=(0,1,2))
 
-        self.orderMatrix = self.orderMatrix - np.eye(3)/3
+        self.orderMatrix = self.orderMatrix - np.eye(3)*self.size**3/3
    
     def updateOrderMatrix(self, oldAngle, newAngle):
         """Fonction qui update la matrice du paramètre d'ordre"""
 
-        oldXYZ = self.sphericalToCartesian(oldAngle)/self.size**3
+        oldXYZ = self.sphericalToCartesian(oldAngle)
         newXYZ = self.sphericalToCartesian(newAngle)
         self.orderMatrix[:,:] += (newXYZ[:,None]*newXYZ[None,:] 
                 - oldXYZ[:,None]*oldXYZ[None,:])
@@ -142,8 +131,8 @@ class Lattice:
         """Fonction qui diagonalise la matrice d'ordre et renvoie le paramètre d'ordre
         """
 
-        eigenValues = np.linalg.eig(self.orderMatrix)[0]
-        orderParameter = np.max(eigenValues)*3/2
+        eigenValues = np.linalg.eigvalsh(self.orderMatrix)
+        orderParameter = np.max(eigenValues)*3/2/self.size**3
         
         return(orderParameter)
 

@@ -196,10 +196,11 @@ class MonteCarlo:
 
 
         return(np.array([
-            np.mean(
-                (self.energies[-self.meanSample*self.size**3:]-self.minEnergy)/self.minEnergy),
+            np.mean(self.energies[-self.meanSample*self.size**3:]-self.minEnergy)
+                /self.size**3,
             np.std(
-                (self.energies[-self.meanSample*self.size**3:]-self.minEnergy)/self.minEnergy)]))
+                self.energies[-self.meanSample*self.size**3:]-self.minEnergy)
+                /self.size**3]))
 
     def meanOrderParameter(self):
         """Fonction qui renvoie l'énergie moyenne sur les meanSample derniers sample"""
@@ -224,8 +225,7 @@ class MonteCarlo:
 if __name__ == '__main__':
 
     print('Test')
-    #test = MonteCarlo(30,600,10,1.1,'groundstate')
-    test = MonteCarlo(30,3,10,1.1,'groundstate')
+    test = MonteCarlo(30,100,10,0.01,'groundstate')
     print('Temperature : {}'.format(test.energieRatio))
     test.runMC()
     print('Energie moyenne')
