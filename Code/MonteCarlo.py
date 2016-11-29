@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 class MonteCarlo:
 
-    def __init__(self, size, sample, meanSample, energieRatio, start):
+    def __init__(self, size, equiSample, meanSample, energieRatio, start):
         """Constructeur de la classe qui nécessite :
         - la taille de la lattice
         - le nombre de cycle réalisé
@@ -17,28 +17,29 @@ class MonteCarlo:
 
         ##Paramètre de l'étude##
         self.size = size                    
-        self.sample = sample
+        self.equiSample = equiSample
         self.meanSample = meanSample
         self.energieRatio = energieRatio
         self.lattice = Lattice(self.size)
 
         ##Paramètre d'énergie et de plots##
         #Energies au step i
-        self.energies = np.zeros(sample*self.size**3)
+        self.energies = np.zeros(meanSample*self.size**3)
         #Energie de l'état fondamentale utilisé pour plot les énergies toujours 
         #par rapport à la même référence
         self.minEnergy = -3*size**3
         #Absicess en termes de nombre de cycle pour les graphes
-        self.cycles = np.arange(sample*self.size**3)/self.size**3
+        self.cycles = np.arange(meanSample*self.size**3)/self.size**3
+
 
         ##Paramètres pour gérer le ratio acceptance##
-        #1 si le step i accepté, 0 sinon
-        self.accepted = np.zeros(sample*self.size**3)
-        self.acceptedSample = 10    #Variables pour des test sur les variations imposées à l'angle
-        self.dmaxArray = np.zeros(sample*self.size**3)
+        self.accepted = 0
+        self.counter = 0
+        self.statSample = 10
+        self.stat = np.zeros(self.statSample)    
 
         ##Paramètre pour le paramètre d'ordre##
-        self.orderParameters = np.zeros(sample*self.size**3)
+        self.orderParameters = np.zeros(meanSample*self.size**3)
 
         #Initialise une configuration aléatoire pour la lattice et pour dmin/dmax
         if start == 'random' :
@@ -48,13 +49,14 @@ class MonteCarlo:
             self.lattice.groundstateConfiguration()
             self.dmax = 0.01
 
-    def runMC(self):
+    def calculate(self):
         """Fonction qui lance une simulation Monte-Carlo"""
 
-        for cycle in np.arange(self.sample) :
+        for cycle in np.arange(self.meanSample) :
 
             self.lattice.randomOrder()
-            print ("Cycle {}/{}".format(cycle, self.sample), end="\r")
+            print ("Cycle de calcul {}/{}".format(
+                cycle+1, self.meanSample), end="\r")
 
             for s in np.arange(self.size**3) :
                 
@@ -69,26 +71,31 @@ class MonteCarlo:
 
                 #On update la valeur d'energie
                 self.updateEnergie(energieVariation, i)
-                #On update la valeur de distance à l'angle précédent
-                self.updateDmax(accepted, i)
                 #On update la matrice du paramètre d'ordre
                 self.updateOrderParameter(
                     accepted, oldAngle, self.lattice.latticeArray[loc], i)
+                #On update la valeur de distance à l'angle précédent
+                self.updateDmax(accepted)
 
-    def equilibrate(self, equilibrateSample):
+        print("")
+
+    def equilibrate(self):
         """Fonction qui lance une simulation Monte-Carlo"""
 
-        for cycle in np.arange(equilibrateSample) :
+        for cycle in np.arange(self.equiSample) :
 
             self.lattice.randomOrder()
-            print ("Cycle {}/{}".format(cycle, self.sample), end="\r")
+            print ("Cycle d'équilibrage {}/{}".format(
+                cycle+1, self.equiSample), end="\r")
 
             for s in np.arange(self.size**3) :
-                
                 #On prend le site aléatoire
                 loc = self.lattice.randomLocOrdered(s)
                 #On réalise le move
-                energieVariation, accepted = self.moveMC(loc)
+                accepted = self.moveMC(loc)[1]
+                #On update la valeur de distance à l'angle précédent
+                self.updateDmax(accepted)
+        print("")
 
     def moveMC(self, loc):
         """Fonction qui tente un move du site numéro s de MonteCarlo"""
@@ -119,21 +126,18 @@ class MonteCarlo:
         else :
             self.energies[i] = self.energies[i-1] + energieVariation
 
-    def updateDmax(self, accepted, i):
+    def updateDmax(self, accepted):
         """Fonction qui update les valeurs de dmax"""
 
-        self.accepted[i] = accepted
-
-        #On adapte l'amplitude de variation des angles 
-        if(i>=self.acceptedSample) :
-            stat = sum(
-                self.accepted[i-self.acceptedSample:i])/self.acceptedSample
-        else :  
-            stat = sum(self.accepted[0:i])/(i+1)
+        self.accepted += accepted
+        #self.stat[self.counter%self.statSample] = accepted
 
         self.dmax = max(
-            0.005, min(1, self.dmax + (stat - 1/2)/10000))
-        self.dmaxArray[i] = self.dmax
+            0.01, min(1, self.dmax + (accepted - 1/2)/100000))
+
+        self.counter += 1
+
+
 
     def updateOrderParameter(self, accepted, oldAngle, newAngle, i):
         """Fonction qui update les valeurs du paramètre d'ordre"""
@@ -196,17 +200,14 @@ class MonteCarlo:
 
 
         return(np.array([
-            np.mean(self.energies[-self.meanSample*self.size**3:]-self.minEnergy)
-                /self.size**3,
-            np.std(
-                self.energies[-self.meanSample*self.size**3:]-self.minEnergy)
-                /self.size**3]))
+            np.mean(self.energies-self.minEnergy)/self.size**3,
+            np.std(self.energies-self.minEnergy)/self.size**3]))
 
     def meanOrderParameter(self):
         """Fonction qui renvoie l'énergie moyenne sur les meanSample derniers sample"""
         return(np.array([
-            np.mean(self.orderParameters[-self.meanSample*self.size**3:]),
-            np.std(self.orderParameters[-self.meanSample*self.size**3:])]))
+            np.mean(self.orderParameters),
+            np.std(self.orderParameters)]))
 
     def displayEnergies(self):
         """Fonction qui affiche l'évolution de l'énergie"""
@@ -225,14 +226,20 @@ class MonteCarlo:
 if __name__ == '__main__':
 
     print('Test')
-    test = MonteCarlo(30,100,10,0.01,'groundstate')
-    print('Temperature : {}'.format(test.energieRatio))
-    test.runMC()
+    test = MonteCarlo(30,10,10,0.01,'groundstate')
+    print('Temperature : {} \n'.format(test.energieRatio))
+
+    test.equilibrate()
+    test.calculate()
+
     print('Energie moyenne')
     print(test.meanEnergy())
+
     print("Paramètre d'ordre moyen")
     print(test.meanOrderParameter())
+
+    print("Ratio d'acceptance")
+    print(test.accepted/test.counter)
+
     #test.displayEnergies()
     #test.displayOrderParameter()
-    print("Ratio d'acceptance")
-    print(sum(test.accepted)/(test.sample*test.size**3))

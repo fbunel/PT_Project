@@ -8,7 +8,7 @@ import pickle
 
 class Study:
 
-    def __init__(self, size, sample, meanSample, eRstart, eRend, eRsample, start, reLoad = False, filename='studySave.save'):
+    def __init__(self, size, equiSample, meanSample, eRstart, eRend, eRsample, start, reLoad = False, filename='studySave.save'):
         """Constructeur de la classe qui nécessite :
         - la taille de la lattice
         - le nombre de cycle réalisé pour équilibrer le système à chaque température
@@ -26,8 +26,8 @@ class Study:
         self.eRsample = eRsample
         self.energieRatios = np.linspace(eRstart, eRend, num=eRsample)
         self.monteCarlo = MonteCarlo(
-            size, sample, meanSample, self.energieRatios[0], start)
-        self.sample = sample
+            size, equiSample, meanSample, self.energieRatios[0], start)
+        self.equiSample = equiSample
 
         #Paramètre de résultats
         self.orderParameter = np.zeros((eRsample, 2))
@@ -46,18 +46,25 @@ class Study:
 
         if self.i==0 :
             print(
-                "Equilibrage inital à la température : {}".format(self.energieRatios[0]))
-            self.monteCarlo.equilibrate(self.sample)        
+                "Equilibrage inital à la température : {}".format(
+                    self.energieRatios[0]))
+            
+            self.monteCarlo.equilibrate()       
 
         while self.i < self.eRsample :
             energieRatio = self.energieRatios[self.i]
-            print("Température {}/{} : {}".format(self.i+1, self.eRsample, energieRatio))
+            print("Température {}/{} : {}".format(
+                self.i+1, self.eRsample, energieRatio))
             self.monteCarlo.energieRatio = energieRatio
-            self.monteCarlo.runMC()
+
+            self.monteCarlo.equilibrate()
+            self.monteCarlo.calculate()
+
             self.orderParameter[self.i, :] = self.monteCarlo.meanOrderParameter()
             self.energy[self.i, :] = self.monteCarlo.meanEnergy()
             self.i+=1
             self.saveClass()
+            print("\n")
 
     def display(self):
         """Fonction qui affiche l'évolution de l'énergie"""
@@ -88,7 +95,7 @@ class Study:
 
 if __name__ == '__main__':
 
-    print('Test 3D')
+    print('Test 3D \n')
 
-    test = Study(30,600,300,0.5,1,40,'groundstate',True,'08-16.save')
+    test = Study(30,10,10,0.9,1.3,3,'groundstate',False,'study.save')
     test.run()

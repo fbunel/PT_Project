@@ -130,7 +130,6 @@ class Lattice:
 
         self.oldXYZ[:] = self.sphericalToCartesian(oldAngle)
         self.newXYZ[:] = self.sphericalToCartesian(newAngle)
-        #print(self.oldXYZ,self.newXYZ)
         self.orderMatrix[:,:] += (self.newXYZ[:,None]*self.newXYZ[None,:] 
                 - self.oldXYZ[:,None]*self.oldXYZ[None,:])
 
