@@ -69,11 +69,11 @@ class Study:
     def display(self):
         """Fonction qui affiche l'évolution de l'énergie"""
 
-        plt.plot(self.energieRatios, self.orderParameter[:,0])
+        plt.plot(self.energieRatios, self.orderParameter[:,1])
         plt.title("Paramètre d'ordre")
         plt.show()
 
-        plt.plot(self.energieRatios, self.energy[:,0])
+        plt.plot(self.energieRatios, self.energy[:,1])
         plt.title("Energie")
         plt.show()
 
@@ -91,11 +91,11 @@ class Study:
             tmp_dict = pickle.load(f)
 
         self.__dict__.update(tmp_dict) 
-     
+        self.i+=10
 
 if __name__ == '__main__':
 
     print('Test 3D \n')
 
-    test = Study(30,10,10,0.9,1.3,3,'groundstate',False,'study.save')
+    test = Study(30,1000,300,1,1.3,60,'groundstate',True,'10-13.save')
     test.run()

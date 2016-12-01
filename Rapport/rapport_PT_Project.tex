@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 
 % Marges du document %
 \setlength{\topmargin}{0cm}
@@ -88,15 +88,15 @@ M2 Physique 2015-2016
 \vspace{-0.6cm}
 
 \hrulefill
-\begin{center}\bfseries
-\begin{huge}
-    Titre
-\end{huge}
-\Large
-\vspace{0.4cm}
 
-Sous-titre
+
+\begin{center}\bfseries
+\vspace{0.3cm}
+\begin{huge}
+    Exploration numérique de la transition isotrope-nématique
+\end{huge}
 \end{center}
+
 \hrulefill
 \vspace{-0.6cm}
 
@@ -111,7 +111,7 @@ Sous-titre
 \textbf{Résumé :} 
 \vspace{0.3cm}
 
-\textbf{Mots clefs :} cristaux liquides, transition de phase, Monte-Carlo .
+\textbf{Mots clefs :} cristaux liquides, nématique, Monte-Carlo.
 \vspace{0.3cm}
 
 
@@ -142,16 +142,85 @@ Sous-titre
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addcontentsline{toc}{section}{Introduction}
+Le domaine des cristaux liquides a subi une importante expansion durant tout le 20\up{ème} siècle et est encore aujourd'hui un domaine actif de la recherche en physique. 
+L'intérêt pour ces milieux intermédiaires entre cristaux et liquides provient entre autres de leurs applications industrielles en matière d'afficheurs (Figure \ref{lcd}).
+
+\begin{figure}[h]
+    \centering	    
+	\includegraphics[height=3cm]{figures/lcd.jpg}
+    \caption{Un écran à cristaux liquides}
+    	\label{lcd} 
+\end{figure}
+
+Le nom cristal liquide regroupe les molécules ou mélange de molécules possédant une mésophase, à savoir une phase partiellement structurée, intermédiaire entre les phases liquide et cristalline.
+Dans ce rapport, on s'intéressera au cas particulier de la phase nématique qui emprunte aux liquides l'invariance par translation, mais brise partiellement la symétrie par rotation.
+Dans cette phase, les molécules s'organisent en effet pour avoir une orientation identique en moyenne (Figure \ref{nematic_phase}).
+
+\begin{figure}[h]
+    \center
+    \input{figures/iso_vs_nematic.tikz}
+    \caption{Les cristaux liquides peuvent être représentées par un ensemble d'ellipsoïdes allongés dans une direction.
+    Malgré les positions aléatoires des molécules, il existe un comportement collectif orientationnel : les molécules ont tendance à s'orienter dans la même direction en moyenne. }
+    \label{nematic_phase}
+\end{figure}
+
+L'objectif de ce projet a été d'étudier par des méthodes numériques la transition de phase nématique-isotrope.
+Ce rapport présente dans une première partie le modèle ainsi que les outils numériques utilisés. 
+Une deuxième partie présentera les résultats obtenus sur la transition observée.
+Enfin, une dernière partie étudiera l'influence d'un champ électrique sur cette transition.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Méthodes numériques}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Modèle de Lebwohl-Lasher}
+Le modèle de Lebwohl-Lasher \cite{model} est une version sur réseau du modèle de Maier-Saupe \cite{maier,maierbis}.
+Il s'agit en quelque sorte de l'analogue pour la transition nématique-isotrope du modèle d'Ising. 
+Comme le modèle d'Ising, il permet d'obtenir des résultats très satisfaisant malgré sa simplicité.
+\medskip
+
+Dans le modèle de Lebwohl-Lasher, les molécules de cristal liquides sont représentés par des vecteurs unitaires et occupent des positions fixes sur les sites d'un réseau cubique.
+Les différents sites du réseau interagissent uniquement entre plus proche voisins par l'intermédiaire d'un potentiel de la forme :
+\begin{equation}
+E_{i,j} = - \epsilon\ \frac{3\cos^2\theta_{i,j}-1}{2}
+\end{equation}
+où $\epsilon$ est une constante positive et $\theta_{i,j}$ est l'angle entre les deux molécules intéressantes. 
+Cette énergie est minimale lorsque les molécules sont parfaitement alignées : si $\theta_{i,j} = 0$ alors $E_{i,j} = - \epsilon$, et est maximale lorsque les molécules ont des directions orthogonales : si $\theta_{i,j} = \pi/2$ alors $E_{i,j} = \epsilon/2$.
+Elle a donc tendance à favoriser les configurations ou les molécules sont alignées.
+\medskip
+
+L'énergie totale du système qui découle de cette interaction s'écrit simplement :
+\begin{equation}
+E_{i,j} = - \epsilon\ \sum_{<i,j>} \frac{3\cos^2\theta_{i,j}-1}{2}
+\end{equation}
+où $<i,j>$ est une somme sur les paires de plus voisins du réseau.
+
+\subsection{Algorithme Monte-Carlo}
+
+
+\subsection{Ratio d'acceptation}
 
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Premiere partie}
+\section{Transition nématique-isotrope}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Première sous partie}
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Influence d'un champ électrique}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -173,7 +242,7 @@ Sous-titre
 
 \newpage
 \bibliographystyle{unsrt}
-\bibliography{rapport} 
+\bibliography{biblio} 
 \addcontentsline{toc}{section}{Références} 
 
 

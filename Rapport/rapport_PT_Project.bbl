@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{model}
+P.~A. Lebwohl and G.~Lasher.
+\newblock Nematic-liquid-crystal order\char22{}a monte carlo calculation.
+\newblock {\em Phys. Rev. A}, 6:426--429, Jul 1972.
+\newblock \url{http://link.aps.org/doi/10.1103/PhysRevA.6.426}.
+
+\bibitem{maier}
+W.~Maier and A.~Saupe.
+\newblock Eine einfache molekulare theorie des nematischen kristallinflussigen
+  zustandes.
+\newblock 1958.
+
+\bibitem{maierbis}
+GR~Luckhurst and C~Zannoni.
+\newblock Why is the maier--saupe theory of nematic liquid crystals so
+  successful?
+\newblock 1977.
+\newblock
+  \url{http://www.nature.com/nature/journal/v267/n5610/abs/267412b0.html}.
+
+\end{thebibliography}

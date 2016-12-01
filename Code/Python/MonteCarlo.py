@@ -34,9 +34,7 @@ class MonteCarlo:
 
         ##Paramètres pour gérer le ratio acceptance##
         self.accepted = 0
-        self.counter = 0
-        self.statSample = 10
-        self.stat = np.zeros(self.statSample)    
+        self.counter = 0  
 
         ##Paramètre pour le paramètre d'ordre##
         self.orderParameters = np.zeros(meanSample*self.size**3)
@@ -130,7 +128,6 @@ class MonteCarlo:
         """Fonction qui update les valeurs de dmax"""
 
         self.accepted += accepted
-        #self.stat[self.counter%self.statSample] = accepted
 
         self.dmax = max(
             0.01, min(1, self.dmax + (accepted - 1/2)/100000))
@@ -226,20 +223,7 @@ class MonteCarlo:
 if __name__ == '__main__':
 
     print('Test')
-    test = MonteCarlo(30,10,10,0.01,'groundstate')
+    test = MonteCarlo(30,600,600,0.1,'groundstate')
     print('Temperature : {} \n'.format(test.energieRatio))
 
-    test.equilibrate()
-    test.calculate()
-
-    print('Energie moyenne')
-    print(test.meanEnergy())
-
-    print("Paramètre d'ordre moyen")
-    print(test.meanOrderParameter())
-
-    print("Ratio d'acceptance")
-    print(test.accepted/test.counter)
-
-    #test.displayEnergies()
-    #test.displayOrderParameter()
+    print(test.energie());

@@ -29,6 +29,7 @@ class Lattice:
         """
         return np.array([2*np.random.rand(1)-1, 2*np.pi*np.random.rand(1)]).reshape(2)
 
+
     def groundstateConfiguration(self):
         """Function qui initialise/reset la lattice dans l'état fondamental"""
         
