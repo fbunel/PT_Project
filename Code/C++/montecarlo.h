@@ -19,22 +19,37 @@ class Montecarlo
     /*Constructeur de la classe*/
     Montecarlo(int size, int equiSample, int meanSample, double temperature, bool startRandom, std::string outputFile);
 
-    /*Calcule l'énergie de la lattice*/
-    double latticeEnergie() const;
+    /*Equilibre le système en réalisant des MCMove*/
+    void equilibrate();
 
-    /*Calcule la variation d'énergie introduit par le changement d'un site de la lattice*/ 
-    double localEnergie(const std::array<int, 3> &site) const;
+    /*Fais évoluer le système en réalisant des MCMove, remplie les résultats*/
+    void calculate();
+
+    /*Equilibre le système en réalisant des MCMove*/
+    double meanEnergie() const;
+
+
+    /*La lattice*/
+    Lattice lattice;
+
+    private:
+
+    /*Essaie un move de MonteCarlo sur un site de la lattice et renvoie l'energie*/
+    bool MCMove(const int site, double &energieVariation);
+
+    /*Mets à jour la valeur de dmax et les deux compteurs*/
+    void updateStep(const bool moveAccepted);
+
+    /*Mets à jour la valeur de l'énergie*/
+    void updateEnergie(
+        const int i,
+        const double &energieVariation);
 
     /*Calcule le facteur de Boltzmann associé à l'energie*/
     double boltzmannFactor(const double energie) const;
 
-    private:
-
     /*Taille de la lattice*/
     const int size = 30;
-
-    /*La lattice*/
-    Lattice lattice;
 
     /*Nombre de cycles pour équilibrer*/
     const int equiSample;
@@ -66,9 +81,6 @@ class Montecarlo
 
     /*Nom de base des fichiers de sortie*/
     const std::string outputFile;
-
-
-
 
 };
 

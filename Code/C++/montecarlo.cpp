@@ -11,8 +11,8 @@ Montecarlo :: Montecarlo(
     double temperature,
     bool startRandom,
     string outputFile) :
-    size(size),
     lattice(size),
+    size(size),
     equiSample(equiSample),
     meanSample(meanSample),
     temperature(temperature),
@@ -23,7 +23,7 @@ Montecarlo :: Montecarlo(
     dis(0,1),
     outputFile(outputFile) {
 
-    energies.resize(size*size*size);    
+    energies.resize(size*size*size*meanSample);    
 
     if (startRandom) {
         lattice.randomConfiguration();
@@ -34,41 +34,107 @@ Montecarlo :: Montecarlo(
     }
 }
 
-double Montecarlo :: latticeEnergie() const {
+void Montecarlo :: equilibrate() {
 
-    std::array<int, 3> site;
-    double latticeEnergie = 0;
+    double energieVariation;
+    bool moveAccepted;
 
-    //Pour chaque site
-    for (int i = 0; i < size; ++i) {
-        site[0] = i;
-        for (int j = 0; j < size ; ++j) {
-            site[1] = j;
-            for (int k = 0; k < size; ++k) {           
-                site[2] = k;
-                latticeEnergie += localEnergie(site);
-            }
+    accepted = 0;
+    compteur = 0;
+
+    for (int cycle = 0; cycle < equiSample; ++cycle) {
+        
+        cout << std::flush
+             << "\rCycle d'équilibrage': " 
+             << cycle + 1 
+             << '/' 
+             << meanSample;
+
+        lattice.shuffleRandomSiteList();
+        for (int site = 0; site < pow(size,3); ++site) {           
+            moveAccepted = this->MCMove(site, energieVariation);
+            this->updateStep(moveAccepted);
         }
     }
-
-    latticeEnergie = latticeEnergie/2;
-
-    return(latticeEnergie);
+    cout << endl << "Ratio d'acceptance : "   << double(accepted)/compteur  << endl;
 }
 
-double Montecarlo :: localEnergie(const std::array<int, 3> &site) const {
+void Montecarlo :: calculate() {
 
-    std::array<std::array<int, 3>, 6> nearestNeighboor;   
-    double localEnergie = 0;
+    double energieVariation;
+    bool moveAccepted;
+    int i;
 
-    //On récupère les voisins
-    lattice.nearestNeighboor(site, nearestNeighboor);
-    //Et on calcule l'énergie d'intéraction avec ces voisins
-    for (int n = 0; n < 6; ++n) {
-        localEnergie += lattice.energie(site, nearestNeighboor[n]);
+    accepted = 0;
+    compteur = 0;
+
+    for (int cycle = 0; cycle < meanSample; ++cycle) {
+
+        cout << std::flush
+             << "\rCycle de calcul: " 
+             << cycle + 1 
+             << '/' 
+             << meanSample;
+
+        lattice.shuffleRandomSiteList();
+        for (int site = 0; site < pow(size,3); ++site) {
+            energieVariation = 0;
+            i = cycle * pow(size,3) + site;
+            moveAccepted = this->MCMove(site, energieVariation);
+            
+            this->updateStep(moveAccepted);
+            this->updateEnergie(i, energieVariation);
+
+        }
     }
+    cout << endl << "Ratio d'acceptance : "   << double(accepted)/compteur  << endl;
+}
 
-    return(localEnergie);
+double Montecarlo :: meanEnergie() const {
+
+    double meanEnergie = 0;
+    meanEnergie = accumulate(energies.begin(), energies.end(), 0.0);
+   
+    return(meanEnergie/pow(size,6)/meanSample-lattice.minimalEnergie);
+
+}
+
+bool Montecarlo :: MCMove(
+    const int site,
+    double &energieVariation) {
+
+    //La fonction moveEnergie tente le move et renvoie la variation d'énergie.
+    energieVariation = lattice.moveEnergie(site,dmax);
+
+    //On calcule la probabilité d'accepter ce move et on teste cette proba.
+    if (dis(gen)<min(double(1),this->boltzmannFactor(energieVariation))) {
+        return(true);
+    } else {
+        lattice.moveCancel();
+        energieVariation = 0;
+        return(false);
+    }
+}
+
+void Montecarlo :: updateStep(const bool moveAccepted) {
+
+    compteur ++;
+    dmax = max(0.01, min(1., dmax + (moveAccepted-1./2)/100000));
+
+    if (moveAccepted) {
+        accepted++;
+    }
+}
+
+void Montecarlo :: updateEnergie(
+    const int i,
+    const double &energieVariation) {
+
+    if (i==0) {
+        energies[0] = lattice.latticeEnergie();
+    } else {
+        energies[i] = energies[i-1] + energieVariation;
+    }
 }
 
 double Montecarlo :: boltzmannFactor(const double energie) const {

@@ -223,7 +223,7 @@ class MonteCarlo:
 if __name__ == '__main__':
 
     print('Test')
-    test = MonteCarlo(30,600,600,0.1,'groundstate')
+    test = MonteCarlo(30,100,1,0.01,'groundstate')
+    test.equilibrate();
     print('Temperature : {} \n'.format(test.energieRatio))
-
     print(test.energie());
