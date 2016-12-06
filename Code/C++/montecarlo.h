@@ -1,23 +1,26 @@
 #ifndef MONTECARLO
 #define MONTECARLO
 
-#ifndef M_PI
-#define M_PI 3.14159265358979323846
-#endif
+#include "lattice.h"
 
-#include <iostream>
 #include <string>
 #include <random>
-#include <array>
+#include <math.h> 
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include "color.h"
 
-#include "lattice.h"
        
 /* */
 class Montecarlo
 {
     public:
     /*Constructeur de la classe*/
-    Montecarlo(int size, int equiSample, int meanSample, double temperature, bool startRandom, std::string outputFile);
+    Montecarlo(int size, int equiSample, int meanSample, double temperature, bool startRandom);
+
+    /*Constructeur de la classe*/
+    Montecarlo(std::string basename);
 
     /*Equilibre le système en réalisant des MCMove*/
     void equilibrate();
@@ -28,6 +31,14 @@ class Montecarlo
     /*Equilibre le système en réalisant des MCMove*/
     double meanEnergie() const;
 
+    /*Equilibre le système en réalisant des MCMove*/
+    double meanOrder() const;
+
+    /*Change la température du système*/
+    void changeTemperature(const double temp);
+
+    /*Sauvegarde MonteCarlo*/
+    void saveMontecarlo(std::string basename) const;
 
     /*La lattice*/
     Lattice lattice;
@@ -45,17 +56,22 @@ class Montecarlo
         const int i,
         const double &energieVariation);
 
+    /*Mets à jour la valeur de dmax et les deux compteurs*/
+    void updateOrderParameter(
+        const int i,
+        const bool moveAccepted);
+
     /*Calcule le facteur de Boltzmann associé à l'energie*/
     double boltzmannFactor(const double energie) const;
 
     /*Taille de la lattice*/
-    const int size = 30;
+    int size = 30;
 
     /*Nombre de cycles pour équilibrer*/
-    const int equiSample;
+    int equiSample;
 
     /*Nombre de cycles pour calculer*/
-    const int meanSample ;
+    int meanSample ;
 
     /*Température*/
     double temperature;
@@ -78,10 +94,6 @@ class Montecarlo
     /*Seed et générateur de nombre aléatoire*/
     std::mt19937 gen;
     std::uniform_real_distribution<double> dis;
-
-    /*Nom de base des fichiers de sortie*/
-    const std::string outputFile;
-
 };
 
 #endif

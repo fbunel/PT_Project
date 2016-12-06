@@ -1,6 +1,6 @@
-#include <math.h> 
-#include <algorithm> 
 #include "lattice.h"
+
+#include <iomanip>
 
 using namespace std;
 
@@ -8,6 +8,7 @@ using namespace std;
 Lattice :: Lattice(int size) : 
     minimalEnergie(-3),
     size(size),
+    orderMatrixInitialised(false),
     gen(std::random_device()()),
     dis(0,1) {
 
@@ -17,6 +18,48 @@ Lattice :: Lattice(int size) :
         for (int j = 0; j < size; ++j) {
             latticeArray[i][j].resize(size);
         }
+    }
+
+    //On initialise la liste des sites de la lattice
+    randomSiteList.resize(pow(size,3));
+    for (int i = 0; i < size*size*size; ++i) {
+        randomSiteList[i] = i;
+    }
+}
+
+/*Constructeur de base*/
+Lattice :: Lattice(std::string basename) : 
+    minimalEnergie(-3),
+    orderMatrixInitialised(false),
+    gen(std::random_device()()),
+    dis(0,1) {
+
+
+    string filename = basename + "_lattice.save";
+    ifstream flux(filename.c_str(), ios::in);
+
+    if(flux) {
+        flux >> size;
+        latticeArray.resize(size);
+        for (int i = 0; i < size; ++i) {
+            latticeArray[i].resize(size);
+            for (int j = 0; j < size; ++j) {
+                latticeArray[i][j].resize(size);
+                for (int k = 0; k < size; ++k) {
+                    flux >> latticeArray[i][j][k][0];
+                    flux >> latticeArray[i][j][k][1];
+                }
+            }
+        }
+        cout << BOLDGREEN << "Lattice chargée depuis : " << RESET
+             << GREEN << filename << RESET 
+             << endl;  
+    } else {
+        cout << BOLDRED
+             << "Impossible d'ouvrir le fichier " 
+             << filename 
+             << RESET
+             << endl;
     }
 
     randomSiteList.resize(pow(size,3));
@@ -107,12 +150,57 @@ double Lattice :: latticeEnergie() {
     return(latticeEnergie);
 }
 
-void Lattice :: display () const {
+void Lattice :: resetOrderParameterMatrix() {
+
+    for (int im = 0; im < 3; ++im) {
+        for (int jm = 0; jm < 3; ++jm) {
+            orderMatrix[im][jm] = 0;
+        }
+    }
+
+    orderMatrixInitialised = false;   
+}
+
+void Lattice :: display() const {
 
     for (int i = 0; i < size; ++i) {
         cout << latticeArray[i][i][i][0]
              << ' '
              << latticeArray[i][i][i][1]
+             << endl;
+    }
+}
+
+void Lattice :: saveLattice(string basename) const{
+    
+    string filename = basename + "_lattice.save";
+
+    ofstream flux(filename.c_str(), ios::out | ios::trunc);
+
+    if(flux) {
+        flux << size << endl;
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+                for (int k = 0; k < size; ++k) {
+                    flux << fixed 
+                         << setprecision(10) 
+                         << latticeArray[i][j][k][0]
+                         << ' '
+                         << latticeArray[i][j][k][1]
+                         << endl;
+                }
+            }
+        }
+        cout << GREEN
+             << "     Lattice enregistrées dans : " 
+             << filename.c_str() 
+             << RESET
+             << endl;  
+    } else {
+        cout << BOLDRED
+             << "Impossible d'ouvrir le fichier " 
+             << filename 
+             << RESET
              << endl;
     }
 }
@@ -177,7 +265,7 @@ void Lattice :: nearestNeighboor(const std::array<int, 3> &site) {
     }
 }
 
-double Lattice :: energie (
+double Lattice :: energie(
     const std::array<int, 3> &site1, 
     const std::array<int, 3> &site2) const {
 
@@ -186,7 +274,91 @@ double Lattice :: energie (
         latticeArray[site2[0]][site2[1]][site2[2]]),2))/2);
 }
 
-double Lattice :: cosAngle (
+void Lattice :: initialiseOrderMatrix() {
+
+    array<double, 3> cartesian;
+
+    for (int il = 0; il < size; ++il) {
+        for (int jl = 0; jl < size; ++jl) {
+            for (int kl = 0; kl < size; ++kl) {
+                sphericalToCartesian(latticeArray[il][jl][kl], cartesian);
+                for (int im = 0; im < 3; ++im) {
+                    for (int jm = 0; jm < 3; ++jm) {
+                        orderMatrix[im][jm] += cartesian[im]*cartesian[jm];
+                    }
+                }
+
+            }
+        }
+    }
+
+    for (int im = 0; im < 3; ++im) {
+        orderMatrix[im][im] -= pow(size,3)/3;
+    }
+
+    orderMatrixInitialised = true;
+}
+
+void Lattice :: updateOrderMatrix() {
+
+    array<double, 3> cartesian;
+
+    //On enlève l'ancien angle
+    sphericalToCartesian(angleStocked, cartesian);
+
+    for (int im = 0; im < 3; ++im) {
+        for (int jm = 0; jm < 3; ++jm) {
+            orderMatrix[im][jm] -= cartesian[im]*cartesian[jm];
+        }
+    }
+
+    //On ajoute le nouveau
+    sphericalToCartesian(
+        latticeArray[siteStocked[0]][siteStocked[1]][siteStocked[2]], cartesian);
+
+    for (int im = 0; im < 3; ++im) {
+        for (int jm = 0; jm < 3; ++jm) {
+            orderMatrix[im][jm] += cartesian[im]*cartesian[jm];
+        }
+    }
+}
+
+double Lattice :: orderParameter() {
+
+    double orderParameter = 0;
+
+    if (orderMatrixInitialised) {
+        updateOrderMatrix();
+    } else {
+        initialiseOrderMatrix();
+    }
+
+    //Calcul du determinant
+    orderParameter = 
+          orderMatrix[0][0]*orderMatrix[1][1]*orderMatrix[2][2]
+        + orderMatrix[1][0]*orderMatrix[2][1]*orderMatrix[0][2]
+        + orderMatrix[2][0]*orderMatrix[0][1]*orderMatrix[1][2]
+        - orderMatrix[0][2]*orderMatrix[1][1]*orderMatrix[2][0]
+        - orderMatrix[1][2]*orderMatrix[2][1]*orderMatrix[0][0]
+        - orderMatrix[2][2]*orderMatrix[0][1]*orderMatrix[1][0];
+
+    //Le determinant vaut 2*S^3*size^9/9
+    orderParameter = pow(max(0.,orderParameter)*27/2/pow(size,9),1.0/3);
+
+    return(orderParameter);
+}
+
+void Lattice :: sphericalToCartesian(
+        const array<double, 2> &spherical,
+        array<double, 3> &cartesian) const {
+    
+    double sinTheta = sin(acos(spherical[0]));
+    cartesian[0] = sinTheta*cos(spherical[1]);
+    cartesian[1] = sinTheta*sin(spherical[1]);
+    cartesian[2] = spherical[0];
+}
+
+double Lattice :: cosAngle(
     const array<double, 2> &oldAngle,
     const array<double, 2> &newAngle) const {
 

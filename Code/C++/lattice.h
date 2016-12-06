@@ -5,10 +5,15 @@
 #define M_PI 3.14159265358979323846
 #endif
 
-#include <iostream>
 #include <string>
 #include <random>
 #include <array>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <math.h> 
+#include <algorithm>
+#include "color.h"
        
 class Lattice
 {
@@ -16,6 +21,10 @@ class Lattice
     /*Constructeur de la classe
     - size : la taille de la lattice*/
     Lattice(int size);
+
+    /*Constructeur de la classe
+    - filename : Nom du fichier à partir duquel on extrait la lattice */
+    Lattice(std::string basename);
 
     /*Initialise la lattice dans un état fondamental*/
     void groundstateConfiguration();
@@ -33,16 +42,27 @@ class Lattice
         const int i,
         const double dmax);
 
+    /*Calcul et renvoie le paramètre d'ordre*/
+    double orderParameter();
+
     /*Annule le move qu'on a tenté*/
     void moveCancel();
 
     /*Calcule l'énergie de la lattice*/
     double latticeEnergie();
 
+    /*Fonction qui permet de reset la matrice du paramètre d'ordre*/
+    void resetOrderParameterMatrix();
+
     /*Fonction qui display la diagonale de la lattice*/
     void display() const;
 
-    double minimalEnergie;
+    /*Fonction qui sauvegarde toute la classe dans un fichier
+    - filename : nom du fichier dans lequel on sauvegarde la lattice*/
+    void saveLattice(std::string basename) const;
+
+    /*Energie minimale de la lattice*/
+    const double minimalEnergie;
 
 
     private:
@@ -79,6 +99,17 @@ class Lattice
         const std::array<int, 3> &site1, 
         const std::array<int, 3> &site2) const;
 
+    /* Initialise la matrice du paramètre d'ordre*/
+    void initialiseOrderMatrix();
+
+    /* Met à jour la matrice du paramètre d'ordre*/
+    void updateOrderMatrix();
+
+    /*Réalise le changement de variable de sphérique vers cartesien*/
+    void sphericalToCartesian(
+        const std::array<double, 2> &spherical,
+        std::array<double, 3> &cartesian) const;
+
     /*Calcule le cosinus de l'angle entre les deux directions données en argument*/
     double cosAngle(
         const std::array<double, 2> &oldAngle, 
@@ -89,10 +120,9 @@ class Lattice
         const std::array<int, 3> &site,
         std::array<double, 2> &angle) const;
 
+    
     /*Taille de la lattice*/
-    const int size;
-
-
+    int size;
 
     /*La lattice*/
     std::vector< std::vector<std::vector<std::array<double, 2>>>> latticeArray;
@@ -108,6 +138,12 @@ class Lattice
 
     /*Variable dans laquelle on stocke les plus proches voisins d'un site*/
     std::array<std::array<int, 3>, 6> nearestNeighboorStocked;
+
+    /*Variable dans laquelle on stocke les plus proches voisins d'un site*/
+    std::array<std::array<double, 3>, 3> orderMatrix;
+
+    /*Variable qui sait si la matrice d'ordre a été initialisée ou non*/
+    bool orderMatrixInitialised;
 
     /*Seed et générateur de nombre aléatoire*/
     std::mt19937 gen;

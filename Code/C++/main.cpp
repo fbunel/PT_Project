@@ -5,6 +5,8 @@
 
 #include "montecarlo.h"
 #include "lattice.h"
+#include "study.h"
+#include "color.h"
 
 using namespace std;
 
@@ -12,27 +14,18 @@ int main()
 {
 
 int size = 30;
-int equiSample = 100;
-int meanSample = 100;
-double temperature = 0.01;
+int equiSample = 10;
+int meanSample = 20;
+double tempStart = 0.01;
+double tempEnd = 2.2;
+double tempSample = 20;
 bool startRandom = false;
 string outputfile = "save";
 
+Study study(size, equiSample, meanSample, tempStart, tempEnd, tempSample, startRandom, outputfile);
 
-Montecarlo montecarlo(
-    size, equiSample, meanSample, temperature, startRandom, outputfile);
-montecarlo.equilibrate();
-montecarlo.calculate();
-double meanEnergie;
-meanEnergie = montecarlo.meanEnergie();
-cout << meanEnergie << endl;
 
-// double energieVariation;
+study.run();
 
-// Lattice lattice(3);
-// lattice.shuffleRandomSiteList();
-// energieVariation = lattice.moveEnergie(0,0.1);
-
-// cout << energieVariation << endl;
 return 0;
 }

@@ -1,4 +1,3 @@
-#include <math.h> 
 #include "montecarlo.h"
 
 using namespace std;
@@ -9,8 +8,7 @@ Montecarlo :: Montecarlo(
     int equiSample,
     int meanSample,
     double temperature,
-    bool startRandom,
-    string outputFile) :
+    bool startRandom) :
     lattice(size),
     size(size),
     equiSample(equiSample),
@@ -20,10 +18,10 @@ Montecarlo :: Montecarlo(
     accepted(0),
     dmax(0.01),
     gen(std::random_device()()),
-    dis(0,1),
-    outputFile(outputFile) {
+    dis(0,1) {
 
-    energies.resize(size*size*size*meanSample);    
+    energies.resize(size*size*size*meanSample);
+    orders.resize(size*size*size*meanSample);
 
     if (startRandom) {
         lattice.randomConfiguration();
@@ -32,6 +30,46 @@ Montecarlo :: Montecarlo(
         lattice.groundstateConfiguration();
         dmax = 0.01;
     }
+}
+
+/*Constructeur de base*/
+Montecarlo :: Montecarlo(string basename) :
+    lattice(basename),
+    compteur(0),
+    accepted(0),
+    gen(std::random_device()()),
+    dis(0,1) {
+
+
+
+    string filename = basename + "_montecarlo.save";
+
+    ifstream flux(filename.c_str(), ios::in);
+
+    if(flux) {
+        flux >> size;
+        flux >> equiSample;
+        flux >> meanSample;
+        flux >> dmax;
+
+        cout << BOLDGREEN 
+             << "Montecarlo chargée depuis : " 
+             << RESET
+             << GREEN 
+             << filename 
+             << RESET 
+             << endl;   
+
+        energies.resize(size*size*size*meanSample);
+        orders.resize(size*size*size*meanSample); 
+    } else {
+        cout << BOLDRED
+             << "Impossible d'ouvrir le fichier " 
+             << filename 
+             << RESET
+             << endl;
+    }
+
 }
 
 void Montecarlo :: equilibrate() {
@@ -45,10 +83,13 @@ void Montecarlo :: equilibrate() {
     for (int cycle = 0; cycle < equiSample; ++cycle) {
         
         cout << std::flush
-             << "\rCycle d'équilibrage': " 
+             << BLUE 
+             << "\r     Cycle d'équilibrage': " 
+             << RESET << BOLDBLUE
              << cycle + 1 
              << '/' 
-             << meanSample;
+             << equiSample 
+             << RESET;
 
         lattice.shuffleRandomSiteList();
         for (int site = 0; site < pow(size,3); ++site) {           
@@ -56,7 +97,11 @@ void Montecarlo :: equilibrate() {
             this->updateStep(moveAccepted);
         }
     }
-    cout << endl << "Ratio d'acceptance : "   << double(accepted)/compteur  << endl;
+    cout << endl 
+         << MAGENTA 
+         << "          Ratio d'acceptance : " 
+         << double(accepted)/compteur  
+         << RESET << endl;
 }
 
 void Montecarlo :: calculate() {
@@ -68,13 +113,18 @@ void Montecarlo :: calculate() {
     accepted = 0;
     compteur = 0;
 
+    lattice.resetOrderParameterMatrix();
+
     for (int cycle = 0; cycle < meanSample; ++cycle) {
 
         cout << std::flush
-             << "\rCycle de calcul: " 
+             << BLUE 
+             << "\r     Cycle de calcul: " 
+             << RESET << BOLDBLUE
              << cycle + 1 
              << '/' 
-             << meanSample;
+             << meanSample 
+             << RESET;
 
         lattice.shuffleRandomSiteList();
         for (int site = 0; site < pow(size,3); ++site) {
@@ -84,10 +134,14 @@ void Montecarlo :: calculate() {
             
             this->updateStep(moveAccepted);
             this->updateEnergie(i, energieVariation);
-
+            this->updateOrderParameter(i, moveAccepted);
         }
     }
-    cout << endl << "Ratio d'acceptance : "   << double(accepted)/compteur  << endl;
+    cout << endl 
+         << MAGENTA 
+         << "          Ratio d'acceptance : " 
+         << double(accepted)/compteur  
+         << RESET << endl;
 }
 
 double Montecarlo :: meanEnergie() const {
@@ -96,7 +150,44 @@ double Montecarlo :: meanEnergie() const {
     meanEnergie = accumulate(energies.begin(), energies.end(), 0.0);
    
     return(meanEnergie/pow(size,6)/meanSample-lattice.minimalEnergie);
+}
 
+double Montecarlo :: meanOrder() const {
+
+    double meanOrder = 0;
+    meanOrder = accumulate(orders.begin(), orders.end(), 0.0);
+   
+    return(meanOrder/pow(size,3)/meanSample);
+}
+
+void Montecarlo :: changeTemperature(const double temp) {
+
+    temperature =  temp;    
+}
+
+void Montecarlo :: saveMontecarlo(string basename) const{
+    
+    string filename = basename + "_montecarlo.save";
+    
+    ofstream flux(filename.c_str(), ios::out | ios::trunc);
+
+    if(flux) {
+        flux << size << endl;
+        flux << equiSample << endl;
+        flux << meanSample << endl;
+        flux << fixed << setprecision(10) << dmax << endl;
+        cout << GREEN
+             << "     MonteCarlo enregistrées dans : " 
+             << filename.c_str()
+             << RESET 
+             << endl;  
+    } else {
+        cout << BOLDRED
+             << "Impossible d'ouvrir le fichier " 
+             << filename 
+             << RESET
+             << endl;
+    }
 }
 
 bool Montecarlo :: MCMove(
@@ -134,6 +225,17 @@ void Montecarlo :: updateEnergie(
         energies[0] = lattice.latticeEnergie();
     } else {
         energies[i] = energies[i-1] + energieVariation;
+    }
+}
+
+void Montecarlo ::  updateOrderParameter(
+    const int i,
+    const bool moveAccepted) {
+
+    if (moveAccepted || i==0) {
+        orders[i] = lattice.orderParameter();
+    } else {
+        orders[i] = orders[i-1];
     }
 }
 

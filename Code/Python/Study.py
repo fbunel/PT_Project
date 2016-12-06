@@ -43,7 +43,7 @@ class Study:
 
     def run(self):
         """Lance une simulation sur toutes les températures dans energiesRatios"""
-
+        
         if self.i==0 :
             print(
                 "Equilibrage inital à la température : {}".format(
