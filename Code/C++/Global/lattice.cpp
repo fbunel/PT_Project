@@ -55,11 +55,8 @@ Lattice :: Lattice(std::string basename) :
              << GREEN << filename << RESET 
              << endl;  
     } else {
-        cout << BOLDRED
-             << "Impossible d'ouvrir le fichier " 
-             << filename 
-             << RESET
-             << endl;
+        cout << BOLDRED << "Impossible d'ouvrir le fichier " << filename 
+             << RESET << endl;
     }
 
     randomSiteList.resize(pow(size,3));
@@ -182,26 +179,18 @@ void Lattice :: saveLattice(string basename) const{
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
                 for (int k = 0; k < size; ++k) {
-                    flux << fixed 
-                         << setprecision(10) 
-                         << latticeArray[i][j][k][0]
-                         << ' '
-                         << latticeArray[i][j][k][1]
+                    flux << fixed << setprecision(10) 
+                         << latticeArray[i][j][k][0] << ' ' << latticeArray[i][j][k][1]
                          << endl;
                 }
             }
         }
         cout << GREEN
-             << "     Lattice enregistrées dans : " 
-             << filename.c_str() 
-             << RESET
-             << endl;  
+             << "     Lattice enregistrées dans : "  << filename.c_str() 
+             << RESET << endl;  
     } else {
-        cout << BOLDRED
-             << "Impossible d'ouvrir le fichier " 
-             << filename 
-             << RESET
-             << endl;
+        cout << BOLDRED << "Impossible d'ouvrir le fichier " << filename 
+             << RESET << endl;
     }
 }
 

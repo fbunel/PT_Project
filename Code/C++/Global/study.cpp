@@ -43,22 +43,17 @@ Study :: Study(string basename) :
         Orders.resize(tempSample);
         for (int t = 0; t < tempSample; ++t) {
                     flux >> Temperatures[t];
-                    flux >> Energies[t];
-                    flux >> Orders[t];
+                    flux >> Energies[t][0];
+                    flux >> Energies[t][1];
+                    flux >> Orders[t][0];
+                    flux >> Orders[t][1];
         }
-        cout << BOLDGREEN 
-             << "Study chargée depuis : " 
-             << RESET
-             << GREEN 
-             << filename 
-             << RESET 
-             << endl;   
+        cout << BOLDGREEN << "Study chargée depuis : " << RESET
+             << GREEN << filename 
+             << RESET << endl;   
     } else {
-        cout << BOLDRED
-             << "Impossible d'ouvrir le fichier " 
-             << filename 
-             << RESET
-             << endl;
+        cout << BOLDRED << "Impossible d'ouvrir le fichier " << filename 
+             << RESET << endl;
     }
 }
 
@@ -71,39 +66,27 @@ void Study :: run() {
     }
 
     while(compteur < tempSample){
-        cout << endl 
-             << BOLDYELLOW 
-             << "Temperature " 
-             << compteur + 1 
-             << '/' 
-             << tempSample
-             << " : " 
-             << RESET 
-             << YELLOW 
-             << Temperatures[compteur] 
-             << RESET
-             << endl;
+        cout << endl << BOLDYELLOW << "Temperature " 
+             << compteur + 1 << '/' << tempSample << " : " << RESET 
+             << YELLOW << Temperatures[compteur] 
+             << RESET << endl;
 
         montecarlo.changeTemperature(Temperatures[compteur]);
         montecarlo.equilibrate();
         montecarlo.calculate();
-        Energies[compteur] = montecarlo.meanEnergie();
-        Orders[compteur] = montecarlo.meanOrder();
+        montecarlo.meanEnergie(Energies[compteur]);
+        montecarlo.meanOrder(Orders[compteur]);
 
-        cout << CYAN
-             << "     Paramètre d'ordre : "
-             << Orders[compteur]
-             << RESET
-             << endl;
+        cout << CYAN << "     Paramètre d'ordre : " << Orders[compteur][0]
+             << " +/- " << Orders[compteur][1]
+             << RESET << endl;
 
-        cout << CYAN
-             << "     Energies : "
-             << Energies[compteur]
-             << RESET
-             << endl;
+        cout << CYAN << "     Energies : " << Energies[compteur][0]
+             << " +/- " << Energies[compteur][1]
+             << RESET << endl;
 
-        studySave();
         compteur++;
+        studySave();
     }
 }
 
@@ -121,25 +104,18 @@ void Study :: studySave() const{
         flux << tempSample << endl;
         flux << compteur << endl;
         for (int t = 0; t < tempSample ; ++t) {
-            flux << fixed
-                 << setprecision(10)
-                 << Temperatures[t]
-                 << ' '
-                 << Energies[t]
-                 << ' '
-                 << Orders[t]
+            flux << fixed << setprecision(10)
+                 << Temperatures[t] << ' '
+                 << Energies[t][0] << ' '
+                 << Energies[t][1] << ' '
+                 << Orders[t][0] << ' '
+                 << Orders[t][1]
                  << endl;
         }
-        cout << GREEN
-             << "     Study enregistrée dans : "
-             << filename.c_str() 
-             << RESET
-             << endl;  
+        cout << GREEN << "     Study enregistrée dans : " << filename.c_str() 
+             << RESET << endl;  
     } else {
-        cout << BOLDRED
-             << "Impossible d'ouvrir le fichier " 
-             << filename 
-             << RESET
-             << endl;
+        cout << BOLDRED << "Impossible d'ouvrir le fichier " << filename 
+             << RESET << endl;
     }
 }

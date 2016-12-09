@@ -49,10 +49,10 @@ class Study
     std::vector<double> Temperatures;
 
     /*Tableau des énergies*/
-    std::vector<double> Energies;
+    std::vector<std::array<double, 2>> Energies;
 
     /*Tableau des paramètres d'ordre*/
-    std::vector<double> Orders;
+    std::vector<std::array<double, 2>> Orders;
  
     /*Nom de base des fichiers de sortie*/
     std::string outputFile;

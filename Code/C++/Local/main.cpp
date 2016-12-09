@@ -2,6 +2,7 @@
 #include <string>
 #include <stdlib.h> 
 #include <array>
+#include <ctime>
 
 #include "montecarlo.h"
 #include "lattice.h"
@@ -13,19 +14,24 @@ using namespace std;
 int main()
 {
 
+clock_t start;
+start = clock();
+
 int size = 30;
-int equiSample = 10;
-int meanSample = 20;
-double tempStart = 0.01;
-double tempEnd = 2.2;
-double tempSample = 20;
+int equiSample = 1000;
+int meanSample = 5000;
+double tempStart = 1.00;
+double tempEnd = 1.24;
+double tempSample = 240;
 bool startRandom = false;
 string outputfile = "save";
 
 Study study(size, equiSample, meanSample, tempStart, tempEnd, tempSample, startRandom, outputfile);
 
-
 study.run();
+
+cout << "Temps de calcul: " << (clock() - start) / (double)(CLOCKS_PER_SEC) 
+     << " secondes" << endl;
 
 return 0;
 }

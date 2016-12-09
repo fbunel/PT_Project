@@ -28,11 +28,11 @@ class Montecarlo
     /*Fais évoluer le système en réalisant des MCMove, remplie les résultats*/
     void calculate();
 
-    /*Equilibre le système en réalisant des MCMove*/
-    double meanEnergie() const;
+    /*Calcule la moyenne et la std*/
+    void meanEnergie(std::array<double, 2> &meanstdEnergie) const;
 
-    /*Equilibre le système en réalisant des MCMove*/
-    double meanOrder() const;
+    /*Calcule la moyenne et la std*/
+    void meanOrder(std::array<double, 2> &meanstdOrder) const;
 
     /*Change la température du système*/
     void changeTemperature(const double temp);
@@ -64,14 +64,17 @@ class Montecarlo
     /*Calcule le facteur de Boltzmann associé à l'energie*/
     double boltzmannFactor(const double energie) const;
 
-    /*Taille de la lattice*/
-    int size = 30;
-
     /*Nombre de cycles pour équilibrer*/
     int equiSample;
 
     /*Nombre de cycles pour calculer*/
-    int meanSample ;
+    int meanSample;
+
+    /*Nombre de step dans un cycle*/
+    int cycleMove;
+
+    /*Nombre de step de calcul*/
+    int totalMove;
 
     /*Température*/
     double temperature;
