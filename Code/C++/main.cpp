@@ -18,11 +18,11 @@ clock_t start;
 start = clock();
 
 int size = 30;
-int equiSample = 1000;
-int meanSample = 5000;
-double tempStart = 1.00;
-double tempEnd = 1.24;
-double tempSample = 240;
+int equiSample = 10;
+int meanSample = 10;
+double tempStart = 0.01;
+double tempEnd = 2.01;
+double tempSample = 100;
 bool startRandom = false;
 string outputfile = "save";
 
