@@ -57,6 +57,12 @@
 		[x radius=0.3, y radius=0.1, rotate={#3}];
 }
 
+% \drawNema {x} {y} {zAngle}
+\newcommand{\drawNema}[4] {
+	\shade [ball color=black] (#1,#2) ellipse 
+		[x radius={#4}, y radius=0.1, rotate={#3}];
+}
+
 % \plotcylinder { radius } { heigth } { altitude }
 \newcommand{\plotcylinder}[3] {
      \draw [math3d, fill=white, samples=100]

@@ -33,21 +33,35 @@ def donnees(fichier, skiprow):
 
 
 """fonction d'affichage"""
-def figure(fichier, skiprow):
-    
-    #données    
-    (temperature, energie, deltaEnergie, order, deltaOrder) = donnees(
-        fichier, skiprow)  
+def figure(basename, nFile, skiprow):
 
     plt.rc('text', usetex=True)
     plt.rc('font', family='serif')
 
+    filename = '{0}{1}/VeryLocal{1}_study.save'.format(basename,0)
+        #données    
+    (temperature, energie, deltaEnergie, order, deltaOrder) = donnees(
+            filename, skiprow) 
+    
+    for file in np.arange(1,nFile):
 
+        filename = '{0}{1}/VeryLocal{1}_study.save'.format(basename,file)
+        #données    
+        (temperaturefile, energiefile, deltaEnergiefile, orderfile, deltaOrderfile) = donnees(filename, skiprow)  
+        order += orderfile
+        energie += energiefile
+        deltaEnergie += deltaEnergiefile
+        deltaOrder += deltaOrder
+
+
+    print(temperature[np.argmax(deltaEnergie)])
+    print(temperature[np.argmax(deltaOrder)])
+    
     fig, ax1 = plt.subplots()
 
     ax2 = ax1.twinx()
 
-    ax1.plot(temperature, deltaOrder,
+    ax1.plot(temperature, order,
         linewidth = 2,
         color = 'g')
     ax2.plot(temperature, energie, 
@@ -61,7 +75,28 @@ def figure(fichier, skiprow):
     ax2.set_ylabel(r"Energie", fontsize = 18, color = 'b')
     
     #enregistrement de l'image
-    plt.savefig("{}_figure.pdf".format(fichier), bbox_inches='tight')
+    plt.savefig("veryLocal.pdf", bbox_inches='tight')
     plt.cla()
 
-figure('local3_study.save',3)
+    fig, ax1 = plt.subplots()
+
+    ax2 = ax1.twinx()
+
+    ax1.plot(temperature, deltaOrder,
+        linewidth = 2,
+        color = 'g')
+    ax2.plot(temperature, deltaEnergie, 
+        linewidth = 2,
+        color = 'b')
+
+    ax1.tick_params(labelsize = 16)
+    ax2.tick_params(labelsize = 16)
+
+    ax1.set_ylabel(r"Param\`etre d'ordre", fontsize = 18, color = 'g')
+    ax2.set_ylabel(r"Energie", fontsize = 18, color = 'b')
+    
+    #enregistrement de l'image
+    plt.savefig("veryLocal2.pdf", bbox_inches='tight')
+    plt.cla()
+
+figure('VeryLocal/VeryLocal',9,3)

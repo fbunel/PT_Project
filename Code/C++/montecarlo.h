@@ -37,6 +37,9 @@ class Montecarlo
     /*Change la température du système*/
     void changeTemperature(const double temp);
 
+    /*Export*/
+    void exportArray(std::string basename, const int compteur) const;
+
     /*Sauvegarde MonteCarlo*/
     void saveMontecarlo(std::string basename) const;
 

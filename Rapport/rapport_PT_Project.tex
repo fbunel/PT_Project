@@ -152,7 +152,7 @@ L'intérêt pour ces milieux intermédiaires entre cristaux et liquides provient
     	\label{lcd} 
 \end{figure}
 
-Le nom cristal liquide regroupe les molécules ou mélange de molécules possédant une mésophase, à savoir une phase partiellement structurée, intermédiaire entre les phases liquide et cristalline.
+Le nom cristal liquide regroupe les molécules ou mélange de molécules possédant une mésophase, c'est à dire une phase partiellement structurée, intermédiaire entre les phases liquide et cristalline.
 Dans ce rapport, on s'intéressera au cas particulier de la phase nématique qui emprunte aux liquides l'invariance par translation, mais brise partiellement la symétrie par rotation.
 Dans cette phase, les molécules s'organisent en effet pour avoir une orientation identique en moyenne (Figure \ref{nematic_phase}).
 
@@ -177,32 +177,57 @@ Enfin, une dernière partie étudiera l'influence d'un champ électrique sur cet
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Modèle de Lebwohl-Lasher}
-Le modèle de Lebwohl-Lasher \cite{model} est une version sur réseau du modèle de Maier-Saupe \cite{maier,maierbis}.
-Il s'agit en quelque sorte de l'analogue pour la transition nématique-isotrope du modèle d'Ising. 
-Comme le modèle d'Ising, il permet d'obtenir des résultats très satisfaisant malgré sa simplicité.
-\medskip
+Le modèle de Lebwohl-Lasher \cite{model} est en quelque sorte l'analogue pour la transition nématique-isotrope du modèle d'Ising. Comme pour ce dernier, il permet d'obtenir des résultats très satisfaisant malgré sa simplicité.\medskip
 
-Dans le modèle de Lebwohl-Lasher, les molécules de cristal liquides sont représentés par des vecteurs unitaires et occupent des positions fixes sur les sites d'un réseau cubique.
-Les différents sites du réseau interagissent uniquement entre plus proche voisins par l'intermédiaire d'un potentiel de la forme :
+\begin{figure}[h]
+    \center
+    \input{figures/lebwohl.tikz}
+    \caption{Représentation à deux dimensions du modèle de Lebwohl-Lasher.}
+    \label{lebwohl}
+\end{figure}
+
+
+Dans ce modèle, les molécules de cristal liquides sont représentés uniquement par leur direction et occupent des positions fixes sur les sites d'un réseau cubique.
+Les différents sites du réseau interagissent uniquement entre plus proches voisins par l'intermédiaire d'un potentiel de la forme :
 \begin{equation}
 E_{i,j} = - \epsilon\ \frac{3\cos^2\theta_{i,j}-1}{2}
 \end{equation}
-où $\epsilon$ est une constante positive et $\theta_{i,j}$ est l'angle entre les deux molécules intéressantes. 
+où $\epsilon$ est une constante positive et $\theta_{i,j}$ est l'angle entre les deux molécules. 
 Cette énergie est minimale lorsque les molécules sont parfaitement alignées : si $\theta_{i,j} = 0$ alors $E_{i,j} = - \epsilon$, et est maximale lorsque les molécules ont des directions orthogonales : si $\theta_{i,j} = \pi/2$ alors $E_{i,j} = \epsilon/2$.
-Elle a donc tendance à favoriser les configurations ou les molécules sont alignées.
-\medskip
+Ces interactions auront donc tendance à favoriser les configurations ou les molécules sont alignées.\medskip
 
-L'énergie totale du système qui découle de cette interaction s'écrit simplement :
-\begin{equation}
-E_{i,j} = - \epsilon\ \sum_{<i,j>} \frac{3\cos^2\theta_{i,j}-1}{2}
-\end{equation}
-où $<i,j>$ est une somme sur les paires de plus voisins du réseau.
+On comprend alors assez bien pourquoi ce système subit une transition de phase. Les deux énergies intervenant dans ce système sont l'interaction entre les molécules et l'agitation thermique dont les échelles sont respectivement $\epsilon$ et $k_B T$.
+A haute température, l'agitation thermique prédomine et l'orientation des molécules est aléatoire. A basse température, l'énergie d'interaction entre les sites est la plus importante et les molécules privilégient une direction commune.\medskip
+
+Pour toute notre étude, des conditions aux limites périodiques ont été imposées mais d'autres conditions sont également possibles. Des travaux récents \cite{confined} ont par exemple utilisé une énergie à la surface de la même forme que le potentiel d'interaction pour simuler une cellule avec un ancrage aux parois. 
+
+%L'énergie totale du système qui découle de cette interaction s'écrit simplement comme une somme sur les paires de plus proches voisins :
+%\begin{equation}
+%E = - \epsilon\ \sum_{<i,j>} \frac{3\cos^2\theta_{i,j}-1}{2}
+%\end{equation}
+
+\subsection{Paramètre d'ordre}
 
 \subsection{Algorithme Monte-Carlo}
 
+L'idée de base derrière les algorithmes de type Monte-Carlo est de remplacer le calcul d'intégrales sur l'espace des phases par des moyennes sur une marche aléatoires. L'évolution Monte-Carlo de notre système utilise l'algorithme proposé par Metropolis et al \cite{metropolis} qui consiste à réaliser une série de mouvement aléatoire et d'accepter ces changements avec une probabilité en fonction de la variation d'énergie.\medskip
 
-\subsection{Ratio d'acceptation}
+Plus précisément, on commence par sélectionner un site du réseau de manière aléatoire. Ensuite, une nouvelle direction de la molécule est tirée aléatoirement. Avec ce changement de direction est associé une variation d'énergie $\Delta E$ due aux potentiel d'interactions avec les sites voisins. Si ce changement diminue l'énergie totale du système, le changement est accepté. Sinon, le changement est accepté avec une probabilité proportionnel au poids de Boltzmann de la variation d'énergie : 
 
+\begin{equation}
+p = e^{-\Delta E / k_B T}
+\end{equation}
+
+Il est possible de montrer qu'un grand nombre de répétition de ces mouvements permet d'obtenir la configuration d'équilibre du système. Des moyennes statistiques pour les quantités d'intérêts peuvent ensuite être calculés sur les micro-états générés par l'algorithme une fois l'équilibre atteint.
+
+\subsection{Implémentation}
+Les simulations reportées dans ce rapport ont toutes été réalisées sur un réseau cubique de taille $30\times 30\times 30$ avec des conditions aux limites périodiques. Pour chaque site du réseau, l'orientation de la molécule est stockée en tant que $\cos \theta$ et $\phi$ où $\theta$ et $\phi$ sont respectivement les angles polaires et azimutales. Utiliser les variables $\cos \theta$ et $\phi$ plutôt que simplement $\theta$ et $\phi$ est nécessaire à l'équiprobabilité des directions. En effet, si l'on tire au hasard un $\theta$ et un $\phi$, la probabilité d'obtenir une direction proche du pole est plus importante. Cette anisotropie disparaît lorsque l'on sélectionne un $\cos \theta$ et un $\phi$, ce qui se comprend assez bien en se rappelant que l'élément de surface en sphérique s'écrit $d\theta \sin \theta d\phi = d\cos\theta d\phi$.
+\medskip
+ 
+Les simulations sont commencées depuis l'état fondamental où toutes les molécules sont alignées. Lorsque l'on démarre la simulation, les molécules sont bougées les unes après les autres en utilisant l'algorithme de Monte-Carlo. On nomme un cycle une suite de $30\times 30\times 30$ mouvements. Durant un cycle, toutes les molécules du réseau sont bougées exactement une fois mais dans un ordre aléatoire. Une telle procédure assure que toutes les molécules ont la même chance d'être bougée en réduisant les irrégularités dues à un tirage totalement aléatoire \cite{fabbri}. 
+\medskip
+
+Pour chaque température, au minimum 1000 cycles sont calculées pour faire évoluer le système vers la configuration d'équilibre. Les variations de l'énergie et du paramètre d'ordre permettent de vérifier que le système est bien à l'équilibre. Ensuite, un minimum de 5000 cycles sont réalisées de manière à calculer les quantités d'intérêts.
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

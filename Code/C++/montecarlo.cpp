@@ -181,6 +181,31 @@ void Montecarlo :: changeTemperature(const double temp) {
     temperature =  temp;    
 }
 
+void Montecarlo :: exportArray(string basename, const int compteur) const{
+    
+    string filename = basename + to_string(compteur) + ".data";
+    
+    ofstream flux(filename.c_str(), ios::out | ios::trunc);
+
+    if(flux) {
+        flux << temperature << endl;
+        for (int i = 0; i < totalMove; ++i) {
+            flux << energies[i] << ' ' ;
+        }
+        flux << endl;
+
+        for (int i = 0; i < totalMove; ++i) {
+            flux << orders[i] << ' ' ;
+        }
+
+        cout << GREEN << "     Tableau de résultats enregistré : " << filename.c_str()
+             << RESET << endl;  
+    } else {
+        cout << BOLDRED << "Impossible d'ouvrir le fichier " << filename 
+             << RESET << endl;
+    }
+}
+
 void Montecarlo :: saveMontecarlo(string basename) const{
     
     string filename = basename + "_montecarlo.save";

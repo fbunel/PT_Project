@@ -76,6 +76,7 @@ void Study :: run() {
         montecarlo.calculate();
         montecarlo.meanEnergie(Energies[compteur]);
         montecarlo.meanOrder(Orders[compteur]);
+        montecarlo.exportArray(outputFile, compteur);
 
         cout << CYAN << "     Paramètre d'ordre : " << Orders[compteur][0]
              << " +/- " << Orders[compteur][1]

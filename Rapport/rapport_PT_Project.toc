@@ -2,10 +2,11 @@
 \contentsline {section}{Introduction}{1}{section*.3}
 \contentsline {section}{\numberline {1}M\IeC {\'e}thodes num\IeC {\'e}riques}{2}{section.1}
 \contentsline {subsection}{\numberline {1.1}Mod\IeC {\`e}le de Lebwohl-Lasher}{2}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Algorithme Monte-Carlo}{2}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Ratio d'acceptation}{2}{subsection.1.3}
-\contentsline {section}{\numberline {2}Transition n\IeC {\'e}matique-isotrope}{3}{section.2}
-\contentsline {section}{\numberline {3}Influence d'un champ \IeC {\'e}lectrique}{4}{section.3}
-\contentsline {section}{Conclusion}{5}{section*.6}
-\contentsline {section}{\numberline {A}Premi\IeC {\`e}re annexe}{6}{appendix.A}
-\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{7}{section*.7}
+\contentsline {subsection}{\numberline {1.2}Param\IeC {\`e}tre d'ordre}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Algorithme Monte-Carlo}{2}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Impl\IeC {\'e}mentation}{3}{subsection.1.4}
+\contentsline {section}{\numberline {2}Transition n\IeC {\'e}matique-isotrope}{4}{section.2}
+\contentsline {section}{\numberline {3}Influence d'un champ \IeC {\'e}lectrique}{5}{section.3}
+\contentsline {section}{Conclusion}{6}{section*.7}
+\contentsline {section}{\numberline {A}Premi\IeC {\`e}re annexe}{7}{appendix.A}
+\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{8}{section*.8}

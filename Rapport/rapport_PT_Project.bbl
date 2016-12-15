@@ -4,20 +4,27 @@
 P.~A. Lebwohl and G.~Lasher.
 \newblock Nematic-liquid-crystal order\char22{}a monte carlo calculation.
 \newblock {\em Phys. Rev. A}, 6:426--429, Jul 1972.
-\newblock \url{http://link.aps.org/doi/10.1103/PhysRevA.6.426}.
+\newblock \url{http://journals.aps.org/pra/abstract/10.1103/PhysRevA.6.426}.
 
-\bibitem{maier}
-W.~Maier and A.~Saupe.
-\newblock Eine einfache molekulare theorie des nematischen kristallinflussigen
-  zustandes.
-\newblock 1958.
-
-\bibitem{maierbis}
-GR~Luckhurst and C~Zannoni.
-\newblock Why is the maier--saupe theory of nematic liquid crystals so
-  successful?
-\newblock 1977.
+\bibitem{confined}
+R.~G. Marguta, Y.~Mart\'{\i}nez-Rat\'on, N.~G. Almarza, and E.~Velasco.
+\newblock Theory and simulation of the confined lebwohl-lasher model.
+\newblock {\em Phys. Rev. E}, 83:041701, Apr 2011.
 \newblock
-  \url{http://www.nature.com/nature/journal/v267/n5610/abs/267412b0.html}.
+  \url{http://journals.aps.org/pre/abstract/10.1103/PhysRevE.83.041701}.
+
+\bibitem{metropolis}
+Nicholas Metropolis, Arianna~W Rosenbluth, Marshall~N Rosenbluth, Augusta~H
+  Teller, and Edward Teller.
+\newblock Equation of state calculations by fast computing machines.
+\newblock {\em The journal of chemical physics}, 21(6):1087--1092, 1953.
+\newblock \url{http://aip.scitation.org/doi/abs/10.1063/1.1699114}.
+
+\bibitem{fabbri}
+U~Fabbri and C~Zannoni.
+\newblock A monte carlo investigation of the lebwohl-lasher lattice model in
+  the vicinity of its orientational phase transition.
+\newblock {\em Molecular Physics}, 58(4):763--788, 1986.
+\newblock \url{http://www.tandfonline.com/doi/abs/10.1080/00268978600101561}.
 
 \end{thebibliography}
