@@ -38,12 +38,24 @@ def figure(basename, nFile, skiprow):
     plt.rc('text', usetex=True)
     plt.rc('font', family='serif')
 
-    filename = '{0}{1}/local{1}_study.save'.format(basename,0)
+    filename = '{0}0/local0_study.save'.format(basename)
         #données    
-    (temperature, energie, deltaEnergie, order, deltaOrder) = donnees(
+    (temperature, _, _, _, _) = donnees(
             filename, skiprow) 
-    
-    for file in np.arange(1,nFile):
+
+    size = temperature.shape
+
+    order = np.zeros(size)
+    energie = np.zeros(size)
+    deltaEnergie = np.zeros(size)
+    deltaOrder = np.zeros(size)
+
+    TrDeltaEn = np.zeros(nFile)
+    TrDeltaOr = np.zeros(nFile)
+    TrDiffEn = np.zeros(nFile)
+    TrDiffOr = np.zeros(nFile)
+
+    for file in np.arange(nFile):
 
         filename = '{0}{1}/local{1}_study.save'.format(basename,file)
         #données    
@@ -51,11 +63,44 @@ def figure(basename, nFile, skiprow):
         order += orderfile
         energie += energiefile
         deltaEnergie += deltaEnergiefile
-        deltaOrder += deltaOrder
+        deltaOrder += deltaOrderfile
+       
+        TrDeltaEn[file] = temperature[np.argmax(deltaEnergie)]
+        TrDeltaOr[file] = temperature[np.argmax(deltaOrder)]
+        TrDiffOr[file] = temperature[np.argmax(abs(np.diff(energie)))]
+        TrDiffEn[file] = temperature[np.argmax(abs(np.diff(order)))]
 
 
+    order /= nFile
+    energie /= nFile
+    deltaEnergie /= nFile
+    deltaOrder /= nFile
+
+    print("Moyenne sur les réalisations puis température de transition :")
+    print("Delta Energie")
     print(temperature[np.argmax(deltaEnergie)])
+    print("Delta Ordre")
     print(temperature[np.argmax(deltaOrder)])
+
+    print("Derivée Energie")
+    print(temperature[np.argmax(abs(np.diff(energie)))])
+    print("Derivée Ordre")
+    print(temperature[np.argmax(abs(np.diff(order)))])
+
+
+    print("Température de transition puis moyenne sur les transitions")
+    print("Delta Energie")
+    print(np.mean(TrDeltaEn))
+    print(TrDeltaEn)
+    print("Delta Ordre")
+    print(np.mean(TrDeltaOr))
+    print(TrDeltaOr)
+    print("Derivée Energie")
+    print(np.mean(TrDiffEn))
+    print(TrDiffEn)
+    print("Derivée Ordre")
+    print(np.mean(TrDiffOr))
+    print(TrDiffOr)
     
     fig, ax1 = plt.subplots()
 
@@ -75,7 +120,7 @@ def figure(basename, nFile, skiprow):
     ax2.set_ylabel(r"Energie", fontsize = 18, color = 'b')
     
     #enregistrement de l'image
-    plt.savefig("local.pdf", bbox_inches='tight')
+    plt.savefig("local_.pdf", bbox_inches='tight')
     plt.cla()
 
     fig, ax1 = plt.subplots()
@@ -96,7 +141,7 @@ def figure(basename, nFile, skiprow):
     ax2.set_ylabel(r"Energie", fontsize = 18, color = 'b')
     
     #enregistrement de l'image
-    plt.savefig("local2.pdf", bbox_inches='tight')
+    plt.savefig("local_delta.pdf", bbox_inches='tight')
     plt.cla()
 
 figure('Local/Local',10,3)
