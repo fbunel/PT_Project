@@ -60,10 +60,6 @@ Study :: Study(string basename) :
 
 void Study :: run() {
 
-    if (compteur == 0) {
-        cout << "Equilibrage initial à la température : " << Temperatures[0] << endl;
-        montecarlo.equilibrate();
-    }
 
     while(compteur < tempSample){
         cout << endl << BOLDYELLOW << "Temperature " 
@@ -76,7 +72,6 @@ void Study :: run() {
         montecarlo.calculate();
         montecarlo.meanEnergie(Energies[compteur]);
         montecarlo.meanOrder(Orders[compteur]);
-        montecarlo.exportArray(outputFile, compteur);
 
         cout << CYAN << "     Paramètre d'ordre : " << Orders[compteur][0]
              << " +/- " << Orders[compteur][1]

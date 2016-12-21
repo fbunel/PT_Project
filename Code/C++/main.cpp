@@ -18,11 +18,11 @@ clock_t start;
 start = clock();
 
 int size = 30;
-int equiSample = 1000;
-int meanSample = 10000;
-double tempStart = 1.12;
-double tempEnd = 1.13;
-double tempSample = 10;
+int equiSample = 5000;
+int meanSample = 25000;
+double tempStart = 1.115;
+double tempEnd = 1.135;
+double tempSample = 100;
 bool startRandom = false;
 string outputfile = "save";
 
@@ -32,6 +32,8 @@ study.run();
 
 cout << "Temps de calcul: " << (clock() - start) / (double)(CLOCKS_PER_SEC) 
      << " secondes" << endl;
+
+
 
 return 0;
 }
