@@ -5,9 +5,10 @@
 using namespace std;
 
 /*Constructeur de base*/
-Lattice :: Lattice(int size) : 
+Lattice :: Lattice(int size, double electricField) : 
     minimalEnergie(-3),
     size(size),
+    electricField(electricField),
     orderMatrixInitialised(false),
     gen(std::random_device()()),
     dis(0,1) {
@@ -40,6 +41,7 @@ Lattice :: Lattice(std::string basename) :
 
     if(flux) {
         flux >> size;
+        flux >> electricField;
         latticeArray.resize(size);
         for (int i = 0; i < size; ++i) {
             latticeArray[i].resize(size);
@@ -110,12 +112,14 @@ double Lattice :: moveEnergie(
 
     //On calcule l'énergie
     energieVariation -= this->localEnergie(siteStocked);
+    energieVariation -= this->fieldEnergie(siteStocked);
 
     //On change la valeur de l'angle de 
     this->nearRandomOrientation(dmax);
 
     //On recalcul l'énergie
     energieVariation += this->localEnergie(siteStocked);
+    energieVariation += this->fieldEnergie(siteStocked);
 
     return energieVariation;
 }
@@ -138,6 +142,7 @@ double Lattice :: latticeEnergie() {
             for (int k = 0; k < size; ++k) {           
                 site[2] = k;
                 latticeEnergie += localEnergie(site);
+                latticeEnergie += 2*fieldEnergie(site);
             }
         }
     }
@@ -176,6 +181,7 @@ void Lattice :: saveLattice(string basename) const{
 
     if(flux) {
         flux << size << endl;
+        flux << electricField << endl;
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
                 for (int k = 0; k < size; ++k) {
@@ -233,6 +239,22 @@ double Lattice :: localEnergie(const std::array<int, 3> &site) {
     return(localEnergie);
 }
 
+double Lattice :: fieldEnergie(
+    const std::array<int, 3> &site1) const {
+
+    return(
+        electricField*(1-3*pow(latticeArray[site1[0]][site1[1]][site1[2]][0],2))/2);
+}
+
+double Lattice :: energie(
+    const std::array<int, 3> &site1, 
+    const std::array<int, 3> &site2) const {
+
+    return((1-3*pow(this->cosAngle(
+        latticeArray[site1[0]][site1[1]][site1[2]],
+        latticeArray[site2[0]][site2[1]][site2[2]]),2))/2);
+}
+
 void Lattice :: nearestNeighboor(const std::array<int, 3> &site) {
 
     for (int i = 0; i < 6; ++i) {
@@ -254,14 +276,7 @@ void Lattice :: nearestNeighboor(const std::array<int, 3> &site) {
     }
 }
 
-double Lattice :: energie(
-    const std::array<int, 3> &site1, 
-    const std::array<int, 3> &site2) const {
 
-    return((1-3*pow(this->cosAngle(
-        latticeArray[site1[0]][site1[1]][site1[2]],
-        latticeArray[site2[0]][site2[1]][site2[2]]),2))/2);
-}
 
 void Lattice :: initialiseOrderMatrix() {
 

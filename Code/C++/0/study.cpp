@@ -4,7 +4,8 @@ using namespace std;
 
 /*Constructeur de base*/
 Study :: Study(
-    int size, 
+    int size,
+    double electricField,
     int equiSample,
     int meanSample,
     double tempStart,
@@ -12,7 +13,7 @@ Study :: Study(
     double tempSample,
     bool startRandom,
     string outputFile) :
-    montecarlo(size, equiSample, meanSample, tempStart, startRandom),
+    montecarlo(size, equiSample, meanSample, tempStart, electricField, startRandom),
     compteur(0),
     tempSample(tempSample),
     outputFile(outputFile) {
@@ -60,6 +61,10 @@ Study :: Study(string basename) :
 
 void Study :: run() {
 
+    if (compteur == 0) {
+        cout << "Equilibrage initial à la température : " << Temperatures[0] << endl;
+        montecarlo.equilibrate();
+    }
 
     while(compteur < tempSample){
         cout << endl << BOLDYELLOW << "Temperature " 

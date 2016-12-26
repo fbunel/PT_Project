@@ -8,8 +8,9 @@ Montecarlo :: Montecarlo(
     int equiSample,
     int meanSample,
     double temperature,
+    double electricField,
     bool startRandom) :
-    lattice(size),
+    lattice(size, electricField),
     equiSample(equiSample),
     meanSample(meanSample),
     cycleMove(pow(size,3)),

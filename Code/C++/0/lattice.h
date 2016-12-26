@@ -20,7 +20,7 @@ class Lattice
     public:
     /*Constructeur de la classe
     - size : la taille de la lattice*/
-    Lattice(int size);
+    Lattice(int size, double electricField);
 
     /*Constructeur de la classe
     - filename : Nom du fichier à partir duquel on extrait la lattice */
@@ -90,14 +90,18 @@ class Lattice
     - site : site de la lattice*/ 
     double localEnergie(const std::array<int, 3> &site);
 
-    /*Remplie la liste des plus proches voisins nearestNeighboor
-    - site : site de la lattice*/
-    void nearestNeighboor(const std::array<int, 3> &site);
+    /*Calcule l'énergie d'intéraction avec un champ électrique dirigée selon z*/
+    double fieldEnergie(
+        const std::array<int, 3> &site1) const;
 
     /*Calcule l'énergie d'intéraction entre deux sites*/
     double energie(
         const std::array<int, 3> &site1, 
         const std::array<int, 3> &site2) const;
+
+    /*Remplie la liste des plus proches voisins nearestNeighboor
+    - site : site de la lattice*/
+    void nearestNeighboor(const std::array<int, 3> &site);
 
     /* Initialise la matrice du paramètre d'ordre*/
     void initialiseOrderMatrix();
@@ -123,6 +127,9 @@ class Lattice
     
     /*Taille de la lattice*/
     int size;
+
+    /*Intensité du champ électrique*/
+    double electricField;
 
     /*La lattice*/
     std::vector< std::vector<std::vector<std::array<double, 2>>>> latticeArray;

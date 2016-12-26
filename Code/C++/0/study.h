@@ -17,7 +17,8 @@ class Study
     public:
     /*Constructeur de la classe*/
     Study(
-        int size, 
+        int size,
+        double electricField,
         int equiSample,
         int meanSample,
         double tempStart,

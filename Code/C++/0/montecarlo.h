@@ -17,7 +17,7 @@ class Montecarlo
 {
     public:
     /*Constructeur de la classe*/
-    Montecarlo(int size, int equiSample, int meanSample, double temperature, bool startRandom);
+    Montecarlo(int size, int equiSample, int meanSample, double temperature, double electricField, bool startRandom);
 
     /*Constructeur de la classe*/
     Montecarlo(std::string basename);

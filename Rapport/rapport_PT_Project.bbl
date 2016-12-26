@@ -14,8 +14,7 @@ R.~G. Marguta, Y.~Mart\'{\i}nez-Rat\'on, N.~G. Almarza, and E.~Velasco.
   \url{http://journals.aps.org/pre/abstract/10.1103/PhysRevE.83.041701}.
 
 \bibitem{metropolis}
-Nicholas Metropolis, Arianna~W Rosenbluth, Marshall~N Rosenbluth, Augusta~H
-  Teller, and Edward Teller.
+N~Metropolis, A~W Rosenbluth, M~N Rosenbluth, A~H Teller, and E~Teller.
 \newblock Equation of state calculations by fast computing machines.
 \newblock {\em The journal of chemical physics}, 21(6):1087--1092, 1953.
 \newblock \url{http://aip.scitation.org/doi/abs/10.1063/1.1699114}.
@@ -26,5 +25,10 @@ U~Fabbri and C~Zannoni.
   the vicinity of its orientational phase transition.
 \newblock {\em Molecular Physics}, 58(4):763--788, 1986.
 \newblock \url{http://www.tandfonline.com/doi/abs/10.1080/00268978600101561}.
+
+\bibitem{github}
+F~Bunel and H~Vergnet.
+\newblock Github.
+\newblock \url{https://github.com/fbunel/PT_Project}.
 
 \end{thebibliography}
