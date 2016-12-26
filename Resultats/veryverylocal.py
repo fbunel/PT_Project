@@ -144,4 +144,4 @@ def figure(basename, nFile, skiprow):
     plt.savefig("veryverylocal_delta.pdf", bbox_inches='tight')
     plt.cla()
 
-figure('veryverylocal/veryverylocal',5,3)
+figure('veryverylocal/veryverylocal',8,3)
