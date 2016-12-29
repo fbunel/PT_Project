@@ -1,0 +1,40 @@
+\documentclass[tikz]{standalone}
+\input{preamble_tikz.tex}
+\tdplotsetmaincoords{90}{90}
+\begin{document}
+\begin{tikzpicture}[scale=2,line join=bevel,tdplot_main_coords,fill opacity=1]
+
+    \coordinate (O) at (0,0,0);
+
+    \foreach \angle in {-90,-60,...,90}
+    {
+        %calculate the sine and cosine of the angle
+        \tdplotsinandcos{\sintheta}{\costheta}{\angle}%
+
+        %define a point along the z-axis through which to draw
+        %a circle in the xy-plane
+        \coordinate (P) at (0,0,\sintheta);
+
+        %draw the circle in the main frame
+        \tdplotdrawarc{(P)}{\costheta}{270}{360}{}{}
+        \tdplotdrawarc{(P)}{\costheta}{0}{90}{}{}
+        
+        %define the rotated coordinate frame based on the angle
+        \tdplotsetthetaplanecoords{\angle}
+        
+        %draw the circle in the rotated frame
+        \tdplotdrawarc[tdplot_rotated_coords]{(O)}{1}{0}{180}{}{}
+    }
+
+	\pgfmathsetmacro{\rvec}{1}
+
+	\foreach \i in {0,...,2000}{
+		\pgfmathsetmacro{\x}{1};
+    	\pgfmathsetmacro{\thetavec}{rand*180}
+    	\pgfmathsetmacro{\phivec}{rand*180}
+    	\tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+	    \draw[blue] (P) node[fill,circle,inner sep=0pt,minimum size=2pt]{};
+	}
+
+\end{tikzpicture}
+\end{document}

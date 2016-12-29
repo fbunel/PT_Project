@@ -14,13 +14,26 @@ R.~G. Marguta, Y.~Mart\'{\i}nez-Rat\'on, N.~G. Almarza, and E.~Velasco.
   \url{http://journals.aps.org/pre/abstract/10.1103/PhysRevE.83.041701}.
 
 \bibitem{metropolis}
-N~Metropolis, A~W Rosenbluth, M~N Rosenbluth, A~H Teller, and E~Teller.
+N.~Metropolis, A.~W. Rosenbluth, M.~N. Rosenbluth, A.~H. Teller, and E.~Teller.
 \newblock Equation of state calculations by fast computing machines.
 \newblock {\em The journal of chemical physics}, 21(6):1087--1092, 1953.
 \newblock \url{http://aip.scitation.org/doi/abs/10.1063/1.1699114}.
 
+\bibitem{acceptanceratio}
+B.~Jayaram.
+\newblock On the acceptance ratio in monte carlo computer simulations.
+\newblock {\em Journal of Mathematical Chemistry}, 20(2):395--397, 1996.
+\newblock \url{http://dx.doi.org/10.1007/BF01165356}.
+
+\bibitem{acceptanceratio1}
+Christopher~CJ Potter and Robert~H Swendsen.
+\newblock 0.234: The myth of a universal acceptance ratio for monte carlo
+  simulations.
+\newblock {\em Physics Procedia}, 68:120--124, 2015.
+\newblock \url{http://dx.doi.org/10.1016/j.phpro.2015.07.120}.
+
 \bibitem{fabbri}
-U~Fabbri and C~Zannoni.
+U.~Fabbri and C.~Zannoni.
 \newblock A monte carlo investigation of the lebwohl-lasher lattice model in
   the vicinity of its orientational phase transition.
 \newblock {\em Molecular Physics}, 58(4):763--788, 1986.
