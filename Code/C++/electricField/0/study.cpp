@@ -10,7 +10,7 @@ Study :: Study(
     int meanSample,
     double tempStart,
     double tempEnd,
-    double tempSample,
+    int tempSample,
     bool startRandom,
     string outputFile) :
     montecarlo(size, equiSample, meanSample, tempStart, electricField, startRandom),
@@ -87,6 +87,7 @@ void Study :: run() {
              << RESET << endl;
 
         // montecarlo.exportArray(outputFile, compteur);
+        montecarlo.histoEnergie(outputFile, 20000, compteur);
 
         compteur++;
         studySave();

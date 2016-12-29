@@ -1,4 +1,5 @@
 #include "montecarlo.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -177,12 +178,58 @@ void Montecarlo :: meanOrder(array<double, 2> &meanstdOrder) const {
     meanstdOrder[1] = sqrt(meanstdOrder[1]/totalMove);
 }
 
+void Montecarlo :: histoEnergie(
+    const string basename, const int histoDots, const int compteur) const{
+
+    /*Tableau de l'histogramme*/
+    std::vector<int> histoCompteur(histoDots);
+    std::vector<double> histoEnergie(histoDots);
+
+    double minimalEnergie = *min_element(std::begin(energies), std::end(energies));
+    double maximalEnergie = *max_element(std::begin(energies), std::end(energies));
+
+    cout << RED
+         << minimalEnergie << endl
+         << maximalEnergie;
+
+    //On crée la range d'énergie
+    for (int d = 0; d < histoDots; ++d) {
+        histoEnergie[d] = 
+            (d*(maximalEnergie - minimalEnergie)/histoDots + minimalEnergie)
+            /cycleMove - lattice.minimalEnergie;
+    }
+
+    //On parcourt le tableau et on remplit l'histogramme
+    for (int i = 0; i < totalMove; ++i) {
+        histoCompteur[floor(
+            (energies[i] - minimalEnergie)
+            /(maximalEnergie - minimalEnergie)
+            *(histoDots-0.00001))]++;
+    }
+
+    //On sauvegarde dans un fichier
+    string filename = basename + to_string(compteur) + ".histo";
+    ofstream flux(filename.c_str(), ios::out | ios::trunc);
+    if(flux) {
+
+        flux << temperature << endl;
+        for (int d = 0; d < histoDots; ++d) {
+            flux << histoEnergie[d] << ' ' << histoCompteur[d] << endl;
+        }
+          
+    } else {
+        cout << BOLDRED << "Impossible d'ouvrir le fichier " << filename 
+             << RESET << endl;
+    }
+
+}
+
 void Montecarlo :: changeTemperature(const double temp) {
 
     temperature =  temp;    
 }
 
-void Montecarlo :: exportArray(string basename, const int compteur) const{
+void Montecarlo :: exportArray(const string basename, const int compteur) const{
     
     string filename = basename + to_string(compteur) + ".data";
     
@@ -202,7 +249,7 @@ void Montecarlo :: exportArray(string basename, const int compteur) const{
     }
 }
 
-void Montecarlo :: saveMontecarlo(string basename) const{
+void Montecarlo :: saveMontecarlo(const string basename) const{
     
     string filename = basename + "_montecarlo.save";
     

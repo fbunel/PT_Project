@@ -145,8 +145,8 @@ def figure(basename, skiprow, outputname):
     plt.cla()
 
 figure('veryverylocal/**/**study.save',3, 'veryverylocal')
-# figure('global/**study.save',3, 'global')
-#figure('local/**/**study.save',3, 'local')
-#figure('verylocal/**/**study.save',3, 'verylocal')
+figure('global/**study.save',3, 'global')
+figure('local/**/**study.save',3, 'local')
+figure('verylocal/**/**study.save',3, 'verylocal')
 
-# figure('series/**/*study.save',3,'series')
+figure('series/**/*study.save',3,'series')

@@ -19,20 +19,14 @@ start = clock();
 
 int size = 30;
 double electricField = 0;
-int equiSample = 300;
-int meanSample = 100;
-double tempStart = 1;
-double tempEnd = 1;
-double tempSample = 1;
+int equiSample = 5000;
+int meanSample = 25000;
+double tempStart = 1.10;
+double tempEnd = 1.14;
+double tempSample = 100;
 bool startRandom = false;
-string basename = "equilibrage";
+string basename = "Results/histo";
 string outputfile;
-
-// for (int stud = 0; stud < 20; ++stud) {
-//     outputfile = basename + to_string(stud);
-//     Study study(size, electricField, equiSample, meanSample, tempStart, tempEnd, tempSample, startRandom, outputfile);
-//     study.run();
-// }
 
 Study study(size, electricField, equiSample, meanSample, tempStart, tempEnd, tempSample, startRandom, basename);
 study.run();

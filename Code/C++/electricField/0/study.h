@@ -23,7 +23,7 @@ class Study
         int meanSample,
         double tempStart,
         double tempEnd,
-        double tempSample,
+        int tempSample,
         bool startRandom,
         std::string outputFile);
 

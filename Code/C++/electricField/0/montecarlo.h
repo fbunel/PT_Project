@@ -34,14 +34,18 @@ class Montecarlo
     /*Calcule la moyenne et la std*/
     void meanOrder(std::array<double, 2> &meanstdOrder) const;
 
+    /*Calcule un histogramme des énergies et le sotcke dans un fichier*/
+    void histoEnergie(
+        const std::string basename, const int histoDots, const int compteur) const ;
+
     /*Change la température du système*/
     void changeTemperature(const double temp);
 
     /*Export*/
-    void exportArray(std::string basename, const int compteur) const;
+    void exportArray(const std::string basename, const int compteur) const;
 
     /*Sauvegarde MonteCarlo*/
-    void saveMontecarlo(std::string basename) const;
+    void saveMontecarlo(const std::string basename) const;
 
     /*La lattice*/
     Lattice lattice;
@@ -59,7 +63,7 @@ class Montecarlo
         const int i,
         const double &energieVariation);
 
-    /*Mets à jour la valeur de dmax et les deux compteurs*/
+    /*Mets à jour la valeur du paramètre d'ordre*/
     void updateOrderParameter(
         const int i,
         const bool moveAccepted);
