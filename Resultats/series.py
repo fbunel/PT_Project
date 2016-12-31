@@ -144,9 +144,11 @@ def figure(basename, skiprow, outputname):
     plt.savefig("{0}_delta.pdf".format(outputname), bbox_inches='tight')
     plt.cla()
 
-figure('veryverylocal/**/**study.save',3, 'veryverylocal')
-figure('global/**study.save',3, 'global')
-figure('local/**/**study.save',3, 'local')
-figure('verylocal/**/**study.save',3, 'verylocal')
-
-figure('series/**/*study.save',3,'series')
+# figure('veryverylocal/**/**study.save',3, 'veryverylocal')
+# figure('global/**study.save',3, 'global')
+# figure('local/**/**study.save',3, 'local')
+# figure('verylocal/**/**study.save',3, 'verylocal')
+figure('electricField/005/**/**study.save',3, 'electric005')
+figure('electricField/01/**/**study.save',3, 'electric01')
+figure('electricField/02_fail/**/**study.save',3, 'electric02')
+# figure('series/**/*study.save',3,'series')
