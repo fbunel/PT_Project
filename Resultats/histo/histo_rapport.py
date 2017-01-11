@@ -53,7 +53,7 @@ def plot_hist(f,xlim=[1.75,2.25],ylim=[0,0.005]):
 f="../2/histo057.histo"
 plot_hist("../2/histo057.histo")
 plt.savefig("histo_1.1228.pdf")
-plot_hist("../3/histo056.histo")
+plot_hist("../3/histo060.histo")
 plt.savefig("histo_1.124.pdf")
 plot_hist("../0/histo052.histo")
 plt.savefig("histo_1.1208.pdf")
