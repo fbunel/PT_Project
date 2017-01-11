@@ -1,17 +1,21 @@
 \select@language {french}
-\contentsline {section}{Introduction}{1}{section*.3}
-\contentsline {section}{\numberline {1}Th\IeC {\'e}orie de la transition n\IeC {\'e}matique-isotrope}{2}{section.1}
-\contentsline {subsection}{\numberline {1.1}La phase n\IeC {\'e}matique}{2}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Le param\IeC {\`e}tre d'ordre}{2}{subsection.1.2}
-\contentsline {section}{\numberline {2}M\IeC {\'e}thodes num\IeC {\'e}riques}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Mod\IeC {\`e}le de Lebwohl-Lasher}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Algorithme Monte-Carlo}{4}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}\IeC {\'E}quiprobabilit\IeC {\'e} des directions}{5}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Ratio d'acceptation}{5}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}D\IeC {\'e}roulement d'une simulation}{6}{subsection.2.5}
-\contentsline {subsection}{\numberline {2.6}Langage de programmation}{6}{subsection.2.6}
-\contentsline {section}{\numberline {3}Transition n\IeC {\'e}matique-isotrope}{7}{section.3}
-\contentsline {section}{\numberline {4}Influence d'un champ \IeC {\'e}lectrique}{8}{section.4}
-\contentsline {section}{Conclusion}{9}{section*.10}
-\contentsline {section}{\numberline {A}Premi\IeC {\`e}re annexe}{10}{appendix.A}
-\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{11}{section*.11}
+\contentsline {section}{Introduction}{2}{section*.3}
+\contentsline {section}{\numberline {1}Th\IeC {\'e}orie de la transition n\IeC {\'e}matique-isotrope}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}La phase n\IeC {\'e}matique}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Le param\IeC {\`e}tre d'ordre}{3}{subsection.1.2}
+\contentsline {section}{\numberline {2}M\IeC {\'e}thodes num\IeC {\'e}riques}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Mod\IeC {\`e}le de Lebwohl-Lasher}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Algorithme Monte-Carlo}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}\IeC {\'E}quiprobabilit\IeC {\'e} des directions}{6}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Ratio d'acceptation}{6}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}D\IeC {\'e}roulement d'une simulation}{7}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Langage de programmation}{7}{subsection.2.6}
+\contentsline {section}{\numberline {3}Transition n\IeC {\'e}matique-isotrope}{8}{section.3}
+\contentsline {subsection}{\numberline {3.1}Echelle de temp\IeC {\'e}rature et d'\IeC {\'e}nergie.}{8}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Observation de la transition}{8}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Temp\IeC {\'e}rature de transition}{9}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Histogramme en \IeC {\'e}nergie}{10}{subsection.3.4}
+\contentsline {section}{\numberline {4}Influence d'un champ \IeC {\'e}lectrique}{11}{section.4}
+\contentsline {section}{Conclusion}{12}{section*.15}
+\contentsline {section}{\numberline {A}Premi\IeC {\`e}re annexe}{13}{appendix.A}
+\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{14}{section*.16}

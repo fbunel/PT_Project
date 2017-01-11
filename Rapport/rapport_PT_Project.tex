@@ -123,7 +123,6 @@ M2 Physique 2015-2016
 
 \newpage
 
-\renewcommand\thepage{}
 
 \section*{Remerciements}
 
@@ -135,7 +134,6 @@ M2 Physique 2015-2016
 
 \newpage
 \renewcommand\thepage{\arabic{page}}
-\setcounter{page}{1}
 
 
 \definecolor{linkcolor}{rgb}{0,0,1}
@@ -186,11 +184,11 @@ Pour décrire le degré d'alignement moléculaire dans la phase nématique, on p
  \cos \theta 
  \end{pmatrix} 
 \end{equation}
-Le degré d'alignement moléculaire peut donc être décrit par la densité de probabilité $f(\theta,\phi)d\Omega$ de trouver la molécule dans un angle solide $d\Omega = d\theta\, \sin \theta d\phi$ autour de la direction $(\theta,\phi)$. Si on choisit d'orienter la troisième coordonnée selon le directeur $\bm{n}$, cette fonction ne dépend pas de $\phi$ par symétrie. De plus, elle respecte $f(\theta) = f(\pi - \theta)$ puisque les molécules ont la même probabilité de pointer dans une direction ou dans celle opposée. La forme générique de cette fonction est présentée en figure \ref{distrib}.
+Le degré d'alignement moléculaire peut donc être décrit par la densité de probabilité $f(\theta,\phi)d\Omega$ de trouver la molécule dans un angle solide $d\Omega = d\theta\, \sin \theta d\phi$ autour de la direction $(\theta,\phi)$. Si on choisit d'orienter la troisième coordonnée selon le directeur $\bm{n}$, cette fonction ne dépend pas de $\phi$ par symétrie. De plus, elle respecte $f(\theta) = f(\pi - \theta)$ puisque les molécules ont la même probabilité de pointer dans une direction ou dans celle opposée. La forme générique de cette fonction est présentée en Figure \ref{distrib}.
 
 \begin{figure}[h]
     \centering	    
-	\includegraphics[scale=0.35]{figures/distrib.pdf}
+	\includegraphics[scale=0.4]{figures/distrib.pdf}
     \caption{Densité de probabilité $f(\theta)$}
     	\label{distrib} 
 \end{figure}
@@ -234,6 +232,7 @@ Le scalaire $S$ mesure donc le degré d'alignement selon le directeur. Il est é
 \section{Méthodes numériques}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans cette partie, on présente le modèle de Lebwohl-Lasher utilisé ainsi que les différentes optimisations implémentés en plus de l'algorithme Monte-Carlo qui gouverne son évolution.
 
 \subsection{Modèle de Lebwohl-Lasher}
 Le modèle de Lebwohl-Lasher \cite{model} est en quelque sorte l'analogue pour la transition nématique-isotrope du modèle d'Ising. Comme pour ce dernier, il permet d'obtenir des résultats très satisfaisants malgré sa simplicité.\medskip
@@ -250,6 +249,7 @@ Dans ce modèle, les molécules du cristal liquide sont représentées uniquemen
 Les différents sites du réseau interagissent uniquement entre plus proches voisins par l'intermédiaire d'un potentiel de la forme :
 \begin{equation}
 E_{i,j} = - \epsilon\ \frac{3\cos^2\theta_{i,j}-1}{2}
+\label{interact}
 \end{equation}
 où $\epsilon$ est une constante positive et $\theta_{i,j}$ est l'angle entre deux molécules voisines. 
 Cette énergie est minimale lorsque les molécules sont parfaitement alignées : si $\theta_{i,j} = 0$ alors $E_{i,j} = - \epsilon$. Et elle est maximale lorsque les molécules ont des directions orthogonales : si $\theta_{i,j} = \pi/2$ alors $E_{i,j} = \epsilon/2$.
@@ -258,7 +258,7 @@ Ces interactions auront donc tendance à favoriser les configurations où les mo
 On comprend alors assez bien pourquoi ce système subit une transition de phase. Les deux énergies intervenant dans ce système sont celles de l'interaction entre les molécules et celle de l'agitation thermique dont les échelles sont respectivement $\epsilon$ et $k_B T$.
 À haute température, l'agitation thermique prédomine et l'orientation des molécules est aléatoire. À basse température, c'est l'énergie d'interaction entre les sites qui est la plus importante et les molécules privilégient donc une direction commune.\medskip
 
-Pour toute notre étude, des conditions aux limites périodiques ont été imposées mais d'autres conditions sont également possibles. Des travaux récents \cite{confined} ont par exemple utilisé une énergie à la surface de la même forme que le potentiel d'interaction pour simuler une cellule avec un ancrage aux parois. 
+Pour toute notre étude de la transition de phase, des conditions aux limites périodiques ont été imposées mais d'autres conditions sont également possibles. Des travaux récents \cite{confined} ont par exemple utilisé une énergie à la surface de la même forme que le potentiel d'interaction pour simuler une cellule avec un ancrage aux parois. 
 
 %L'énergie totale du système qui découle de cette interaction s'écrit simplement comme une somme sur les paires de plus proches voisins :
 %\begin{equation}
@@ -281,7 +281,7 @@ Il est important de noter que cette formule n'est valable que lorsque toute les 
 Il est possible de montrer qu'un grand nombre de répétition de ces mouvements permet d'obtenir la configuration d'équilibre du système. Des moyennes statistiques pour les quantités d'intérêts peuvent ensuite être calculés sur les micro-états générés par l'algorithme une fois l'équilibre atteint.
 
 \subsection{Équiprobabilité des directions}
-Pour chaque site du réseau, l'orientation de la molécule est stockée en tant que $\cos \theta$ et $\phi$ où $\theta$ et $\phi$ sont respectivement les angles polaires et azimutaux. Utiliser ces variables plutôt que simplement $\theta$ et $\phi$ est nécessaire à l'équiprobabilité des directions. En effet, si l'on tire au hasard un $\theta$ et un $\phi$, la probabilité d'obtenir une direction proche du pole est plus importante (voir figures \ref{a} et \ref{b}). Cette anisotropie disparaît lorsque l'on tire un $\cos \theta$ et un $\phi$ comme on peut le voir sur les figures \ref{c} et \ref{d}. Cela se comprend assez bien en se rappelant que l'élément de surface en sphérique s'écrit $d\theta\, \sin \theta d\phi = d\text{cos}\,\theta\, d\phi$.
+Pour chaque site du réseau, l'orientation de la molécule est stockée en tant que $\cos \theta$ et $\phi$ où $\theta$ et $\phi$ sont respectivement les angles polaires et azimutaux. Utiliser ces variables plutôt que simplement $\theta$ et $\phi$ est nécessaire à l'équiprobabilité des directions. En effet, si l'on tire au hasard un $\theta$ et un $\phi$, la probabilité d'obtenir une direction proche du pole est plus importante (Figures \ref{a} et \ref{b}). Cette anisotropie disparaît lorsque l'on tire un $\cos \theta$ et un $\phi$ comme on peut le voir sur les Figures \ref{c} et \ref{d}. Cela se comprend assez bien en se rappelant que l'élément de surface en sphérique s'écrit $d\theta\, \sin \theta d\phi = d\text{cos}\,\theta\, d\phi$.
 
 \begin{figure}[h!]
 \center
@@ -316,6 +316,7 @@ Pour chaque site du réseau, l'orientation de la molécule est stockée en tant 
     \caption{Tirage aléatoire de 2000 directions. \ref{a}, \ref{b} : en tirant  $\theta$ et $\phi$. \ref{c}, \ref{d} : en tirant  $\cos \theta$ et $\phi$.}
     \label{equipartition}
 \end{figure}
+\vspace{-0.6cm}
 
 \subsection{Ratio d'acceptation}
 Le fait de choisir la nouvelle direction sur l'ensemble de la sphère unité pose certains problèmes. En effet, si l'on part de l'état fondamental où toutes les molécules sont alignées, une grande partie des mouvements tentés seront refusés car ils augmentent fortement l'énergie du système. Cet effet est plus important à basse température mais se maintient au delà de la température de transition à laquelle le ratio d'acceptation n'est encore que de $20\%$. Par conséquent, très peu de micro-états différents sont observés et les moyennes calculées ne rendent alors pas bien compte du système.
@@ -330,15 +331,15 @@ Finalement, il est possible d'obtenir un ratio d'acceptation de $50\%$ sur toute
 Le choix d'un ratio d'acceptation de $50\%$ a été fait de manière arbitraire. Même si certaines recherches \cite{acceptanceratio} semblent montrer qu'un ratio d'acceptation entre $30\%$ et $50\%$ serait optimal, il s'agit encore aujourd'hui d'une question ouverte sur les algorithmes Monte-Carlo \cite{acceptanceratio1}.
 
 \subsection{Déroulement d'une simulation} 
-Les simulations reportées dans ce rapport ont toutes été réalisées sur un réseau cubique de taille $30\times 30\times 30$ avec des conditions aux limites périodiques. Elles sont commencées depuis l'état fondamental où toutes les molécules sont alignées. Lorsque l'on démarre la simulation, les molécules sont bougées les unes après les autres en utilisant l'algorithme de Monte-Carlo. On nomme "cycle" une suite de $30\times 30\times 30$ mouvements. Durant un cycle, toutes les molécules du réseau sont bougées exactement une fois mais dans un ordre aléatoire. Une telle procédure assure que toutes les molécules ont la même chance d'être bougée en réduisant les irrégularités dues à un tirage totalement aléatoire \cite{fabbri}. 
+Les simulations reportées dans ce rapport ont toutes été réalisées sur un réseau cubique de taille $30\times 30\times 30$ avec des conditions aux limites périodiques. Elles sont commencées depuis l'état fondamental où toutes les molécules sont alignées. Lorsque l'on démarre la simulation, les molécules sont bougées les unes après les autres en utilisant l'algorithme de Monte-Carlo. On nomme "cycle" une suite de $N = 30\times 30\times 30$ mouvements. Durant un cycle, toutes les molécules du réseau sont bougées exactement une fois mais dans un ordre aléatoire. Une telle procédure assure que toutes les molécules ont la même chance d'être bougée en réduisant les irrégularités dues à un tirage totalement aléatoire \cite{fabbri}. 
 \medskip
 
-Pour chaque température, au minimum 1000 cycles sont calculés pour faire évoluer le système vers la configuration d'équilibre. Les variations de l'énergie et du paramètre d'ordre permettent de vérifier que le système est bien à l'équilibre. Ensuite, jusqu'à 25000 cycles sont réalisés afin de calculer les quantités d'intérêts.
+Pour chaque température, au minimum 2000 cycles sont calculés pour faire évoluer le système vers la configuration d'équilibre . Même pour les températures élevées, seuls 300 cycles sont nécessaires. Par précaution, les variations de l'énergie et du paramètre d'ordre sont contrôlées pour vérifier que le système est bien à l'équilibre (Figure \ref{equilibrage}). Ensuite, jusqu'à 25000 cycles sont réalisés afin de calculer les quantités d'intérêts.
 
 \begin{figure}[h]
     \centering	    
-	\includegraphics[scale=0.7]{figures/equilibrage.pdf}
-    \caption{}
+	\includegraphics[scale=0.6]{figures/equilibrage.pdf}
+    \caption{Équilibrage du système à une température $T^\star = k_B T/\epsilon = 1$ en partant de l'état fondamental. La remise à l'échelle de l'échelle énergétique est détaillé en partie \ref{scale}.}
     	\label{equilibrage} 
 \end{figure}
 
@@ -351,8 +352,73 @@ Une première version du code a été implémentée en \texttt{Python} et a perm
 \section{Transition nématique-isotrope}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans cette partie, on présente les différents résultats obtenus sur la transition de phase observées. 
+%La transition de phase est introduit dans une première sous-partie. On détaillera ensuite l'étude de la température de transition qui a représenté la majeur partie du temps de travail. Enfin, une dernière partie 
+\subsection{Echelle de température et d'énergie.}
+\label{scale}
+Dans un premier temps, on peut détailler les grandeurs importantes du modèle de Lebwohl-Lasher pour cette transition de phase.
+\medskip
+
+Bien entendu, l'échelle caractérisant les énergies est $\epsilon$, qui apparaît dans la formule \ref{interact}. Dans cette étude, toutes les quantités énergétiques ont donc été renormalisées par rapport à $\epsilon$ et $N$, qui est le nombre de site dans la lattice. De plus, les échelles énergétiques ont été décalées de sorte que l'état fondamental soit d'énergie nulle. Pour résumer, les énergies représentées dans ce rapport correspondent à l'énergie moyenne stockée dans un site et écrit en unité de $\epsilon$ : $E^\star=E/N\epsilon$.
+\medskip
+
+Ensuite, le seul endroit ou intervient la température dans ce modèle est dans la probabilité d'accepter un pas \ref{boltzmannprob}. Ainsi, on peut définir la température réduite $T^\star = k_B T /\epsilon$ qui est celle importante pour la transition.
+
+\subsection{Observation de la transition}
+Une première méthode pour observer la transition de phase est d'afficher directement les
 
 
+\begin{figure}[h!]
+\center
+    \begin{subfigure}[b]{0.30\textwidth}
+    	\center
+    	\includegraphics[scale=1]{figures/00.pdf}
+    	\caption{$T^\star =0$}
+    	\label{a}
+    \end{subfigure}	
+	\begin{subfigure}[b]{0.30\textwidth}
+    	\center
+    	\includegraphics[scale=1]{figures/09.pdf}
+    	\caption{$T^\star =0.9$}
+    	\label{b}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.30\textwidth}
+    	\center
+    	\includegraphics[scale=1]{figures/15.pdf}
+    	\caption{$T^\star =1.5$}
+    	\label{d}
+    \end{subfigure}	
+    \caption{}
+    \label{equipartition}
+\end{figure}
+
+\begin{figure}[h]
+    \centering	    
+	\includegraphics[scale=0.6]{figures/global.pdf}
+    \caption{}
+    	\label{global} 
+\end{figure}
+
+\newpage
+
+\subsection{Température de transition}
+
+\begin{figure}[h]
+    \centering	    
+	\includegraphics[scale=0.6]{figures/local_energie.pdf}
+    \caption{}
+    	\label{global} 
+\end{figure}
+
+\begin{figure}[h]
+    \centering	    
+	\includegraphics[scale=0.6]{figures/local_order.pdf}
+    \caption{}
+    	\label{global} 
+\end{figure}
+
+\newpage
+\subsection{Histogramme en énergie}
 
 
 \newpage
@@ -361,6 +427,13 @@ Une première version du code a été implémentée en \texttt{Python} et a perm
 \section{Influence d'un champ électrique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+    \centering	    
+	\includegraphics[scale=0.6]{figures/electricField.pdf}
+    \caption{}
+    	\label{global} 
+\end{figure}
 
 
 \newpage

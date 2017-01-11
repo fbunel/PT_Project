@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  29 DEC 2016 22:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  11 JAN 2017 12:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1464,7 +1464,38 @@ File: pgflibrarypatterns.code.tex 2008/03/03 v3.0.1a (rcs-revision 1.13)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/libraries/tikzlibrar
 yexternal.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zexternalshared.code.tex))) (./rapport_PT_Project.aux)
+zexternalshared.code.tex))) (./rapport_PT_Project.aux
+
+LaTeX Warning: Label `a' multiply defined.
+
+
+LaTeX Warning: Label `sub@a' multiply defined.
+
+
+LaTeX Warning: Label `b' multiply defined.
+
+
+LaTeX Warning: Label `sub@b' multiply defined.
+
+
+LaTeX Warning: Label `d' multiply defined.
+
+
+LaTeX Warning: Label `sub@d' multiply defined.
+
+
+LaTeX Warning: Label `equipartition' multiply defined.
+
+
+LaTeX Warning: Label `global' multiply defined.
+
+
+LaTeX Warning: Label `global' multiply defined.
+
+
+LaTeX Warning: Label `global' multiply defined.
+
+)
 \openout1 = `rapport_PT_Project.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
@@ -1481,8 +1512,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
 LaTeX Font Info:    ... okay on input line 64.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
 LaTeX Font Info:    ... okay on input line 64.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count267
 \scratchdimen=\dimen299
@@ -1640,25 +1670,25 @@ LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
 (Font)              using `U/stmry/m/n' instead on input line 64.
 
 \c__siunitx_mathtt_int=\count275
-<logo-ens.jpg, id=79, 1032.85875pt x 384.6872pt>
+<logo-ens.jpg, id=95, 1032.85875pt x 384.6872pt>
 File: logo-ens.jpg Graphic file (type jpg)
  <use logo-ens.jpg>
 Package pdftex.def Info: logo-ens.jpg used on input line 74.
 (pdftex.def)             Requested size: 145.13509pt x 54.06006pt.
 
-<logo_lyon1.jpg, id=80, 4642.34375pt x 3362.5625pt>
+<logo_lyon1.jpg, id=96, 4642.34375pt x 3362.5625pt>
 File: logo_lyon1.jpg Graphic file (type jpg)
  <use logo_lyon1.jpg>
 Package pdftex.def Info: logo_lyon1.jpg used on input line 74.
 (pdftex.def)             Requested size: 78.55753pt x 56.9055pt.
 
-<logo_univ_lyon.jpg, id=81, 590.205pt x 301.125pt>
+<logo_univ_lyon.jpg, id=97, 590.205pt x 301.125pt>
 File: logo_univ_lyon.jpg Graphic file (type jpg)
  <use logo_univ_lyon.jpg>
 Package pdftex.def Info: logo_univ_lyon.jpg used on input line 74.
 (pdftex.def)             Requested size: 111.52771pt x 56.9055pt.
 
-<figures/front_simu.jpg, id=82, 4787.8875pt x 4787.8875pt>
+<figures/front_simu.jpg, id=98, 4787.8875pt x 4787.8875pt>
 File: figures/front_simu.jpg Graphic file (type jpg)
 
 <use figures/front_simu.jpg>
@@ -1718,200 +1748,206 @@ Package xcolor Warning: Incompatible color definition on input line 16.
 
 Package xcolor Warning: Incompatible color definition on input line 17.
 
+
+Package xcolor Warning: Incompatible color definition on input line 18.
+
+
+Package xcolor Warning: Incompatible color definition on input line 19.
+
+
+Package xcolor Warning: Incompatible color definition on input line 20.
+
+
+Package xcolor Warning: Incompatible color definition on input line 21.
+
 )
 \tf@toc=\write6
 \openout6 = `rapport_PT_Project.toc'.
-
- [1] <figures/lcd.jpg, id=117, 642.4pt x 291.0875pt>
-File: figures/lcd.jpg Graphic file (type jpg)
- <use figures/lcd.jpg>
-Package pdftex.def Info: figures/lcd.jpg used on input line 153.
-(pdftex.def)             Requested size: 188.3693pt x 85.35826pt.
-
-(./figures/iso_vs_nematic.tikz
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-)
-Overfull \hbox (1.08342pt too wide) in paragraph at lines 168--169
-[]\T1/cmr/m/n/10.95 L'objectif de ce pro-jet a été d'étu-dier par des mé-thodes
- nu-mé-riques la tran-si-tion de phase nématique-
- []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.170 \newpage
-               [1 <./figures/lcd.jpg>]
-<figures/distrib.pdf, id=132, 510.81749pt x 433.00337pt>
+l.135 \newpage
+               [1] <figures/lcd.jpg, id=136, 642.4pt x 291.0875pt>
+File: figures/lcd.jpg Graphic file (type jpg)
+
+<use figures/lcd.jpg>
+Package pdftex.def Info: figures/lcd.jpg used on input line 151.
+(pdftex.def)             Requested size: 188.3693pt x 85.35826pt.
+ (./figures/iso_vs_nematic.tikz
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+) [2 <./figures/lcd.jpg>]
+<figures/distrib.pdf, id=152, 510.81749pt x 433.00337pt>
 File: figures/distrib.pdf Graphic file (type pdf)
 
 <use figures/distrib.pdf>
-Package pdftex.def Info: figures/distrib.pdf used on input line 193.
-(pdftex.def)             Requested size: 178.78879pt x 151.55345pt.
- [2 <./figures/distrib.pdf>] [3]
+Package pdftex.def Info: figures/distrib.pdf used on input line 191.
+(pdftex.def)             Requested size: 204.32336pt x 173.19827pt.
+ [3 <./figures/distrib.pdf>] [4]
 (./figures/lebwohl.tikz
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
@@ -2069,46 +2105,108 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-) [4]
-<figures/dessus1.pdf, id=186, 118.07312pt x 115.5798pt>
+) [5]
+<figures/dessus1.pdf, id=203, 118.07312pt x 115.5798pt>
 File: figures/dessus1.pdf Graphic file (type pdf)
 
 <use figures/dessus1.pdf>
 Package pdftex.def Info: figures/dessus1.pdf used on input line 290.
 (pdftex.def)             Requested size: 101.73367pt x 99.58464pt.
- <figures/side1.pdf, id=187, 120.4771pt x 120.4771pt>
+ <figures/side1.pdf, id=204, 120.4771pt x 120.4771pt>
 File: figures/side1.pdf Graphic file (type pdf)
 
 <use figures/side1.pdf>
 Package pdftex.def Info: figures/side1.pdf used on input line 296.
 (pdftex.def)             Requested size: 99.58417pt x 99.58464pt.
 
-<figures/dessus2.pdf, id=188, 118.02193pt x 115.72133pt>
+<figures/dessus2.pdf, id=205, 118.02193pt x 115.72133pt>
 File: figures/dessus2.pdf Graphic file (type pdf)
 
 <use figures/dessus2.pdf>
 Package pdftex.def Info: figures/dessus2.pdf used on input line 306.
 (pdftex.def)             Requested size: 101.56529pt x 99.58464pt.
- <figures/side2.pdf, id=189, 120.4771pt x 120.4771pt>
+ <figures/side2.pdf, id=206, 120.4771pt x 120.4771pt>
 File: figures/side2.pdf Graphic file (type pdf)
 
 <use figures/side2.pdf>
 Package pdftex.def Info: figures/side2.pdf used on input line 312.
 (pdftex.def)             Requested size: 99.58417pt x 99.58464pt.
- [5 <./figures/dessus1.pdf> <./figures/side1.pdf> <./figures/dessus2.pdf> <./fi
+ [6 <./figures/dessus1.pdf> <./figures/side1.pdf> <./figures/dessus2.pdf> <./fi
 gures/side2.pdf>]
-<figures/equilibrage.pdf, id=213, 562.01698pt x 409.5273pt>
+<figures/equilibrage.pdf, id=233, 578.34435pt x 418.84718pt>
 File: figures/equilibrage.pdf Graphic file (type pdf)
 
 <use figures/equilibrage.pdf>
-Package pdftex.def Info: figures/equilibrage.pdf used on input line 340.
-(pdftex.def)             Requested size: 393.4092pt x 286.66714pt.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 347.
+Package pdftex.def Info: figures/equilibrage.pdf used on input line 341.
+(pdftex.def)             Requested size: 347.00928pt x 251.31024pt.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 348.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [6 <./figures/equilibrage.pdf>] [7] [8] [9] [10] (./rapport_PT_Project.bbl
+) [7 <./figures/equilibrage.pdf>] <figures/00.pdf, id=263, 116.65582pt x 105.27
+531pt>
+File: figures/00.pdf Graphic file (type pdf)
+
+<use figures/00.pdf>
+Package pdftex.def Info: figures/00.pdf used on input line 375.
+(pdftex.def)             Requested size: 116.65553pt x 105.27504pt.
+ <figures/09.pdf, id=264, 116.94089pt x 110.3071pt>
+File: figures/09.pdf Graphic file (type pdf)
+
+<use figures/09.pdf>
+Package pdftex.def Info: figures/09.pdf used on input line 381.
+(pdftex.def)             Requested size: 116.94058pt x 110.30681pt.
+ <figures/15.pdf, id=265, 116.37979pt x 116.4631pt>
+File: figures/15.pdf Graphic file (type pdf)
+
+<use figures/15.pdf>
+Package pdftex.def Info: figures/15.pdf used on input line 387.
+(pdftex.def)             Requested size: 116.37949pt x 116.4628pt.
+ <figures/global.pdf, id=266, 569.17195pt x 418.84718pt>
+File: figures/global.pdf Graphic file (type pdf)
+
+<use figures/global.pdf>
+Package pdftex.def Info: figures/global.pdf used on input line 397.
+(pdftex.def)             Requested size: 341.5058pt x 251.31024pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8 <./figures/00.pdf> <./figures/09.pdf> <./figures/15.pdf>]
+<figures/local_energie.pdf, id=281, 587.51674pt x 418.84718pt>
+File: figures/local_energie.pdf Graphic file (type pdf)
+
+<use figures/local_energie.pdf>
+Package pdftex.def Info: figures/local_energie.pdf used on input line 408.
+(pdftex.def)             Requested size: 352.51276pt x 251.31024pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/local_order.pdf, id=282, 587.51674pt x 418.84718pt>
+File: figures/local_order.pdf Graphic file (type pdf)
+
+<use figures/local_order.pdf>
+Package pdftex.def Info: figures/local_order.pdf used on input line 415.
+(pdftex.def)             Requested size: 352.51276pt x 251.31024pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <./figures/global.pdf>] [10 <./figures/local_energie.pdf>]
+<figures/electricField.pdf, id=314, 535.1899pt x 414.56453pt>
+File: figures/electricField.pdf Graphic file (type pdf)
+
+<use figures/electricField.pdf>
+Package pdftex.def Info: figures/electricField.pdf used on input line 433.
+(pdftex.def)             Requested size: 321.11641pt x 248.74063pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11 <./figures/local_order.pdf>] [12 <./figures/electricField.pdf>] [13]
+(./rapport_PT_Project.bbl
 
 Package xcolor Warning: Incompatible color definition on input line 7.
 
@@ -2130,26 +2228,29 @@ Package xcolor Warning: Incompatible color definition on input line 40.
 
 Package xcolor Warning: Incompatible color definition on input line 45.
 
-) [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 390.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 390.
+) [14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 463.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 463.
  (./rapport_PT_Project.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 390.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 390.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 463.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 463.
 Package rerunfilecheck Info: File `rapport_PT_Project.out' has not changed.
-(rerunfilecheck)             Checksum: 144A1C844DD35A28CD65765835C59C19;1084.
+(rerunfilecheck)             Checksum: 457CA121EA9F39B8C2DCB9B0E35DDAC8;1407.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 390.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 463.
  ) 
 Here is how much of TeX's memory you used:
- 40243 strings out of 493029
- 932362 string characters out of 6136235
- 1053550 words of memory out of 5000000
- 43098 multiletter control sequences out of 15000+600000
- 24688 words of font info for 66 fonts, out of 8000000 for 9000
+ 40334 strings out of 493029
+ 933793 string characters out of 6136235
+ 1053829 words of memory out of 5000000
+ 43162 multiletter control sequences out of 15000+600000
+ 31165 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,12n,83p,10390b,816s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
@@ -2157,10 +2258,10 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
+public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/
@@ -2174,10 +2275,10 @@ nts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-
 super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1095.pfb><
 /usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb>
-Output written on rapport_PT_Project.pdf (13 pages, 4133375 bytes).
+Output written on rapport_PT_Project.pdf (15 pages, 4157299 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 289 compressed objects within 3 object streams
- 50 named destinations out of 1000 (max. 500000)
- 242 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 454 PDF objects out of 1000 (max. 8388607)
+ 372 compressed objects within 4 object streams
+ 61 named destinations out of 1000 (max. 500000)
+ 309 words of extra memory for PDF output out of 10000 (max. 10000000)
 
