@@ -18,14 +18,14 @@ clock_t start;
 start = clock();
 
 int size = 30;
-double electricField = 0.002;
+double electricField = 0.0015;
 int equiSample = 2000;
 int meanSample = 5000;
 double tempStart = 1;
 double tempEnd = 1.20;
 double tempSample = 200;
 bool startRandom = false;
-string basename = "Results/electricTest0002";
+string basename = "Results/electricTest00015";
 string outputfile;
 
 for (int i = 0; i < 20; ++i)

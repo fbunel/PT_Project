@@ -124,7 +124,7 @@ def figure(basename, skiprow, outputname):
 #disque #carré #triangle #triangle #triangle  #hexagone #étoile     
     marksize=[7,4,6,6,6,5,6]
 
-    ax1.plot(electricField, (TempMeanOrder + TempMeanEnergie + TempMeanDeltaOrder + TempMeanDeltaEnergie)/4 - 1.123, 
+    ax1.plot(np.sqrt(electricField), (TempMeanOrder + TempMeanEnergie + TempMeanDeltaOrder + TempMeanDeltaEnergie)/4 - 1.123, 
             markerfacecolor='none', 
                  linestyle='', 
                  markersize=7, 
@@ -132,7 +132,7 @@ def figure(basename, skiprow, outputname):
                  markeredgecolor= 'b',
                  markeredgewidth=2)
 
-    ax1.set_xlim([0, 0.071])
+    ax1.set_xlim([0, np.sqrt(0.071)])
     ax1.set_ylim([0, 0.081])
 
     ax1.tick_params(labelsize = 20)

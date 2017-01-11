@@ -336,10 +336,10 @@ Les simulations reportées dans ce rapport ont toutes été réalisées sur un r
 
 Pour chaque température, au minimum 2000 cycles sont calculés pour faire évoluer le système vers la configuration d'équilibre . Même pour les températures élevées, seuls 300 cycles sont nécessaires. Par précaution, les variations de l'énergie et du paramètre d'ordre sont contrôlées pour vérifier que le système est bien à l'équilibre (Figure \ref{equilibrage}). Ensuite, jusqu'à 25000 cycles sont réalisés afin de calculer les quantités d'intérêts.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering	    
 	\includegraphics[scale=0.6]{figures/equilibrage.pdf}
-    \caption{Équilibrage du système à une température $T^\star = k_B T/\epsilon = 1$ en partant de l'état fondamental. La remise à l'échelle de l'échelle énergétique est détaillé en partie \ref{scale}.}
+    \caption{Observation de l'équilibrage du système à une température $T^\star = k_B T/\epsilon = 1$ en partant de l'état fondamental. L'énergie renormalisée (voir partie \ref{scale}) ainsi que le paramètre d'ordre sont représentés en fonction des cycles}
     	\label{equilibrage} 
 \end{figure}
 
@@ -365,34 +365,37 @@ Bien entendu, l'échelle caractérisant les énergies est $\epsilon$, qui appara
 Ensuite, le seul endroit ou intervient la température dans ce modèle est dans la probabilité d'accepter un pas \ref{boltzmannprob}. Ainsi, on peut définir la température réduite $T^\star = k_B T /\epsilon$ qui est celle importante pour la transition.
 
 \subsection{Observation de la transition}
-Une première méthode pour observer la transition de phase est d'afficher directement les
-
-
 \begin{figure}[h!]
 \center
     \begin{subfigure}[b]{0.30\textwidth}
     	\center
     	\includegraphics[scale=1]{figures/00.pdf}
-    	\caption{$T^\star =0$}
-    	\label{a}
+    	\caption{$T^\star =0.05$}
+    	\label{fonda}
     \end{subfigure}	
 	\begin{subfigure}[b]{0.30\textwidth}
     	\center
     	\includegraphics[scale=1]{figures/09.pdf}
     	\caption{$T^\star =0.9$}
-    	\label{b}
+    	\label{09}
     \end{subfigure}
     \begin{subfigure}[b]{0.30\textwidth}
     	\center
     	\includegraphics[scale=1]{figures/15.pdf}
     	\caption{$T^\star =1.5$}
-    	\label{d}
+    	\label{15}
     \end{subfigure}	
-    \caption{}
-    \label{equipartition}
+    \caption{Une partie du réseau pour trois températures différentes. Seul l'angle $\theta$ est utilisé pour cette représentation. }
+    \label{lattice}
 \end{figure}
 
-\begin{figure}[h]
+Une première méthode pour observer la transition de phase est d'afficher directement l'état du réseau à la fin de l'équilibrage (Figure \ref{lattice}). À température proche de 0 (Figure \ref{fonda}), l'état d'équilibre est très proche de l'état fondamental et toutes molécules sont presque alignées. Lorsque l'on augmente la température jusqu'à $T^\star = 0.9$ (Figure \ref{09}), l'agitation thermique joue un rôle plus important et l'alignement n'est plus parfait. On peut cependant clairement observer une orientation commune en moyenne des molécules. Pour des températures plus élevées (Figure \ref{15}), l'agitation thermique prédomine et l'orientation des molécules est complètement aléatoire.
+On passe donc d'un état ordonnée à un état aléatoire. La transition entre ces deux état semble s'effectuer à une température entre $T^\star = 0.9$ et $T^\star = 1.5$. 
+\medskip
+
+Cette idée de la température de transition obtenue par visualisation directe donne la gamme de température sur laquelle on souhaite calculer les quantités d'intérêts que sont l'énergie $E^\star$ et le paramètre d'ordre $S$. Pour cette étude, on a moyenné sur 5000 cycles ces quantités pour 200 températures prises linéairement entre $T^\star = 0$ et $T^\star = 2$. La Figure \ref{global} représente les résultats obtenus.
+
+\begin{figure}[h!]
     \centering	    
 	\includegraphics[scale=0.6]{figures/global.pdf}
     \caption{}
@@ -400,24 +403,23 @@ Une première méthode pour observer la transition de phase est d'afficher direc
 \end{figure}
 
 \newpage
-
 \subsection{Température de transition}
+yolo
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering	    
 	\includegraphics[scale=0.6]{figures/local_energie.pdf}
     \caption{}
-    	\label{global} 
+    	\label{local_energie} 
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering	    
 	\includegraphics[scale=0.6]{figures/local_order.pdf}
     \caption{}
-    	\label{global} 
+    	\label{local_order} 
 \end{figure}
 
-\newpage
 \subsection{Histogramme en énergie}
 
 
@@ -432,7 +434,7 @@ Une première méthode pour observer la transition de phase est d'afficher direc
     \centering	    
 	\includegraphics[scale=0.6]{figures/electricField.pdf}
     \caption{}
-    	\label{global} 
+    	\label{electricField} 
 \end{figure}
 
 
