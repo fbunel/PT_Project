@@ -393,32 +393,46 @@ Une première méthode pour observer la transition de phase est d'afficher direc
 On passe donc d'un état ordonnée à un état aléatoire. La transition entre ces deux état semble s'effectuer à une température entre $T^\star = 0.9$ et $T^\star = 1.5$. 
 \medskip
 
-Cette idée de la température de transition obtenue par visualisation directe donne la gamme de température sur laquelle on souhaite calculer les quantités d'intérêts que sont l'énergie $E^\star$ et le paramètre d'ordre $S$. Pour cette étude, on a moyenné sur 5000 cycles ces quantités pour 200 températures prises linéairement entre $T^\star = 0$ et $T^\star = 2$. La Figure \ref{global} représente les résultats obtenus.
+Cette idée de la température de transition obtenue par visualisation directe donne la gamme de température sur laquelle on souhaite calculer les quantités d'intérêts que sont l'énergie $E^\star$ et le paramètre d'ordre $S$.  La Figure \ref{global} représente l'énergie et le paramètre d'ordre sur une large gamme de température. Pour cette étude, on a moyenné ces quantités sur 5000 cycles. La résolution en température est du centième (200 températures réalisées).
+\medskip
+
+Sur cette figure, on observe clairement que la transition de phase se fait à une température $T^\star$ proche de 1.12. On le voit grâce à la rupture de pente apparaissant dans l'énergie qui est caractéristique des transitions du premier ordre. Il est également possible d'observer la transition à l'aide du paramètre d'ordre $S$ qui s'annule à la transition.
 
 \begin{figure}[h!]
     \centering	    
 	\includegraphics[scale=0.6]{figures/global.pdf}
-    \caption{}
+    \caption{Énergie et paramètre d'ordre en fonction de la température.}
     	\label{global} 
 \end{figure}
 
-\newpage
+
 \subsection{Température de transition}
-yolo
+Afin de déterminer plus précisément la température de transition, d'autres simulations ont été réalisées. La gamme de température observée est beaucoup plus restreinte de manière à avoir une meilleure résolution en température. De plus, les simulations ont été reproduites une trentaine de fois. Les résultats ont donc été moyennés sur les différentes simulations pour réduire la possibilité d'une réalisation particulière donnant une mauvaise température de transition.  Par exemple, le système peut évoluer vers des configurations bloquées desquels il serait difficile de sortir ce qui pourrait fausser les valeurs des observable mesurées.   
 
 \begin{figure}[h!]
     \centering	    
 	\includegraphics[scale=0.6]{figures/local_energie.pdf}
-    \caption{}
+    \caption{Énergie et variance de l'énergie en fonction de la température.}
     	\label{local_energie} 
 \end{figure}
+
+Les Figures \ref{local_energie} et \ref{local_order} sont le résultat de ces moyennes sur les réalisations. Elles représentent l'énergie, le paramètre d'ordre ainsi que leurs variances en fonction de la température. Ces quantités sont moyennés sur 5000 cycles pour chacune des 240 températures réalisées.
+\medskip
+
+Commençons par étudier la figure \ref{local_energie}. Comme sur la Figure \ref{global}, on observe une rupture de pente très marquée pour une température proche de 1.12. Plus précisément, la rupture de pente apparaît pour la température $T^\star = 1.1232 \pm 0.0005$. Cette valeur correspond parfaitement aux valeurs trouvées dans la littérature (citer milles articles). Il est également possible de déterminer la température de transition à l'aide de la variance de l'énergie en fonction de la température. Cette variance correspond à un facteur multiplicatif près à la capacité calorifique qui est censé passer par un pic à la transition. La détermination de la température de transition par le maximum de cette variance donne la même température de transition de avec une incertitude très légèrement supérieure : $T^\star = 1.1232 \pm 0.0006$.
 
 \begin{figure}[h!]
     \centering	    
 	\includegraphics[scale=0.6]{figures/local_order.pdf}
-    \caption{}
+    \caption{Paramètre d'ordre et variance du paramètre d'ordre en fonction de la température.}
     	\label{local_order} 
 \end{figure}
+
+Ensuite, on peut s'intéresser à l'évolution du paramètre d'ordre avec la température sur la Figure \ref{local_order}. Ce dernier chute d'une valeur de 0.4 à une valeur presque nulle après la transition. La plus grosse chute de paramètre d'ordre se fait pour la température $T^\star = 1.1231 \pm 0.0005$. Comme pour l'énergie, on peut s'intéresser à la variance du paramètre d'ordre qui correspond donc maintenant à sa susceptibilité. Cette dernière passe par un maximum à une température $T^\star = 1.123 \pm 0.001$. Cette mesure est celle pour laquelle les incertitudes sont les plus grandes des 4 réalisées.
+\medskip
+
+Sur cette figure, on observe de plus que le paramètre d'ordre ne s'annule pas directement après la température de transition. Cet effet provient de la taille finie du système et est amplifié par les moyennes sur les réalisations. Des travaux récents (citer le bon article) étudie cet effet en fonction de la taille du réseau. En extrapolant ensuite leurs résultats à un système de taille infinie ils en déduisent la température de transition de manière extrêmement précise. La température obtenue par ces méthodes est de $T^\star = 1.1232 \pm 0.0001$.
+
 
 \subsection{Histogramme en énergie}
 
