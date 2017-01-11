@@ -106,18 +106,21 @@ def figure(basename, skiprow, outputname):
 
     ax2 = ax1.twinx()
 
-    ax1.plot(temperature, order,
+    ax2.plot(temperature, deltaEnergie,
         linewidth = 2,
         color = 'g')
-    ax2.plot(temperature, energie, 
+    ax1.plot(temperature, energie, 
         linewidth = 2,
         color = 'b')
+    ax1.set_xlim([0.99, 1.25])
+    
 
-    ax1.tick_params(labelsize = 16)
-    ax2.tick_params(labelsize = 16)
+    ax2.tick_params(labelsize = 20)
+    ax1.tick_params(labelsize = 20)
 
-    ax1.set_ylabel(r"Param\`etre d'ordre", fontsize = 18, color = 'g')
-    ax2.set_ylabel(r"Energie", fontsize = 18, color = 'b')
+    ax2.set_ylabel(r"Variance de l'\'energie", fontsize = 22, color = 'g')
+    ax1.set_ylabel(r"Energie", fontsize = 22, color = 'b')
+    ax1.set_xlabel(r"Temp\'erature", fontsize = 22)
     
     #enregistrement de l'image
     plt.savefig("{0}_.pdf".format(outputname), bbox_inches='tight')
@@ -133,13 +136,17 @@ def figure(basename, skiprow, outputname):
     ax2.plot(temperature, deltaEnergie, 
         linewidth = 2,
         color = 'b')
+    # ax1.set_xlim([0.98, 1.25])
+    ax2.set_xlim([0, max(temperature)])
 
-    ax1.tick_params(labelsize = 16)
-    ax2.tick_params(labelsize = 16)
+    ax1.tick_params(labelsize = 20)
+    ax2.tick_params(labelsize = 20)
 
-    ax1.set_ylabel(r"Param\`etre d'ordre", fontsize = 18, color = 'g')
-    ax2.set_ylabel(r"Energie", fontsize = 18, color = 'b')
+    ax1.set_ylabel(r"Param\`etre d'ordre", fontsize = 22, color = 'g')
+    ax2.set_ylabel(r"Energie", fontsize = 22, color = 'b')
     
+
+
     #enregistrement de l'image
     plt.savefig("{0}_delta.pdf".format(outputname), bbox_inches='tight')
     plt.cla()
@@ -152,8 +159,8 @@ def figure(basename, skiprow, outputname):
 # figure('electricField/01/**/**study.save',3, 'electric01')
 # figure('electricField/02_fail/**/**study.save',3, 'electric02')
 # figure('series/**/*study.save',3,'series')
-figure('electricField/001/**/*study.save', 4, 'electric001')
-figure('electricField/002/**/*study.save', 4, 'electric002')
+# figure('electricField/001/**/*study.save', 4, 'electric001')
+# figure('electricField/002/**/*study.save', 4, 'electric002')
 # figure('electricField/003/**/*study.save', 4, 'electric003')
 # figure('electricField/004/**/*study.save', 4, 'electric004')
 # figure('electricField/005/**/*study.save', 4, 'electric005')

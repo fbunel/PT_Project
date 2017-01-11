@@ -1,0 +1,32 @@
+\documentclass[tikz]{standalone}
+\input{preamble_tikz.tex}
+
+\usepackage{datatool,filecontents}
+
+\begin{document}
+
+
+\begin{tikzpicture}
+
+\DTLloaddb[noheader=false]{lattice}{classic_lattice.dat}
+
+    \foreach \i in {0,...,5}{
+        \pgfmathsetmacro{\x}{\i*0.7};
+        \draw (\x,0) -- (\x,0.7*5);
+        \draw (0,\x) -- (0.7*5,\x);
+    }
+
+	\DTLforeach*{lattice}{\i=i, \j=j, \xA=x, \yA=y}{%
+    \pgfmathsetmacro{\x}{\i*0.7};
+	\pgfmathsetmacro{\y}{\j*0.7};
+    \pgfmathsetmacro{\size}{0.3};
+    \pgfmathsetmacro{\t}{acos(\xA)-90};
+    \pgfmathsetmacro{\p}{rand*180};
+	\drawNema{\x}{\y}{\p}{\size};
+		
+	}
+
+
+
+\end{tikzpicture}
+\end{document}
