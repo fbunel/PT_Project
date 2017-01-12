@@ -3,44 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: rapport_PT_Project.aux
 The style file: unsrt.bst
 Database file #1: biblio.bib
-You've used 7 entries,
+Warning--empty journal in parallel
+Warning--empty year in parallel
+You've used 20 entries,
             1791 wiz_defined-function locations,
-            504 strings with 5010 characters,
-and the built_in function-call counts, 1689 in all, are:
-= -- 163
-> -- 67
+            601 strings with 8204 characters,
+and the built_in function-call counts, 5098 in all, are:
+= -- 474
+> -- 234
 < -- 0
-+ -- 25
-- -- 18
-* -- 123
-:= -- 277
-add.period$ -- 27
-call.type$ -- 7
-change.case$ -- 7
++ -- 85
+- -- 65
+* -- 407
+:= -- 840
+add.period$ -- 78
+call.type$ -- 20
+change.case$ -- 20
 chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 59
-empty$ -- 161
-format.name$ -- 18
-if$ -- 362
+cite$ -- 22
+duplicate$ -- 174
+empty$ -- 465
+format.name$ -- 65
+if$ -- 1086
 int.to.chr$ -- 0
-int.to.str$ -- 7
-missing$ -- 6
-newline$ -- 44
-num.names$ -- 7
-pop$ -- 5
+int.to.str$ -- 20
+missing$ -- 19
+newline$ -- 121
+num.names$ -- 20
+pop$ -- 10
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 27
+skip$ -- 69
 stack$ -- 0
-substring$ -- 149
-swap$ -- 7
+substring$ -- 458
+swap$ -- 19
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 18
-width$ -- 8
-write$ -- 89
+warning$ -- 2
+while$ -- 48
+width$ -- 22
+write$ -- 254
+(There were 2 warnings)

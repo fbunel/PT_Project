@@ -14,8 +14,11 @@
 \contentsline {subsection}{\numberline {3.1}Echelle de temp\IeC {\'e}rature et d'\IeC {\'e}nergie.}{8}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Observation de la transition}{8}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Temp\IeC {\'e}rature de transition}{9}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Histogramme en \IeC {\'e}nergie}{10}{subsection.3.4}
-\contentsline {section}{\numberline {4}Influence d'un champ \IeC {\'e}lectrique}{11}{section.4}
-\contentsline {section}{Conclusion}{12}{section*.15}
-\contentsline {section}{\numberline {A}Premi\IeC {\`e}re annexe}{13}{appendix.A}
-\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{14}{section*.16}
+\contentsline {subsection}{\numberline {3.4}Histogramme en \IeC {\'e}nergie}{11}{subsection.3.4}
+\contentsline {section}{\numberline {4}Influence d'un champ \IeC {\'e}lectrique}{13}{section.4}
+\contentsline {subsection}{\numberline {4.1}Ajout au mod\IeC {\`e}le de Lebwohl-Lasher}{13}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Temp\IeC {\'e}rature de transition}{13}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Existence d'un point critique}{14}{subsection.4.3}
+\contentsline {section}{\numberline {5}Transition de Fr\IeC {\'e}edericksz}{15}{section.5}
+\contentsline {section}{Conclusion}{16}{section*.18}
+\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{18}{section*.19}

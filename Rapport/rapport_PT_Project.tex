@@ -108,7 +108,7 @@ M2 Physique 2015-2016
 
 
 \begin{center}
-\includegraphics[height=6cm]{figures/front_simu.jpg} 
+\includegraphics[height=10cm]{figures/cristaux_liquides.png} 
 \end{center} 
 
 
@@ -235,6 +235,7 @@ Le scalaire $S$ mesure donc le degré d'alignement selon le directeur. Il est é
 Dans cette partie, on présente le modèle de Lebwohl-Lasher utilisé ainsi que les différentes optimisations implémentés en plus de l'algorithme Monte-Carlo qui gouverne son évolution.
 
 \subsection{Modèle de Lebwohl-Lasher}
+\label{lebwohlpart}
 Le modèle de Lebwohl-Lasher \cite{model} est en quelque sorte l'analogue pour la transition nématique-isotrope du modèle d'Ising. Comme pour ce dernier, il permet d'obtenir des résultats très satisfaisants malgré sa simplicité.\medskip
 
 \begin{figure}[h]
@@ -248,11 +249,11 @@ Le modèle de Lebwohl-Lasher \cite{model} est en quelque sorte l'analogue pour l
 Dans ce modèle, les molécules du cristal liquide sont représentées uniquement par leur direction et occupent des positions fixes sur les sites d'un réseau cubique.
 Les différents sites du réseau interagissent uniquement entre plus proches voisins par l'intermédiaire d'un potentiel de la forme :
 \begin{equation}
-E_{i,j} = - \epsilon\ \frac{3\cos^2\theta_{i,j}-1}{2}
+E_{i,j}^{int} = - \epsilon\ \frac{3\cos^2\theta_{i,j}-1}{2}
 \label{interact}
 \end{equation}
 où $\epsilon$ est une constante positive et $\theta_{i,j}$ est l'angle entre deux molécules voisines. 
-Cette énergie est minimale lorsque les molécules sont parfaitement alignées : si $\theta_{i,j} = 0$ alors $E_{i,j} = - \epsilon$. Et elle est maximale lorsque les molécules ont des directions orthogonales : si $\theta_{i,j} = \pi/2$ alors $E_{i,j} = \epsilon/2$.
+Cette énergie est minimale lorsque les molécules sont parfaitement alignées : si $\theta_{i,j} = 0$ alors $E_{i,j}^{int} = - \epsilon$. Et elle est maximale lorsque les molécules ont des directions orthogonales : si $\theta_{i,j}^{int} = \pi/2$ alors $E_{i,j}^{int} = \epsilon/2$.
 Ces interactions auront donc tendance à favoriser les configurations où les molécules pointent toutes dans la même direction.\medskip
 
 On comprend alors assez bien pourquoi ce système subit une transition de phase. Les deux énergies intervenant dans ce système sont celles de l'interaction entre les molécules et celle de l'agitation thermique dont les échelles sont respectivement $\epsilon$ et $k_B T$.
@@ -334,7 +335,7 @@ Le choix d'un ratio d'acceptation de $50\%$ a été fait de manière arbitraire.
 Les simulations reportées dans ce rapport ont toutes été réalisées sur un réseau cubique de taille $30\times 30\times 30$ avec des conditions aux limites périodiques. Elles sont commencées depuis l'état fondamental où toutes les molécules sont alignées. Lorsque l'on démarre la simulation, les molécules sont bougées les unes après les autres en utilisant l'algorithme de Monte-Carlo. On nomme "cycle" une suite de $N = 30\times 30\times 30$ mouvements. Durant un cycle, toutes les molécules du réseau sont bougées exactement une fois mais dans un ordre aléatoire. Une telle procédure assure que toutes les molécules ont la même chance d'être bougée en réduisant les irrégularités dues à un tirage totalement aléatoire \cite{fabbri}. 
 \medskip
 
-Pour chaque température, au minimum 2000 cycles sont calculés pour faire évoluer le système vers la configuration d'équilibre . Même pour les températures élevées, seuls 300 cycles sont nécessaires. Par précaution, les variations de l'énergie et du paramètre d'ordre sont contrôlées pour vérifier que le système est bien à l'équilibre (Figure \ref{equilibrage}). Ensuite, jusqu'à 25000 cycles sont réalisés afin de calculer les quantités d'intérêts.
+Pour chaque température, au minimum 2000 cycles sont calculés pour faire évoluer le système vers la configuration d'équilibre . Même pour les températures élevées, seuls 300 cycles sont nécessaires. Par précaution, les variations de l'énergie et du paramètre d'ordre sont contrôlées pour vérifier que le système est bien à l'équilibre (Figure \ref{equilibrage}). Ensuite, jusqu'à 30000 cycles sont réalisés afin de calculer les quantités d'intérêts.
 
 \begin{figure}[h!]
     \centering	    
@@ -407,6 +408,7 @@ Sur cette figure, on observe clairement que la transition de phase se fait à un
 
 
 \subsection{Température de transition}
+\label{temptrans}
 Afin de déterminer plus précisément la température de transition, d'autres simulations ont été réalisées. La gamme de température observée est beaucoup plus restreinte de manière à avoir une meilleure résolution en température. De plus, les simulations ont été reproduites une trentaine de fois. Les résultats ont donc été moyennés sur les différentes simulations pour réduire la possibilité d'une réalisation particulière donnant une mauvaise température de transition.  Par exemple, le système peut évoluer vers des configurations bloquées desquels il serait difficile de sortir ce qui pourrait fausser les valeurs des observable mesurées.   
 
 \begin{figure}[h!]
@@ -419,7 +421,7 @@ Afin de déterminer plus précisément la température de transition, d'autres s
 Les Figures \ref{local_energie} et \ref{local_order} sont le résultat de ces moyennes sur les réalisations. Elles représentent l'énergie, le paramètre d'ordre ainsi que leurs variances en fonction de la température. Ces quantités sont moyennés sur 5000 cycles pour chacune des 240 températures réalisées.
 \medskip
 
-Commençons par étudier la figure \ref{local_energie}. Comme sur la Figure \ref{global}, on observe une rupture de pente très marquée pour une température proche de 1.12. Plus précisément, la rupture de pente apparaît pour la température $T^\star = 1.1232 \pm 0.0005$. Cette valeur correspond parfaitement aux valeurs trouvées dans la littérature (citer milles articles). Il est également possible de déterminer la température de transition à l'aide de la variance de l'énergie en fonction de la température. Cette variance correspond à un facteur multiplicatif près à la capacité calorifique qui est censé passer par un pic à la transition. La détermination de la température de transition par le maximum de cette variance donne la même température de transition de avec une incertitude très légèrement supérieure : $T^\star = 1.1232 \pm 0.0006$.
+Commençons par étudier la figure \ref{local_energie}. Comme sur la Figure \ref{global}, on observe une rupture de pente très marquée pour une température proche de 1.12. Plus précisément, la rupture de pente apparaît pour la température $T^\star = 1.1232 \pm 0.0005$. Cette valeur correspond parfaitement aux valeurs trouvées dans la littérature \cite{fabbri,wfo, parallel, badass}. Il est également possible de déterminer la température de transition à l'aide de la variance de l'énergie en fonction de la température. Cette variance correspond à un facteur multiplicatif près à la capacité calorifique qui est censé passer par un pic à la transition. La détermination de la température de transition par le maximum de cette variance donne la même température de transition de avec une incertitude très légèrement supérieure : $T^\star = 1.1232 \pm 0.0006$.
 
 \begin{figure}[h!]
     \centering	    
@@ -431,11 +433,58 @@ Commençons par étudier la figure \ref{local_energie}. Comme sur la Figure \ref
 Ensuite, on peut s'intéresser à l'évolution du paramètre d'ordre avec la température sur la Figure \ref{local_order}. Ce dernier chute d'une valeur de 0.4 à une valeur presque nulle après la transition. La plus grosse chute de paramètre d'ordre se fait pour la température $T^\star = 1.1231 \pm 0.0005$. Comme pour l'énergie, on peut s'intéresser à la variance du paramètre d'ordre qui correspond donc maintenant à sa susceptibilité. Cette dernière passe par un maximum à une température $T^\star = 1.123 \pm 0.001$. Cette mesure est celle pour laquelle les incertitudes sont les plus grandes des 4 réalisées.
 \medskip
 
-Sur cette figure, on observe de plus que le paramètre d'ordre ne s'annule pas directement après la température de transition. Cet effet provient de la taille finie du système et est amplifié par les moyennes sur les réalisations. Des travaux récents (citer le bon article) étudie cet effet en fonction de la taille du réseau. En extrapolant ensuite leurs résultats à un système de taille infinie ils en déduisent la température de transition de manière extrêmement précise. La température obtenue par ces méthodes est de $T^\star = 1.1232 \pm 0.0001$.
+Sur cette figure, on observe de plus que le paramètre d'ordre ne s'annule pas directement après la température de transition. Cet effet provient de la taille finie du système et est amplifié par les moyennes sur les réalisations. Des travaux récents \cite{cluster,nonb} étudie cet effet en fonction de la taille du réseau. En extrapolant ensuite leurs résultats à un système de taille infinie ils en déduisent la température de transition de manière extrêmement précise. La température obtenue par ces méthodes est de $T^\star = 1.1232 \pm 0.0001$.
 
+\newpage
 
 \subsection{Histogramme en énergie}
 
+Une dernière méthode pour étudier la transition est de s'intéresser au histogrammes des occurrences d'une certaine énergie. Pour générer des résultats satisfaisants, il a été nécessaire de réaliser des simulations bien plus longues que les précédentes. Pour chacune des 100 températures prisent entre 1.10 et 1.14, les histogrammes ont été générées sur 30 000 cycles. À titre d'information, une telle simulation prend une centaine d'heure sur les machines performantes du Centre Blaise Pascal. On présente en figure \ref{imagehisto} et \ref{histoo} les histogrammes en énergie générées à partir de ces simulations.
+
+\begin{figure}[h!]
+    \centering	    
+	\includegraphics[scale=0.5]{figures/histo_image.pdf}
+    \caption{Histogramme en énergie en fonction de la température. Le nombre d’occurrence pour chaque énergie est représentée en fausses couleurs.}
+    	\label{imagehisto} 
+\end{figure}
+Sur la Figure \ref{imagehisto}, on peut voir les histogrammes obtenus pour chaque température. Sur cette image, on retrouve le profil observée en Figure \ref{local_energie} avec la rupture de pente des énergies. Proche de la transition, les histogrammes sont plus étendus ce qui correspond bien au pic de la variance. Enfin, on constate clairement un saut en énergie à la température 1.123. Le recouvrement entre les histogrammes d'avant et d'après cette température est pratiquement nul.
+\medskip
+
+Sur les histogrammes de la figure \ref{histoo}, on n'observe pas juste un décalage progressif des énergies avec la température mais plutôt un comportement en double pic. Pour une température juste en dessous de la transition (Figure \ref{11208}), on voit un grand pic situé à 2.03 et un plus petit à 2.11. Pour une température juste au dessus de la transition (Figure \ref{11240}), les deux pics sont toujours visibles mais l'intensité des deux pics est échangée. Ce comportement laisse supposer l'existence de deux configuration stables dans lesquelles le système passe des temps longs. Il transfère rapidement de l'une vers l'autre. On a pu vérifier en visualisant directement l'énergie en fonction des cycles que le système alterne entre ces deux états. En s'intéressant au paramètre d'ordre, on a pu de plus constater que l'état de faible énergie a un paramètre d'ordre plus élevé et correspond donc à un état ordonné contrairement au second état qui est gouverné par l'aléatoire.
+\medskip
+
+Un tel comportement en double pic est attendu pour les transitions de phase du premier ordre. Ce comportement a été également observé dans un modèle plus grossier \cite{model} dans lequel les orientations prises par les molécules sont discrètes et de manière moins évidentes dans d'autres articles \cite{fabbri}.
+
+\begin{figure}
+\center
+    \begin{subfigure}[b]{0.49\textwidth}
+    	\center
+    	\includegraphics[scale=0.4]{figures/histo_11208.pdf}
+    	\caption{$T^\star =1.1208$}
+    	\label{11208}
+    \end{subfigure}	
+	\begin{subfigure}[b]{0.49\textwidth}
+    	\center
+    	\includegraphics[scale=0.4]{figures/histo_11228.pdf}
+    	\caption{$T^\star =1.1228$}
+    	\label{11228}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.49\textwidth}
+    	\center
+    	\includegraphics[scale=0.4]{figures/histo_11240.pdf}
+    	\caption{$T^\star =1.1240$}
+    	\label{11240}
+    \end{subfigure}	
+    \begin{subfigure}[b]{0.49\textwidth}
+    	\center
+    	\includegraphics[scale=0.4]{figures/histo_11256.pdf}
+    	\caption{$T^\star =1.1256$}
+    	\label{11256}
+    \end{subfigure}	
+    \caption{Histogramme des énergies pour quatres températures. Pour rappel la température a lieu à $T^\star = 1.1232$. Les deux graphes du dessus sont donc avant la transition et les deux du dessous après.}
+    \label{histoo}
+\end{figure}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -444,13 +493,52 @@ Sur cette figure, on observe de plus que le paramètre d'ordre ne s'annule pas d
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Dans cette partie on s'intéresse à l'influence d'un champ électrique sur la transition nématique isotrope, toujours à l'aide du modèle de Lebwohl-Lasher. Comme les molécules ont tendances à s'orienter dans la direction du champ électrique, ce dernier stabilise la phase nématique. L'objectif de cette partie est donc de tracer la température de transition en fonction du champ électrique.
+\subsection{Ajout au modèle de Lebwohl-Lasher}
+Le champ électrique peut être incorporé au modèle décrit en partie \ref{lebwohlpart} en ajoutant en terme dans l'énergie prenant en compte le couplage entre l'orientation des molécules et le champ électrique. Ce dernier est de la même forme que le potentiel entre deux molécules \cite{entropicelectric,electric3, biolo}:
+\begin{equation}
+E_{i}^{el} = - \epsilon \xi U^2 \frac{3\cos^2\alpha_i-1}{2}
+\label{interactfield}
+\end{equation}
+où $\xi$ est une constante positive, $U$ le champ électrique et $\alpha_{i}$ l'angle entre la molécule et le champ. La quantité importante dominant l'évolution en champ électrique est $U^\star = \sqrt{\xi} U$ et sera donc utilisé dans les graphes qui suivent. L'énergie total du système qui apparaît donc dans l'algorithme Monte-Carlo est donc la somme des interactions entre voisins et de celles avec le champ :
+\begin{equation}
+E = - \epsilon\sum_{<i,j>} \frac{3\cos^2\theta_{i,j}-1}{2} - \epsilon \xi U^2 \sum_{i}\frac{3\cos^2\alpha_i-1}{2}
+\end{equation}
+
+\subsection{Température de transition}
+Avec un tel potentiel, les configurations où les molécules sont alignées avec le champ sont plus stable. Cette énergie supplémentaire vient donc stabiliser la phase nématique lorsque le champ et les molécules sont alignées. On s'attend donc à avoir une augmentation de la température de transition avec le champ électrique.
+
+
 \begin{figure}[h]
     \centering	    
 	\includegraphics[scale=0.6]{figures/electricField.pdf}
-    \caption{}
+    \caption{Décalage par rapport à la température de transition $T^\star$. La ligne en trait plein correspond à un ajustement linéaire des données pour les champs faibles. La ligne en tirets correspond à un ajustement quadratique des données pour les champs forts.}
     	\label{electricField} 
 \end{figure}
+\newpage
 
+Pour vérifier cela, il est possible de réaliser une étude similaire à celle présentée en partie \ref{temptrans} pour plusieurs champ électrique. Pour chacune des valeur de champ souhaitée, on réalise une série d'une dizaine de simulations sur 200 températures de $T^\star = 1.00$ à $T^\star = 1.20$. Avec les résultats, on peut tracer les graphes d'énergie et de paramètre d'ordre et déterminer la température de transition pour chaque champ électrique. Le résultat de cette étude est présenté en Figure \ref{electricField}.
+\medskip
+
+Comme on peut le voir sur la figure \ref{electricField}, la transition de phase a bien le comportement attendu qui est d'augmenter avec la température. On peut cependant distinguer deux régimes. Pour les petites valeurs du champ (inférieur à 0.04), le décalage en température est linéaire. Il tend à devenir quadratique avec l'intensité du champ pour des valeurs plus élevées. Ces deux régimes ont été observés dans plusieurs articles de la littérature \cite{entropicelectric, field}. Enfin, on peut noter que le régime linéaire concorde avec les prévisions d'un calcul à la Landau \cite{landau}.
+
+\subsection{Existence d'un point critique}
+Cette augmentation de la température de transition avec le champ électrique a également été observé expérimentalement \cite{mfieldExperiment,efieldExperiment,efieldExperiment2}. Ces études ont de plus montré que cette transition finit en point critique pour les champs forts \cite{efieldExperiment}. L'existence d'un point critique pour cette transition apparaît également dans nos simulations. On constate en effet un adoucissement de la transition lorsque le champ électrique augmente. Cet effet est simplement visualisable en regardant la dérivée de l'énergie avec le température. En effet, le pic de capacité calorifique est de moins en moins marqué. Bien sur, cet adoucissement de la transition a également tendance à augmenter les erreurs sur la détermination de la température de transition pour les champs forts.
+\vspace{2cm}
+
+\begin{figure}[h]
+    \centering	    
+	\includegraphics[scale=0.6]{figures/local_energie.pdf}
+    \caption{Dérivée de l'énergie par rapport à la température pour plusieurs champ électrique.}
+    	\label{deriveenergie} 
+\end{figure}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Transition de Fréedericksz}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -462,15 +550,7 @@ Sur cette figure, on observe de plus que le paramètre d'ordre ne s'annule pas d
 
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\appendix
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Première annexe} \label{annexe_fonctionnelles}
 
-
-\newpage
 \bibliographystyle{unsrt}
 \bibliography{biblio} 
 \addcontentsline{toc}{section}{Références} 
