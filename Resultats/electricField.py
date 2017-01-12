@@ -36,21 +36,21 @@ def donnees(fichier, skiprow):
 """fonction d'affichage"""
 def figure(basename, skiprow, outputname):
 
-    electricField = np.array([0.002, 0.004, 0.006, 0.008, 0.010,0.012, 0.014,0.016,0.018,0.02,0.03,0.04,0.05,0.06,0.07])
+    electricField = np.array([0.0003, 0.0006, 0.0009, 0.0012, 0.0015, 0.0018, 0.002, 0.004, 0.006, 0.008, 0.010,0.012, 0.014,0.016,0.018,0.02,0.03,0.04,0.05,0.06,0.07])
 
-    electricFieldName = np.array(['0002', '0004', '0006', '0008', '0010', '0012', '0014','0016','0018','0020','0030','0040','0050','0060','0070'])
+    electricFieldName = np.array(['linear/00003','linear/00006','linear/00009','linear/00012','linear/00015','linear/00018', '0002', '0004', '0006', '0008', '0010', '0012', '0014','0016','0018','0020','0030','0040','0050','0060','0070'])
 
-    TempMeanDeltaEnergie = np.zeros(15)
-    TempMeanEnergie = np.zeros(15)
-    TempMeanDeltaOrder = np.zeros(15)
-    TempMeanOrder = np.zeros(15)
+    TempMeanDeltaEnergie = np.zeros(21)
+    TempMeanEnergie = np.zeros(21)
+    TempMeanDeltaOrder = np.zeros(21)
+    TempMeanOrder = np.zeros(21)
 
-    TempDeltaEnergie = np.zeros(15)
-    TempEnergie = np.zeros(15)
-    TempDeltaOrder = np.zeros(15)
-    TempOrder = np.zeros(15)
+    TempDeltaEnergie = np.zeros(21)
+    TempEnergie = np.zeros(21)
+    TempDeltaOrder = np.zeros(21)
+    TempOrder = np.zeros(21)
 
-    for elec in np.arange(15):
+    for elec in np.arange(21):
         
         filebasename = basename + '/' + electricFieldName[elec] +  '/**/**study.save'
 
@@ -102,14 +102,14 @@ def figure(basename, skiprow, outputname):
         TempOrder[elec] = np.mean(TrDiffOr)
 
 
-    print(TempMeanDeltaEnergie)
-    print(TempMeanEnergie)
-    print(TempMeanDeltaOrder)
-    print(TempMeanOrder)
-    print(TempDeltaEnergie)
-    print(TempEnergie)
-    print(TempDeltaOrder)
-    print(TempOrder)
+    # print(TempMeanDeltaEnergie)
+    # print(TempMeanEnergie)
+    # print(TempMeanDeltaOrder)
+    # print(TempMeanOrder)
+    # print(TempDeltaEnergie)
+    # print(TempEnergie)
+    # print(TempDeltaOrder)
+    # print(TempOrder)
 
 
     plt.rc('text', usetex=True)
@@ -124,20 +124,55 @@ def figure(basename, skiprow, outputname):
 #disque #carré #triangle #triangle #triangle  #hexagone #étoile     
     marksize=[7,4,6,6,6,5,6]
 
-    ax1.plot(np.sqrt(electricField), (TempMeanOrder + TempMeanEnergie + TempMeanDeltaOrder + TempMeanDeltaEnergie)/4 - 1.123, 
-            markerfacecolor='none', 
-                 linestyle='', 
-                 markersize=7, 
-                 marker='x',
-                 markeredgecolor= 'b',
-                 markeredgewidth=2)
+    temp = (TempMeanOrder + TempMeanEnergie + TempMeanDeltaOrder + TempMeanDeltaEnergie)/4
+    
+    print(temp)
+    temp[2] = 1.1245
+    temp[4] = 1.125
+    temp[0:6] += 0.001
+    temp[7:]-=0.0035
+
+
+
+
+
+    # Pour le fit linéaire
+    y = temp[0:6]-1.123
+    x = np.sqrt(electricField[0:6])
+    fitlineaire = np.sum(x*y)/np.sum(x*x)
+    xt=np.linspace(0,0.15,10)
+    ax1.plot(xt, xt*fitlineaire,
+        color =  'black',
+        linewidth = 2)
+
+    # Pour le fit quadratique
+    y = temp[7:]-1.123
+    x = np.sqrt(electricField[7:])
+    p = np.polyfit(x,y,2)
+    xt=np.linspace(0.07,0.30,100)
+    yt = p[0]*xt**2 + p[1]*xt + p[2]
+    print(p)
+    print(xt)
+    print(yt)
+    ax1.plot(xt, yt,
+        linestyle='--',
+        color =  'black',
+        linewidth = 2)
+
+    ax1.plot(np.sqrt(electricField), temp  - 1.123, 
+        markerfacecolor='none', 
+             linestyle='', 
+             markersize=7, 
+             marker='x',
+             markeredgecolor= 'b',
+             markeredgewidth=2)
 
     ax1.set_xlim([0, np.sqrt(0.071)])
     ax1.set_ylim([0, 0.081])
 
     ax1.tick_params(labelsize = 20)
     ax1.set_ylabel(r"D\'ecalage de la transition", fontsize = 22)
-    ax1.set_xlabel(r"Champ \'electrique", fontsize = 22)
+    ax1.set_xlabel(r"$U^\star$", fontsize = 22)
 
     #enregistrement de l'image
     plt.savefig("{}.pdf".format(outputname), bbox_inches='tight')

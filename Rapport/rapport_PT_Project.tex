@@ -522,13 +522,13 @@ Pour vérifier cela, il est possible de réaliser une étude similaire à celle 
 Comme on peut le voir sur la figure \ref{electricField}, la transition de phase a bien le comportement attendu qui est d'augmenter avec la température. On peut cependant distinguer deux régimes. Pour les petites valeurs du champ (inférieur à 0.04), le décalage en température est linéaire. Il tend à devenir quadratique avec l'intensité du champ pour des valeurs plus élevées. Ces deux régimes ont été observés dans plusieurs articles de la littérature \cite{entropicelectric, field}. Enfin, on peut noter que le régime linéaire concorde avec les prévisions d'un calcul à la Landau \cite{landau}.
 
 \subsection{Existence d'un point critique}
-Cette augmentation de la température de transition avec le champ électrique a également été observé expérimentalement \cite{mfieldExperiment,efieldExperiment,efieldExperiment2}. Ces études ont de plus montré que cette transition finit en point critique pour les champs forts \cite{efieldExperiment}. L'existence d'un point critique pour cette transition apparaît également dans nos simulations. On constate en effet un adoucissement de la transition lorsque le champ électrique augmente. Cet effet est simplement visualisable en regardant la dérivée de l'énergie avec le température. En effet, le pic de capacité calorifique est de moins en moins marqué. Bien sur, cet adoucissement de la transition a également tendance à augmenter les erreurs sur la détermination de la température de transition pour les champs forts.
+Cette augmentation de la température de transition avec le champ électrique a également été observé expérimentalement \cite{mfieldExperiment,efieldExperiment,efieldExperiment2}. Ces études ont de plus montré que cette transition finit en point critique pour les champs forts \cite{efieldExperiment}. L'existence d'un point critique pour cette transition apparaît également dans nos simulations. On constate en effet un adoucissement de la transition lorsque le champ électrique augmente. Cet effet est simplement visualisable en regardant les variations de l'énergie avec le température. En effet, la rupture de pente est de moins en moins marqué. Bien sur, cet adoucissement de la transition a également tendance à augmenter les erreurs sur la détermination de la température de transition pour les champs forts.
 \vspace{2cm}
 
 \begin{figure}[h!]
     \centering	    
-	\includegraphics[scale=0.6]{figures/local_energie.pdf}
-    \caption{Dérivée de l'énergie par rapport à la température pour plusieurs champ électrique.}
+	\includegraphics[scale=0.6]{figures/electricField_calo.pdf}
+    \caption{Énergie en fonction de la température pour plusieurs champ électrique.}
     	\label{deriveenergie} 
 \end{figure}
 
@@ -544,25 +544,54 @@ Cette augmentation de la température de transition avec le champ électrique a 
 
 
 
-On a vu que l'application d'un champ électrique faible dans notre modèle de Lebwohl-Lasher avait pour conséquence de modifier la température de transition, mais avec ce même modèle on peut aussi observer une transition de phase différente: la transition de Fréedericksz. Cette transition se réalise à température constante en faisant varier le champ électrique dans une phase nématique où on ancre les molécules aux bords. On observe alors une compétition entre la contrainte imposée par l'ancrage aux bords qui frustre la phase nématique du système et la contrainte qui tend à aligner les molécules avec le champ. 
- En particulier nous avons tenté de modéliser la transition de phase utilisée dans les afficheurs à cristaux liquides à technologie \textit{Twisted nematic}.
-\subsection{Écran à cristaux liquides}
+On a vu que l'application d'un champ électrique faible dans notre modèle de Lebwohl-Lasher avait pour conséquence de modifier la température de transition. Avec ce même modèle, on peut étudier le comportement des cristaux liquide et par exemple la transition de Fréedericksz. 
+\medskip
 
-Les écrans à cristaux liquides sont une technologie d'affichage inventée autour de 1970 qui utilise les propriétés polarisantes de deux phases d'un cristal liquide pour laisser ou non passer la lumière et ainsi afficher des images. On peut voir sur la figure \ref{freedericksz} les deux phases qu'un cristal-liquide adopte dans un afficheur: la première phase qu'on peut aussi appeler état "allumé" sur la figure (a), et la seconde phase ou état "éteint" sur la figure (b) selon l'intensité du champ électrique qu'on lui applique. Dans l'état éteint, le champ électrique est coupé et la seule contrainte exercée sur les molécules est celle causée par l'ancrage aux parois. Cet ancrage à pour conséquence de "tordre" la phase nématique en une spirale ce qui lui permet d'influer sur la polarisation de la lumière qui la traverse. Dans l'état "allumé", on impose un champ électrique selon l'axe $\vec{z}$ supérieur au champ critique ce qui les molécules s'organisent alors en une phase alignée avec ce champ électrique qui n'a pas d'influence sur la lumière traversant le cristal-liquide. En plaçant un filtre polariseur polarisé selon $\vec{y}$ sous le cristal liquide et selon $\vec{x}$ au dessus du cristal liquide, on polarise la lumière en éclairage par dessous selon l'axe $\vec{y}$, le cristal liquide dans l'état "éteint" tourne la polarisation de 90$^\circ$ qui est donc, désormais, orientée selon $\vec{x}$, la lumière peut donc passer le filtre polariseur situé au dessus, le système apparaît alors transparent. Dans le cas où le cristal liquide dans l'état "allumé" la polarisation de la lumière incidente n'est pas affectée par le cristal liquide et elle est donc bloquée par le second filtre polariseur, le système apparaît alors opaque.
+Cette transition se réalise à température constante en faisant varier le champ électrique dans une phase nématique où on ancre les molécules aux bords. On observe alors une compétition entre la contrainte imposée par l'ancrage aux bords qui frustre la phase nématique du système et la contrainte qui tend à aligner les molécules avec le champ. Cette transition présente un intérêt pratique puisque c'est cette dernière qui est utilisée dans les afficheurs à cristaux liquides de type \textit{Twisted nematic}.
+
+\subsection{Fonctionnement d'un écran LCD}
+
+Les écrans à cristaux liquides sont une technologie d'affichage inventée autour de 1970 qui utilise les propriétés polarisantes de deux configuration d'un cristal liquide pour laisser ou non passer la lumière et ainsi afficher des images. 
+\medskip
+
+On peut voir sur la Figure \ref{freedericksz} les deux configurations qu'un cristal-liquide adopte dans un afficheur: la première qu'on peut aussi appeler état "allumé" sur la Figure \ref{allume}, et la seconde phase ou état "éteint" sur la Figure \ref{eteint}. Deux filtres polariseurs polarisé selon $y$ et $x$ sont respectivement placé en dessous et au dessus du cristal liquide.
 
 \begin{figure}[h!]
     \centering
     \begin{tikzpicture}
     \node at (0,0) {\includegraphics[scale=1.5]{figures/freedericksz.pdf}};
-    \node at (-5.63,1.77) {$\vec{x}$}; 
-    \node at(-4.4,1.9) {$\vec{y}$};
-    \node at (-5.3,2.75) {$\vec{z}$}; 
+    \node at (-5.63,1.77) {$x$}; 
+    \node at(-4.4,1.9) {$y$};
+    \node at (-5.3,2.75) {$z$}; 
     
     \end{tikzpicture}  
-\caption{yolo}
+\caption{Schéma de fonctionnement d'un pixel d'un écran LCD}
         \label{freedericksz} 
 \end{figure}
 
+Dans l'état éteint, le champ électrique est coupé et la seule contrainte exercée sur les molécules est celle causée par l'ancrage aux parois. Cet ancrage à pour conséquence de "tordre" la phase nématique en une hélice ce qui lui permet d'influer sur la polarisation de la lumière qui la traverse. Le cristal liquide tourne la polarisation de 90$\degres$ qui est donc, désormais, orientée selon $\vec{x}$. La lumière peut donc passer le filtre polariseur situé au dessus : le système apparaît transparent.
+\medskip
+
+Dans l'état "allumé", on impose un champ électrique fort selon l'axe $z$ ce qui forcent les molécules à s'aligner dans sa direction. Les molécules aligné ainsi n'ont alors aucune influence sur la polarisation de la lumière les traversant. La lumière incidente n'est pas affectée par le cristal liquide et elle est donc bloquée par le second filtre polariseur : le système apparaît alors opaque.
+\medskip
+
+\subsection{Description du modèle}
+
+\subsection{Résultats}
+
+TO DO LIST
+\begin{itemize}
+\item Changer la figure de fonctionnement en deux figures et citer le bouquin d'oswald dans la légende
+\item Coder LCD
+\item Tracer les résultats
+\item Ecrire les résultats
+\item Ecrire la conclusion
+\item Ecrire l'abstract
+\item Convertir le tout dans le template de merde
+\item changer le titre
+\item ajouter des références LCD
+\item RELIRE TOUT LE RAPPORT
+\end{itemize}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
