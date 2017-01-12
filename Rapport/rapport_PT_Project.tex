@@ -490,8 +490,7 @@ Un tel comportement en double pic est attendu pour les transitions de phase du p
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Influence d'un champ électrique}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 Dans cette partie on s'intéresse à l'influence d'un champ électrique sur la transition nématique isotrope, toujours à l'aide du modèle de Lebwohl-Lasher. Comme les molécules ont tendances à s'orienter dans la direction du champ électrique, ce dernier stabilise la phase nématique. L'objectif de cette partie est donc de tracer la température de transition en fonction du champ électrique.
 \subsection{Ajout au modèle de Lebwohl-Lasher}
@@ -508,13 +507,13 @@ E = - \epsilon\sum_{<i,j>} \frac{3\cos^2\theta_{i,j}-1}{2} - \epsilon \xi U^2 \s
 \subsection{Température de transition}
 Avec un tel potentiel, les configurations où les molécules sont alignées avec le champ sont plus stable. Cette énergie supplémentaire vient donc stabiliser la phase nématique lorsque le champ et les molécules sont alignées. On s'attend donc à avoir une augmentation de la température de transition avec le champ électrique.
 
-
-\begin{figure}[h]
-    \centering	    
-	\includegraphics[scale=0.6]{figures/electricField.pdf}
+\begin{figure}[h!]
+    \centering      
+    \includegraphics[scale=0.6]{figures/electricField.pdf}
     \caption{Décalage par rapport à la température de transition $T^\star$. La ligne en trait plein correspond à un ajustement linéaire des données pour les champs faibles. La ligne en tirets correspond à un ajustement quadratique des données pour les champs forts.}
-    	\label{electricField} 
+        \label{electricField} 
 \end{figure}
+
 \newpage
 
 Pour vérifier cela, il est possible de réaliser une étude similaire à celle présentée en partie \ref{temptrans} pour plusieurs champ électrique. Pour chacune des valeur de champ souhaitée, on réalise une série d'une dizaine de simulations sur 200 températures de $T^\star = 1.00$ à $T^\star = 1.20$. Avec les résultats, on peut tracer les graphes d'énergie et de paramètre d'ordre et déterminer la température de transition pour chaque champ électrique. Le résultat de cette étude est présenté en Figure \ref{electricField}.
@@ -526,7 +525,7 @@ Comme on peut le voir sur la figure \ref{electricField}, la transition de phase 
 Cette augmentation de la température de transition avec le champ électrique a également été observé expérimentalement \cite{mfieldExperiment,efieldExperiment,efieldExperiment2}. Ces études ont de plus montré que cette transition finit en point critique pour les champs forts \cite{efieldExperiment}. L'existence d'un point critique pour cette transition apparaît également dans nos simulations. On constate en effet un adoucissement de la transition lorsque le champ électrique augmente. Cet effet est simplement visualisable en regardant la dérivée de l'énergie avec le température. En effet, le pic de capacité calorifique est de moins en moins marqué. Bien sur, cet adoucissement de la transition a également tendance à augmenter les erreurs sur la détermination de la température de transition pour les champs forts.
 \vspace{2cm}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering	    
 	\includegraphics[scale=0.6]{figures/local_energie.pdf}
     \caption{Dérivée de l'énergie par rapport à la température pour plusieurs champ électrique.}
@@ -536,9 +535,34 @@ Cette augmentation de la température de transition avec le champ électrique a 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Transition de Fréedericksz}
+\section{LCD et transition de Fréedericksz}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+On a vu que l'application d'un champ électrique faible dans notre modèle de Lebwohl-Lasher avait pour conséquence de modifier la température de transition, mais avec ce même modèle on peut aussi observer une transition de phase différente: la transition de Fréedericksz. Cette transition se réalise à température constante en faisant varier le champ électrique dans une phase nématique où on ancre les molécules aux bords. On observe alors une compétition entre la contrainte imposée par l'ancrage aux bords qui frustre la phase nématique du système et la contrainte qui tend à aligner les molécules avec le champ. 
+ En particulier nous avons tenté de modéliser la transition de phase utilisée dans les afficheurs à cristaux liquides à technologie \textit{Twisted nematic}.
+\subsection{Écran à cristaux liquides}
+
+Les écrans à cristaux liquides sont une technologie d'affichage inventée autour de 1970 qui utilise les propriétés polarisantes de deux phases d'un cristal liquide pour laisser ou non passer la lumière et ainsi afficher des images. On peut voir sur la figure \ref{freedericksz} les deux phases qu'un cristal-liquide adopte dans un afficheur: la première phase qu'on peut aussi appeler état "allumé" sur la figure (a), et la seconde phase ou état "éteint" sur la figure (b) selon l'intensité du champ électrique qu'on lui applique. Dans l'état éteint, le champ électrique est coupé et la seule contrainte exercée sur les molécules est celle causée par l'ancrage aux parois. Cet ancrage à pour conséquence de "tordre" la phase nématique en une spirale ce qui lui permet d'influer sur la polarisation de la lumière qui la traverse. Dans l'état "allumé", on impose un champ électrique selon l'axe $\vec{z}$ supérieur au champ critique ce qui les molécules s'organisent alors en une phase alignée avec ce champ électrique qui n'a pas d'influence sur la lumière traversant le cristal-liquide. En plaçant un filtre polariseur polarisé selon $\vec{y}$ sous le cristal liquide et selon $\vec{x}$ au dessus du cristal liquide, on polarise la lumière en éclairage par dessous selon l'axe $\vec{y}$, le cristal liquide dans l'état "éteint" tourne la polarisation de 90$^\circ$ qui est donc, désormais, orientée selon $\vec{x}$, la lumière peut donc passer le filtre polariseur situé au dessus, le système apparaît alors transparent. Dans le cas où le cristal liquide dans l'état "allumé" la polarisation de la lumière incidente n'est pas affectée par le cristal liquide et elle est donc bloquée par le second filtre polariseur, le système apparaît alors opaque.
+
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+    \node at (0,0) {\includegraphics[scale=1.5]{figures/freedericksz.pdf}};
+    \node at (-5.63,1.77) {$\vec{x}$}; 
+    \node at(-4.4,1.9) {$\vec{y}$};
+    \node at (-5.3,2.75) {$\vec{z}$}; 
+    
+    \end{tikzpicture}  
+\caption{yolo}
+        \label{freedericksz} 
+\end{figure}
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
