@@ -556,18 +556,36 @@ Les écrans à cristaux liquides sont une technologie d'affichage inventée auto
 
 On peut voir sur la Figure \ref{freedericksz} les deux configurations qu'un cristal-liquide adopte dans un afficheur: la première qu'on peut aussi appeler état "allumé" sur la Figure \ref{allume}, et la seconde phase ou état "éteint" sur la Figure \ref{eteint}. Deux filtres polariseurs polarisé selon $y$ et $x$ sont respectivement placé en dessous et au dessus du cristal liquide.
 
+
+
 \begin{figure}[h!]
-    \centering
-    \begin{tikzpicture}
-    \node at (0,0) {\includegraphics[scale=1.5]{figures/freedericksz.pdf}};
-    \node at (-5.63,1.77) {$x$}; 
-    \node at(-4.4,1.9) {$y$};
-    \node at (-5.3,2.75) {$z$}; 
+\center
+    \begin{subfigure}[b]{0.49\textwidth}
+    	\center
+        \begin{tikzpicture}
+            \node at (0,0) {\includegraphics[scale=1.5]{figures/freedericksz_a.pdf}};
+            \node at (-2.2,1.2) {$x$}; 
+            \node at(-1.1,1.4) {$y$};
+            \node at (-1.95,2.3) {$z$};
+            \node at (-1.45,0.6) {$\vec{U}^\star$}; 
+        \end{tikzpicture} 
+    	\caption{Pixel éteint}
+    	\label{a}
+    \end{subfigure}	
+    \begin{subfigure}[b]{0.49\textwidth}
+    	\center
+        \begin{tikzpicture}
+            \node at (0,0) {\includegraphics[scale=1.5]{figures/freedericksz_b.pdf}};
+            \node at (-1.5,2.2) {$\vec{U}^\star$}; 
+        \end{tikzpicture} 
+    	\caption{Pixel allumé}
+    	\label{a}
+    \end{subfigure}	
     
-    \end{tikzpicture}  
-\caption{Schéma de fonctionnement d'un pixel d'un écran LCD}
-        \label{freedericksz} 
+    \caption{Schéma de fonctionnement d'un pixel d'un écran LCD \cite{oswald}}
+    \label{freedericksz} 
 \end{figure}
+
 
 Dans l'état éteint, le champ électrique est coupé et la seule contrainte exercée sur les molécules est celle causée par l'ancrage aux parois. Cet ancrage à pour conséquence de "tordre" la phase nématique en une hélice ce qui lui permet d'influer sur la polarisation de la lumière qui la traverse. Le cristal liquide tourne la polarisation de 90$\degres$ qui est donc, désormais, orientée selon $\vec{x}$. La lumière peut donc passer le filtre polariseur situé au dessus : le système apparaît transparent.
 \medskip
