@@ -10,18 +10,18 @@
 \contentsline {subsection}{\numberline {2.4}Ratio d'acceptation}{6}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}D\IeC {\'e}roulement d'une simulation}{7}{subsection.2.5}
 \contentsline {subsection}{\numberline {2.6}Langage de programmation}{7}{subsection.2.6}
-\contentsline {section}{\numberline {3}Transition n\IeC {\'e}matique-isotrope}{8}{section.3}
-\contentsline {subsection}{\numberline {3.1}Echelle de temp\IeC {\'e}rature et d'\IeC {\'e}nergie.}{8}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Observation de la transition}{8}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Temp\IeC {\'e}rature de transition}{9}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Histogramme en \IeC {\'e}nergie}{11}{subsection.3.4}
-\contentsline {section}{\numberline {4}Influence d'un champ \IeC {\'e}lectrique}{13}{section.4}
-\contentsline {subsection}{\numberline {4.1}Ajout au mod\IeC {\`e}le de Lebwohl-Lasher}{13}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Temp\IeC {\'e}rature de transition}{13}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Existence d'un point critique}{14}{subsection.4.3}
-\contentsline {section}{\numberline {5}LCD et transition de Fr\IeC {\'e}edericksz}{15}{section.5}
-\contentsline {subsection}{\numberline {5.1}Fonctionnement d'un \IeC {\'e}cran LCD}{15}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Description du mod\IeC {\`e}le}{16}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}R\IeC {\'e}sultats}{16}{subsection.5.3}
-\contentsline {section}{Conclusion}{17}{section*.20}
-\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{19}{section*.21}
+\contentsline {section}{\numberline {3}Transition n\IeC {\'e}matique-isotrope}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}\IeC {\'E}chelle de temp\IeC {\'e}rature et d'\IeC {\'e}nergie.}{9}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Observation de la transition}{9}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Temp\IeC {\'e}rature de transition}{10}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Histogrammes en \IeC {\'e}nergie}{12}{subsection.3.4}
+\contentsline {section}{\numberline {4}Influence d'un champ \IeC {\'e}lectrique}{14}{section.4}
+\contentsline {subsection}{\numberline {4.1}Ajout au mod\IeC {\`e}le de Lebwohl-Lasher}{14}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Temp\IeC {\'e}rature de transition}{14}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Existence d'un point critique}{15}{subsection.4.3}
+\contentsline {section}{\numberline {5}LCD et transition de Fr\IeC {\'e}edericksz}{16}{section.5}
+\contentsline {subsection}{\numberline {5.1}Fonctionnement d'un \IeC {\'e}cran LCD}{16}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Description du mod\IeC {\`e}le}{17}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}R\IeC {\'e}sultats}{17}{subsection.5.3}
+\contentsline {section}{Conclusion}{18}{section*.20}
+\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{20}{section*.21}

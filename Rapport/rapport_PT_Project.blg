@@ -5,45 +5,45 @@ The style file: unsrt.bst
 Database file #1: biblio.bib
 Warning--empty journal in parallel
 Warning--empty year in parallel
-You've used 20 entries,
+You've used 21 entries,
             1791 wiz_defined-function locations,
-            601 strings with 8204 characters,
-and the built_in function-call counts, 5098 in all, are:
-= -- 474
-> -- 234
-< -- 0
-+ -- 85
-- -- 65
-* -- 407
-:= -- 840
-add.period$ -- 78
-call.type$ -- 20
+            604 strings with 8346 characters,
+and the built_in function-call counts, 5273 in all, are:
+= -- 488
+> -- 242
+< -- 1
++ -- 88
+- -- 67
+* -- 415
+:= -- 867
+add.period$ -- 81
+call.type$ -- 21
 change.case$ -- 20
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 174
-empty$ -- 465
-format.name$ -- 65
-if$ -- 1086
+cite$ -- 23
+duplicate$ -- 184
+empty$ -- 484
+format.name$ -- 67
+if$ -- 1127
 int.to.chr$ -- 0
-int.to.str$ -- 20
-missing$ -- 19
-newline$ -- 121
-num.names$ -- 20
-pop$ -- 10
+int.to.str$ -- 21
+missing$ -- 21
+newline$ -- 126
+num.names$ -- 21
+pop$ -- 16
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 69
+skip$ -- 73
 stack$ -- 0
 substring$ -- 458
-swap$ -- 19
-text.length$ -- 0
+swap$ -- 21
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 48
-width$ -- 22
-write$ -- 254
+while$ -- 49
+width$ -- 23
+write$ -- 265
 (There were 2 warnings)
