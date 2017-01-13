@@ -1,0 +1,27 @@
+\BOOKMARK [1][-]{section*.2}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1}{Th\351orie de la transition n\351matique-isotrope}{}% 2
+\BOOKMARK [2][-]{subsection.1.1}{La phase n\351matique}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.2}{Le param\350tre d'ordre}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{M\351thodes num\351riques}{}% 5
+\BOOKMARK [2][-]{subsection.2.1}{Mod\350le de Lebwohl-Lasher}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Algorithme Monte-Carlo}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{\311quiprobabilit\351 des directions}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.4}{Ratio d'acceptation}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.5}{D\351roulement d'une simulation}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.6}{Langage de programmation}{section.2}% 11
+\BOOKMARK [1][-]{section.3}{Transition n\351matique-isotrope}{}% 12
+\BOOKMARK [2][-]{subsection.3.1}{\311chelle de temp\351rature et d'\351nergies.}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.2}{Observation de la transition}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.3}{Temp\351rature de transition}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.4}{Histogrammes en \351nergie}{section.3}% 16
+\BOOKMARK [1][-]{section.4}{Influence d'un champ \351lectrique}{}% 17
+\BOOKMARK [2][-]{subsection.4.1}{Ajout au mod\350le de Lebwohl-Lasher}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.2}{Temp\351rature de transition}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.3}{Existence d'un point critique}{section.4}% 20
+\BOOKMARK [1][-]{section.5}{LCD et transition de Fr\351edericksz}{}% 21
+\BOOKMARK [2][-]{subsection.5.1}{Fonctionnement d'un \351cran LCD}{section.5}% 22
+\BOOKMARK [2][-]{subsection.5.2}{Modification du mod\350le}{section.5}% 23
+\BOOKMARK [2][-]{subsection.5.3}{R\351sultats}{section.5}% 24
+\BOOKMARK [2][-]{subsection.5.4}{Perspectives}{section.5}% 25
+\BOOKMARK [1][-]{section*.19}{Conclusion}{}% 26
+\BOOKMARK [1][-]{section*.20}{R\351f\351rences}{}% 27

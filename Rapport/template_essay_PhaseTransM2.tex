@@ -1,16 +1,24 @@
-\documentclass[11pt,a4paper]{article}
-
-% Marges du document %
-\setlength{\topmargin}{0cm}
-\setlength{\headheight}{0.4cm}
-\setlength{\headsep}{0.8cm}
-\setlength{\footskip}{1cm}
-\setlength{\textwidth}{17cm}
-\setlength{\textheight}{25cm}
-\setlength{\voffset}{-1.5cm}
-\setlength{\hoffset}{-0.5cm}
-\setlength{\oddsidemargin}{0cm}
-\setlength{\evensidemargin}{0cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                %
+%   Enonce des TDs "Transitions de Phase et Brisure de Symetrie  %
+%                                                                %
+%          M 2, 2006/2007,2007/2008,2008/2009 Peter Holdsworth                      %
+%                          Christophe Winisdoerffer              %
+%                                                                %
+%   Attention: 1ere moitie du document : enonces en francais     %
+%              2eme moitie du document : enonces en anglais      %
+%                                                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{article}
+\usepackage{epsf,epsfig,wrapfig}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\textheight=21 true cm
+\textwidth= 15. true cm
+\oddsidemargin=0.5truecm
+\topmargin=0.1truecm
 
 \usepackage{amssymb}
 \usepackage{psfrag}
@@ -50,108 +58,46 @@ hyperindex=true,
 hyperfigures=false]
 {hyperref} % fichiers pdf 'intelligents', avec des liens entre les références, etc.
 
-% En-tête et pied de page % 
-\pagestyle{fancy}
-\fancyhead[L]{\scriptsize \textsc{Transition nématique-isotrope dans le modèle de Lebwohl-Lasher}} 
-\fancyhead[R]{\scriptsize \textsc{BUNEL Félix et VERGNET Hadrien}} 
-\fancyfoot[C]{ \thepage}
-
-\author{Bunel Félix et Vergnet Hadrien}
-
 \input{figures/preamble_tikz.tex}
 
 
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{titlepage}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\thispagestyle{empty}
-\setlength{\parindent}{0pt}
+\pagenumbering{gobble}
 
-\includegraphics[height=1.9cm]{logo-ens.jpg} \hfill \includegraphics[height=2cm]{logo_lyon1.jpg} \hfill \includegraphics[height=2cm]{logo_univ_lyon.jpg}
+\title{{\normalsize Master M2 Sciences de la Mati\`ere -- ENS de Lyon --  2016-2017} \\
+{\normalsize \emph{Phase Transitions and Critical Phenomena}} \\ 
+\bigskip
+\bigskip
+\bigskip
+{\bf Transition nématique-isotrope \\ dans le modèle de Lebwohl-Lasher}}
+\author{Félix Bunel \& Hadrien Vergnet}
 
+\maketitle
 
-
-Master Sciences de la matière
-\hfill
-Projet de Transition de phase 
-
-\textit{École Normale Supérieure de Lyon}
-\hfill
-BUNEL Félix et VERGNET Hadrien
-
-\textit{Université Claude Bernard Lyon 1}
-\hfill
-M2 Physique 2015-2016
-\vspace{0.5cm}
-
-\hrulefill
-\vspace{-0.6cm}
-
-\hrulefill
-
-
-\begin{center}\bfseries
+\abstract{Ce rapport présente les résultats d'une étude Monte-Carlo réalisée sur la transition de phase nématique-isotrope dans un cristal-liquide. Le modèle numérique implémenté, permet dans un premier temps d'observer la transition nématique-isotrope et d'obtenir avec précision la température de transition. Il est ensuite repris et amélioré afin d'étudier l'influence d'un champ électrique sur cette transition. Enfin, le modèle est appliqué à une transition de Fréedericksz, qui est au cœur de la technologie des écrans à cristaux liquides.
 \vspace{0.3cm}
-\begin{huge}
-    Transition nématique-isotrope \\ dans le modèle de Lebwohl-Lasher
-\end{huge}
-\end{center}
 
-\hrulefill
-\vspace{-0.6cm}
-
-\hrulefill
-
+\textbf{Mots clefs :} nématique, modèle de Lebwohl-Lasher, Monte-Carlo.
 
 \begin{center}
-\includegraphics[height=10cm]{figures/cristaux_liquides.png} 
-\end{center} 
-\vspace{-0.5cm}
-
-\textbf{Résumé :} 
-Ce rapport présente les résultats d'une étude Monte-Carlo réalisée sur la transition de phase nématique-isotrope dans un cristal-liquide. Le modèle numérique implémenté, permet dans un premier temps d'observer la transition nématique-isotrope et d'obtenir avec précision la température de transition. Il est ensuite repris et amélioré afin d'étudier l'influence d'un champ électrique sur cette transition. Enfin, le modèle est appliqué à une transition de Fréedericksz, qui est au cœur de la technologie des écrans à cristaux liquides.
-\vspace{0.3cm}
-
-\textbf{Mots clefs :} cristaux liquides, nématique, Lebwohl-Lasher, Monte-Carlo.
-\vspace{0.3cm}
-
-\textbf{Projet encadré par :} 
-
-\begin{center}
-\begin{multicols}{2}
-
-{\bf Tommaso Roscilde } \\
-tommaso.roscilde@ens-lyon.fr \\
-
-{\bf Andrei Fedorenko} \\
-andrey.fedorenko@ens-lyon.fr\\
-\end{multicols}
-
-ENS de Lyon\\
-46, allée d'Italie\\ 69364 Lyon, Cedex 07\\ France
+\includegraphics[height=8.5cm]{figures/cristaux_liquides.png} 
+\end{center}}
 
 
-
-\end{center}
-
-\end{titlepage}
 
 \newpage
 
+\pagenumbering{arabic}
+
+\newpage
 \tableofcontents
 
 
 \newpage
-\renewcommand\thepage{\arabic{page}}
 
 
 \definecolor{linkcolor}{rgb}{0,0,1}
-
-%ICI
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -161,7 +107,7 @@ ENS de Lyon\\
 \addcontentsline{toc}{section}{Introduction}
 Le domaine des cristaux liquides a subi une importante expansion durant tout le 20\up{ème} siècle et est encore aujourd'hui un domaine actif de la recherche en physique. L'intérêt pour ces milieux intermédiaires entre cristaux et liquides provient, entre autres, de leurs applications industrielles en matière d'afficheurs (Figure \ref{lcd_photo}).
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering	    
 	\includegraphics[height=3cm]{figures/lcd.jpg}
     \caption{Un écran à cristaux liquides.}
@@ -170,7 +116,7 @@ Le domaine des cristaux liquides a subi une importante expansion durant tout le 
 
 Le nom "cristal liquide" désigne les molécules ou mélanges de molécules possédant une mésophase, c'est à dire une phase partiellement structurée, intermédiaire entre les phases liquide et cristalline. Dans ce rapport, on s'intéressera au cas particulier de la phase nématique qui emprunte aux liquides l'invariance par translation, mais brise partiellement la symétrie par rotation. Dans cette phase, les molécules s'organisent en effet pour avoir une orientation identique en moyenne (Figure \ref{nematic_phase}).
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \center
     \input{figures/iso_vs_nematic.tikz}
     \caption{Les cristaux liquides peuvent être représentés par un ensemble d'ellipsoïdes allongés dans une direction.
@@ -180,7 +126,6 @@ Le nom "cristal liquide" désigne les molécules ou mélanges de molécules poss
 
 L'objectif de ce projet a été d'étudier, par des méthodes numériques, la transition de phase nématique-isotrope. Ce rapport présente dans un premier temps la transition de phase en question puis le modèle ainsi que les outils numériques utilisés. Les résultats obtenus sur la transition de phase observée sont ensuite détaillés. On étudiera, dans une quatrième partie, l'influence d'un champ électrique sur cette transition. Enfin, une dernière partie étudiera la transition de Fréedericksz utilisée dans la technologie LCD.
 
-\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Théorie de la transition nématique-isotrope}
@@ -200,13 +145,16 @@ Pour décrire le degré d'alignement moléculaire dans la phase nématique, on p
  \end{pmatrix} 
 \end{equation}
 Le degré d'alignement moléculaire peut donc être décrit par la densité de probabilité $f(\theta,\phi)d\Omega$ de trouver la molécule dans un angle solide $d\Omega = d\theta\, \sin \theta d\phi$ autour de la direction $(\theta,\phi)$. Si on choisit d'orienter la troisième coordonnée selon le directeur $\bm{n}$, cette fonction ne dépend pas de $\phi$ par symétrie. De plus, elle respecte $f(\theta) = f(\pi - \theta)$ puisque les molécules ont la même probabilité de pointer dans une direction ou dans celle opposée. La forme générique de cette fonction est présentée en Figure \ref{distrib}.
+\vspace{1cm}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering	    
 	\includegraphics[scale=0.4]{figures/distrib.pdf}
     \caption{Densité de probabilité $f(\theta)$.}
     	\label{distrib} 
 \end{figure}
+
+\newpage
 
 \subsection{Le paramètre d'ordre}
 On essaie maintenant de construire un paramètre qui décrit l'orientation moyenne selon $\bm{n}$ et qui tend vers 0 dans la phase isotrope. Le vecteur $\langle \bm{a} \rangle $ ne convient pas car il est nul par symétrie. Une meilleure idée est d'utiliser le tenseur $\underline{\underline{S}}$ défini par :
@@ -242,6 +190,7 @@ S = \frac{3 \langle (\bm{a}\cdot \bm{n})^2\rangle -1}{2} = \frac{3 \langle \cos^
 
 Le scalaire $S$ mesure donc le degré d'alignement selon le directeur. Il est égal à 1 lorsque toutes les molécules sont alignées selon $\bm{n}$ et il est nul dans la phase isotrope où les directions des molécules sont purement aléatoires. Il s'agit donc d'un bon choix de paramètre d'ordre pour suivre l'évolution de la transition nématique isotrope.
 \newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Méthodes numériques}
@@ -253,7 +202,7 @@ Dans cette partie, on présente le modèle de Lebwohl-Lasher utilisé ainsi que 
 \label{lebwohlpart}
 Le modèle de Lebwohl-Lasher \cite{model} est en quelque sorte l'analogue pour la transition nématique-isotrope du modèle d'Ising. Comme pour ce dernier, il permet d'obtenir des résultats très satisfaisants malgré sa simplicité.\medskip
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \center
     \input{figures/lebwohl.tikz}
     \caption{Représentation à deux dimensions du modèle de Lebwohl-Lasher.}
@@ -303,29 +252,29 @@ Pour chaque site du réseau, l'orientation de la molécule est stockée en tant 
 \center
     \begin{subfigure}[b]{0.22\textwidth}
     	\center
-    	\includegraphics[height=3.5cm]{figures/dessus1.pdf}
+    	\includegraphics[height=3.3cm]{figures/dessus1.pdf}
     	\caption{Vue de dessus.}
     	\label{a}
     \end{subfigure}	
 	\begin{subfigure}[b]{0.22\textwidth}
     	\center
-    	\includegraphics[height=3.5cm]{figures/side1.pdf}
+    	\includegraphics[height=3.3cm]{figures/side1.pdf}
     	\caption{Vue de côté.}
     	\label{b}
     \end{subfigure}
-		\begin{subfigure}[b]{0.05\textwidth}
-		\hspace{0.1cm}
+		\begin{subfigure}[b]{0.02\textwidth}
+		\hspace{0.05cm}
     	\center
     \end{subfigure}
     \begin{subfigure}[b]{0.22\textwidth}
     	\center
-    	\includegraphics[height=3.5cm]{figures/dessus2.pdf}
+    	\includegraphics[height=3.3cm]{figures/dessus2.pdf}
     	\caption{Vue de dessus.}
     	\label{c}
     \end{subfigure}	
     \begin{subfigure}[b]{0.22\textwidth}
     	\center
-    	\includegraphics[height=3.5cm]{figures/side2.pdf}
+    	\includegraphics[height=3.3cm]{figures/side2.pdf}
     	\caption{Vue de côté.}
     	\label{d}
     \end{subfigure}	
@@ -355,13 +304,15 @@ Pour chaque température, au minimum 2000 cycles sont calculés pour faire évol
 \begin{figure}[h!]
     \centering	    
 	\includegraphics[scale=0.6]{figures/equilibrage.pdf}
-    \caption{Observation de l'équilibrage du système à une température $T^\star = k_B T/\epsilon = 1$ en partant de l'état fondamental. L'énergie renormalisée (voir partie \ref{scale}) ainsi que le paramètre d'ordre sont représentés en fonction des cycles}
+    \caption{Observation de l'équilibrage du système à une température $T^\star = k_B T/\epsilon = 1$ en partant de l'état fondamental. L'énergie renormalisée (voir partie \ref{scale}) ainsi que le paramètre d'ordre sont représentés en fonction des cycles.}
     	\label{equilibrage} 
 \end{figure}
 
+\newpage
 
 \subsection{Langage de programmation}
 Une première version du code a été implémentée en \texttt{Python} et a permis d'obtenir simplement des résultats. L'existence de bibliothèques comme \texttt{Numpy} permet d'obtenir un code fonctionnant de manière rapide et intuitive. Cependant, \texttt{Python} n'est pas adapté à des algorithmes de type Monte-Carlo qui consistent en de longues itérations. Ainsi, une seconde version du code plus performante a été implémentée en \CC. Cette dernière tourne en moyenne 40 fois plus vite que son homologue en \texttt{Python} ce qui a permis de réaliser de plus grosses simulations. L'utilisation des ressources du Centre Blaise Pascal a également été d'une grande aide pour réaliser des simulations sur une longue durée. Les deux versions du code sont disponibles en libre accès sur la plateforme Github \cite{github}.
+
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -408,6 +359,7 @@ Ensuite, le seul endroit où intervient la température dans ce modèle est au n
 Une première méthode pour observer la transition de phase est d'afficher directement l'état du réseau à la fin de l'équilibrage (Figure \ref{lattice}). À température proche de 0 (Figure \ref{fonda}), l'état d'équilibre est très proche de l'état fondamental et toutes molécules sont presque alignées. Lorsque l'on augmente la température jusqu'à $T^\star = 0.9$ (Figure \ref{09}), l'agitation thermique joue un rôle plus important et l'alignement n'est plus parfait. On peut cependant clairement observer une orientation commune des molécules. Pour des températures plus élevées (Figure \ref{15}), l'agitation thermique prédomine et l'orientation des molécules est complètement aléatoire.
 On passe donc d'un état ordonné à un état aléatoire. La transition entre ces deux états semble s'effectuer à une température entre $T^\star = 0.9$ et $T^\star = 1.5$. 
 \medskip
+\newpage
 
 Cette idée de la température de transition obtenue par visualisation directe donne la gamme de température sur laquelle on souhaite calculer les quantités qui nous intéressent que sont l'énergie $E^\star$ et le paramètre d'ordre $S$. La Figure \ref{global} représente l'énergie et le paramètre d'ordre sur une large gamme de température. Pour cette étude, on a moyenné ces quantités sur 5000 cycles. La résolution en température est de l'ordre du centième (200 températures réalisées).
 \medskip
@@ -421,7 +373,6 @@ Sur cette figure, on observe que la transition de phase se fait à une températ
     	\label{global} 
 \end{figure}
 
-
 \subsection{Température de transition}
 \label{temptrans}
 Afin de déterminer plus précisément la température de transition, d'autres simulations ont été réalisées. La gamme de température observée est beaucoup plus restreinte de manière à avoir une meilleure résolution en température. De plus, les simulations ont été reproduites une trentaine de fois. Les résultats sont donc moyennés sur les différentes simulations pour réduire la possibilité d'une réalisation particulière donnant une mauvaise température de transition. Le système pourrait par exemple évoluer vers des configurations bloquées desquelles il lui serait difficile de sortir, ce qui pourrait fausser les valeurs des observables mesurées.   
@@ -432,6 +383,7 @@ Afin de déterminer plus précisément la température de transition, d'autres s
     \caption{Énergie et variance de l'énergie en fonction de la température.}
     	\label{local_energie} 
 \end{figure}
+\medskip
 
 Les Figures \ref{local_energie} et \ref{local_order} sont le résultat de ces moyennes sur les réalisations. Elles représentent l'énergie, le paramètre d'ordre ainsi que leurs variances en fonction de la température. Ces quantités sont moyennés sur 5000 cycles pour chacune des 240 températures réalisées.
 \medskip
@@ -444,24 +396,22 @@ Commençons par étudier la figure \ref{local_energie}. Comme sur la Figure \ref
     \caption{Paramètre d'ordre et variance du paramètre d'ordre en fonction de la température.}
     	\label{local_order} 
 \end{figure}
+\medskip
 
 Ensuite, on peut s'intéresser à l'évolution du paramètre d'ordre avec la température sur la Figure \ref{local_order}. Ce dernier chute d'une valeur de 0.4 à une valeur pratiquement nulle après la transition. La plus grosse chute de paramètre d'ordre se fait pour la température $T^\star = 1.1231 \pm 0.0005$. Comme pour l'énergie, on peut s'intéresser à la variance du paramètre d'ordre qui correspond donc maintenant à sa susceptibilité. Cette dernière passe par un maximum à une température $T^\star = 1.123 \pm 0.001$. Cette mesure est celle pour laquelle les incertitudes sont les plus grandes.
 \medskip
+\newpage
 
 Sur cette figure, on observe de plus que le paramètre d'ordre ne s'annule pas directement après la température de transition. Cet effet provient de la taille finie du système et est amplifié par les moyennes sur les réalisations. Des travaux récents \cite{cluster,nonb} étudient cet effet en fonction de la taille du réseau. En extrapolant leurs résultats à un système de taille infinie ils en déduisent la température de transition de manière extrêmement précise. La température obtenue par ces méthodes est de $T^\star = 1.1232 \pm 0.0001$, ce qui est en accord avec nos mesures.
 
-\newpage
 
 \subsection{Histogrammes en énergie}
 
 Une dernière méthode pour étudier la transition est de s'intéresser aux histogrammes des occurrences d'une certaine énergie. Pour générer des résultats satisfaisants, il a été nécessaire de réaliser des simulations bien plus longues que les précédentes. Pour chacune des 100 températures prises entre 1.10 et 1.14, les histogrammes ont été générés sur 30 000 cycles. À titre d'information, une telle simulation prend une centaine d'heures sur les machines performantes du Centre Blaise Pascal. On présente en figure \ref{imagehisto} et \ref{histoo} les histogrammes en énergie générés à partir de ces simulations.
+\medskip
 
-\begin{figure}[h!]
-    \centering	    
-	\includegraphics[scale=0.5]{figures/histo_image.pdf}
-    \caption{Histogramme en énergie en fonction de la température. Le nombre d’occurrences pour chaque énergie est représenté en fausses couleurs.}
-    	\label{imagehisto} 
-\end{figure}
+
+
 Sur la Figure \ref{imagehisto}, on peut voir les histogrammes obtenus pour chaque température. Sur cette image, on retrouve le profil observé en Figure \ref{local_energie} avec la rupture de pente des énergies. Proche de la transition, les histogrammes sont plus étendus, ce qui correspond bien au pic de la variance. Enfin, on constate clairement un saut en énergie à la température 1.123. Le recouvrement entre les histogrammes avant et après cette température est pratiquement nul.
 \medskip
 
@@ -469,6 +419,14 @@ Sur les histogrammes de la figure \ref{histoo}, on n'observe pas juste un décal
 \medskip
 
 Un tel comportement en double pic est attendu pour les transitions de phase du premier ordre. Ce comportement a été également observé dans un modèle plus grossier \cite{model} dans lequel les orientations prises par les molécules sont discrètes. Il est également rapporté de manière moins évidente dans d'autres articles \cite{fabbri}.
+\vspace{2cm}
+
+\begin{figure}[h!]
+    \centering	    
+	\includegraphics[scale=0.5]{figures/histo_image.pdf}
+    \caption{Histogramme en énergie en fonction de la température. Le nombre d’occurrences pour chaque énergie est représenté en fausses couleurs.}
+    	\label{imagehisto} 
+\end{figure}
 
 \begin{figure}
 \center
@@ -530,16 +488,19 @@ Avec un tel potentiel, les configurations où les molécules sont alignées avec
         \label{electricField} 
 \end{figure}
 
-\newpage
-
 Pour vérifier cela, il est possible de réaliser une étude similaire à celle présentée en partie \ref{temptrans} pour plusieurs champs électriques. Pour chacune des valeurs de champ souhaitées, on réalise une dizaine de simulations sur 200 températures de $T^\star = 1.00$ à $T^\star = 1.20$. Avec les résultats, on peut tracer les graphes d'énergie et de paramètre d'ordre et déterminer la température de transition pour chaque champs électriques. Le résultat de cette étude est présenté en Figure \ref{electricField}.
 \medskip
 
 Comme on peut le voir sur la figure \ref{electricField}, la température de la transition se comporte comme attendu: elle augmente avec le champ électrique. On peut cependant distinguer deux régimes. Pour les petites valeurs du champ (inférieur à 0.04), le décalage en température est linéaire. Il tend à devenir quadratique avec l'intensité du champ pour des valeurs plus élevées. Ces deux régimes ont été observés dans plusieurs articles de la littérature \cite{entropicelectric, field}. Enfin, on peut noter que le régime linéaire concorde avec les prévisions d'un calcul à la Landau \cite{landau}.
+\newpage
 
 \subsection{Existence d'un point critique}
-Cette augmentation de la température de transition avec le champ électrique a également été observé expérimentalement \cite{mfieldExperiment,efieldExperiment,efieldExperiment2}. Ces études ont de plus montré que cette transition finit en point critique pour les champs forts \cite{efieldExperiment}. L'existence d'un point critique pour cette transition apparaît également dans nos simulations. On constate en effet un adoucissement de la transition lorsque le champ électrique augmente. Cet effet est visible en regardant les variations de l'énergie avec la température. En effet, la rupture de pente est de moins en moins marquée. Bien sûr, cet adoucissement de la transition a également tendance à augmenter les erreurs sur la détermination de la température de transition pour les champs forts.
-\vspace{2cm}
+Cette augmentation de la température de transition avec le champ électrique a également été observé expérimentalement \cite{mfieldExperiment,efieldExperiment,efieldExperiment2}. Ces études ont de plus montré que cette transition finit en point critique pour les champs forts \cite{efieldExperiment}. L'existence d'un point critique pour cette transition apparaît également dans nos simulations. On constate en effet un adoucissement de la transition lorsque le champ électrique augmente (Figure \ref{deriveenergie}). Cet effet est visible en regardant les variations de l'énergie avec la température. En effet, la rupture de pente est de moins en moins marquée. Bien sûr, cet adoucissement de la transition a également tendance à augmenter les erreurs sur la détermination de la température de transition pour les champs forts.
+\newpage
+
+
+\ 
+\vspace{3cm}
 
 \begin{figure}[h!]
     \centering	    
@@ -549,6 +510,7 @@ Cette augmentation de la température de transition avec le champ électrique a 
 \end{figure}
 
 \newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{LCD et transition de Fréedericksz}
@@ -603,9 +565,11 @@ On peut voir sur la Figure \ref{freedericksz} les deux configurations qu'un cris
     \label{freedericksz} 
 \end{figure}
 
+\newpage
 
 Dans l'état "éteint", le champ électrique est coupé et la seule contrainte exercée sur les molécules est celle causée par l'ancrage aux parois. Cet ancrage a pour conséquence de "tordre" la phase nématique en une hélice ce qui lui permet d'influer sur la polarisation de la lumière qui la traverse. Le cristal liquide tourne la polarisation de 90$\degres$ qui est donc, désormais, orientée selon $x$. La lumière peut donc passer le filtre polariseur situé au dessus : le système apparaît transparent.
 \medskip
+
 
 Dans l'état "allumé", on impose un champ électrique fort selon l'axe $z$ ce qui force les molécules à s'aligner dans sa direction. Les molécules alignées ainsi n'ont alors aucune influence sur la polarisation de la lumière les traversant. La lumière incidente n'est pas affectée par le cristal liquide et elle est donc bloquée par le second filtre polariseur : le système apparaît alors opaque.
 \medskip
@@ -622,13 +586,13 @@ Les simulations sont réalisées pour une température relativement basse de $T^
 \center
     \begin{subfigure}[b]{0.49\textwidth}
     \centering	    
-	\includegraphics[scale=0.47]{figures/lcd_allume_T01.pdf}
+	\includegraphics[scale=0.43]{figures/lcd_allume_T01.pdf}
     \caption{$U^\star = 0$}
     	\label{lcd_allume} 
     \end{subfigure}	
 	\begin{subfigure}[b]{0.49\textwidth}
     \centering	    
-	\includegraphics[scale=0.47]{figures/lcd_etteind.pdf}
+	\includegraphics[scale=0.43]{figures/lcd_etteind.pdf}
     \caption{$U^\star = 0.5$}
     	\label{lcd_etteint} 
     \end{subfigure}
@@ -649,6 +613,7 @@ Ce modèle permet donc de reproduire le comportement d'une cellule LCD. De mani�
 
 On a pu correctement simuler le fonctionnement d'une cellule LCD. Malheureusement, par manque de temps, il a été impossible de réaliser des simulations pour plusieurs champs.Il aurait alors été possible de déterminer le champ critique pour lequel la transition vers l'état allumé apparaît. Avec plus de temps, on aurait également pu regarder les dépendances de ce champ critique avec la température.
 
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

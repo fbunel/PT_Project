@@ -1,0 +1,145 @@
+\begin{thebibliography}{10}
+
+\bibitem{model}
+P.~A. Lebwohl and G.~Lasher.
+\newblock Nematic-liquid-crystal order\char22{}a monte carlo calculation.
+\newblock {\em Phys. Rev. A}, 6:426--429, Jul 1972.
+\newblock \url{http://journals.aps.org/pra/abstract/10.1103/PhysRevA.6.426}.
+
+\bibitem{confined}
+R.~G. Marguta, Y.~Mart\'{\i}nez-Rat\'on, N.~G. Almarza, and E.~Velasco.
+\newblock Theory and simulation of the confined lebwohl-lasher model.
+\newblock {\em Phys. Rev. E}, 83:041701, Apr 2011.
+\newblock
+  \url{http://journals.aps.org/pre/abstract/10.1103/PhysRevE.83.041701}.
+
+\bibitem{metropolis}
+N.~Metropolis, A.~W. Rosenbluth, M.~N. Rosenbluth, A.~H. Teller, and E.~Teller.
+\newblock Equation of state calculations by fast computing machines.
+\newblock {\em The journal of chemical physics}, 21(6):1087--1092, 1953.
+\newblock \url{http://aip.scitation.org/doi/abs/10.1063/1.1699114}.
+
+\bibitem{acceptanceratio}
+B.~Jayaram.
+\newblock On the acceptance ratio in monte carlo computer simulations.
+\newblock {\em Journal of Mathematical Chemistry}, 20(2):395--397, 1996.
+\newblock \url{http://dx.doi.org/10.1007/BF01165356}.
+
+\bibitem{acceptanceratio1}
+Christopher~CJ Potter and Robert~H Swendsen.
+\newblock 0.234: The myth of a universal acceptance ratio for monte carlo
+  simulations.
+\newblock {\em Physics Procedia}, 68:120--124, 2015.
+\newblock \url{http://dx.doi.org/10.1016/j.phpro.2015.07.120}.
+
+\bibitem{fabbri}
+U.~Fabbri and C.~Zannoni.
+\newblock A monte carlo investigation of the lebwohl-lasher lattice model in
+  the vicinity of its orientational phase transition.
+\newblock {\em Molecular Physics}, 58(4):763--788, 1986.
+\newblock \url{http://www.tandfonline.com/doi/abs/10.1080/00268978600101561}.
+
+\bibitem{github}
+F~Bunel and H~Vergnet.
+\newblock Github.
+\newblock \url{https://github.com/fbunel/PT_Project}.
+
+\bibitem{wfo}
+Zhengping Zhang, Ole~G. Mouritsen, and Martin~J. Zuckermann.
+\newblock Weak first-order orientational transition in the lebwohl-lasher model
+  for liquid crystals.
+\newblock {\em Phys. Rev. Lett.}, 69:2803--2806, Nov 1992.
+\newblock \url{http://link.aps.org/doi/10.1103/PhysRevLett.69.2803}.
+
+\bibitem{parallel}
+S~Boschi, C~Zannoni, C~Chiccoli, P~Pasini, and MCP Brunelli.
+\newblock Parallel monte carlo simulation of lebwohl-lasher systems.
+\newblock Unpublished work.
+  \url{http://www.fci.unibo.it/~bebo/z/cineca00_150.pdf}.
+
+\bibitem{badass}
+Raj Shekhar, Jonathan~K Whitmer, Rohit Malshe, JA~Moreno-Razo, Tyler~F Roberts,
+  and Juan~J de~Pablo.
+\newblock Isotropic--nematic phase transition in the lebwohl--lasher model from
+  density of states simulations.
+\newblock {\em The Journal of chemical physics}, 136(23):234503, 2012.
+\newblock \url{ http://dx.doi.org/10.1063/1.4722209}.
+
+\bibitem{cluster}
+N.~V. Priezjev and Robert~A. Pelcovits.
+\newblock Cluster monte carlo simulations of the nematic-isotropic transition.
+\newblock {\em Phys. Rev. E}, 63:062702, May 2001.
+\newblock \url{http://link.aps.org/doi/10.1103/PhysRevE.63.062702}.
+
+\bibitem{nonb}
+D.~Jayasri, V.~S.~S. Sastry, and K.~P.~N. Murthy.
+\newblock Wang-landau monte carlo simulation of isotropic-nematic transition in
+  liquid crystals.
+\newblock {\em Phys. Rev. E}, 72:036702, Sep 2005.
+\newblock \url{http://link.aps.org/doi/10.1103/PhysRevE.72.036702}.
+
+\bibitem{entropicelectric}
+Regina Jose, D.~Jayasri, Surajit Dhara, K.~P.~N. Murthy, and V.~S.~S. Sastry.
+\newblock Effect of external field on the nematic to isotropic transition: An
+  entropic sampling study.
+\newblock {\em Molecular Crystals and Liquid Crystals},
+  545(1):168/[1392]--175/[1399], 2011.
+\newblock \url{http://dx.doi.org/10.1080/15421406.2011.571999}.
+
+\bibitem{electric3}
+C.~Chiccoli, P.~Pasini, G.~Ska\ifmmode~\check{c}\else \v{c}\fi{}ej, C.~Zannoni,
+  and S.~\ifmmode~\check{Z}\else \v{Z}\fi{}umer.
+\newblock Dynamical and field effects in polymer-dispersed liquid crystals:
+  Monte carlo simulations of nmr spectra.
+\newblock {\em Phys. Rev. E}, 62:3766--3774, Sep 2000.
+\newblock \url{http://link.aps.org/doi/10.1103/PhysRevE.62.3766}.
+
+\bibitem{biolo}
+C~Berlic, M~Moisescu, and V~Barna.
+\newblock The effect of the electric field on the nematic liquid crystal
+  molecular redistribution in the vecinity of an immersed spherocylindrical
+  nanoparticle.
+\newblock {\em Digest Journal of Nanomaterials \& Biostructures (DJNB)}, 7(4),
+  2012.
+\newblock \url{http://chalcogen.ro/1401_Berlic.pdf}.
+
+\bibitem{field}
+GR~Luckhurst, P~Simpson, and C~Zannoni.
+\newblock Computer simulation studies of anisotropic systems: The effect of
+  external fields.
+\newblock {\em Chemical Physics Letters}, 78(3):429--433, 1981.
+\newblock \url{http://dx.doi.org/10.1016/0009-2614(81)85230-X}.
+
+\bibitem{landau}
+Egbert~F Gramsbergen, Lech Longa, and Wim~H de~Jeu.
+\newblock Landau theory of the nematic-isotropic phase transition.
+\newblock {\em Physics Reports}, 135(4):195--257, 1986.
+\newblock \url{http://dx.doi.org/10.1016/0370-1573(86)90007-4}.
+
+\bibitem{mfieldExperiment}
+T.~Ostapenko, D.~B. Wiant, S.~N. Sprunt, A.~J\'akli, and J.~T. Gleeson.
+\newblock Magnetic-field induced isotropic to nematic liquid crystal phase
+  transition.
+\newblock {\em Phys. Rev. Lett.}, 101:247801, Dec 2008.
+\newblock \url{http://link.aps.org/doi/10.1103/PhysRevLett.101.247801}.
+
+\bibitem{efieldExperiment}
+A.~J. Nicastro and P.~H. Keyes.
+\newblock Electric-field-induced critical phenomena at the nematic-isotropic
+  transition and the nematic-isotropic critical point.
+\newblock {\em Phys. Rev. A}, 30:3156--3160, Dec 1984.
+\newblock \url{http://link.aps.org/doi/10.1103/PhysRevA.30.3156}.
+
+\bibitem{efieldExperiment2}
+I.~Lelidis and G.~Durand.
+\newblock Electric-field-induced isotropic-nematic phase transition.
+\newblock {\em Phys. Rev. E}, 48:3822--3824, Nov 1993.
+\newblock \url{http://link.aps.org/doi/10.1103/PhysRevE.48.3822}.
+
+\bibitem{oswald}
+Patrick Oswald and Pawel Pieranski.
+\newblock {\em Nematic and cholesteric liquid crystals: concepts and physical
+  properties illustrated by experiments}, volume~1.
+\newblock Taylor \& Francis, 2005.
+
+\end{thebibliography}

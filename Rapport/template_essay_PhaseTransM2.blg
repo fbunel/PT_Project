@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: template_essay_PhaseTransM2.aux
+The style file: unsrt.bst
+Database file #1: biblio.bib
+Warning--empty journal in parallel
+Warning--empty year in parallel
+You've used 21 entries,
+            1791 wiz_defined-function locations,
+            604 strings with 8364 characters,
+and the built_in function-call counts, 5273 in all, are:
+= -- 488
+> -- 242
+< -- 1
++ -- 88
+- -- 67
+* -- 415
+:= -- 867
+add.period$ -- 81
+call.type$ -- 21
+change.case$ -- 20
+chr.to.int$ -- 0
+cite$ -- 23
+duplicate$ -- 184
+empty$ -- 484
+format.name$ -- 67
+if$ -- 1127
+int.to.chr$ -- 0
+int.to.str$ -- 21
+missing$ -- 21
+newline$ -- 126
+num.names$ -- 21
+pop$ -- 16
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 73
+stack$ -- 0
+substring$ -- 458
+swap$ -- 21
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 49
+width$ -- 23
+write$ -- 265
+(There were 2 warnings)

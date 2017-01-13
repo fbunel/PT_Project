@@ -1,0 +1,28 @@
+\select@language {french}
+\contentsline {section}{Introduction}{2}{section*.2}
+\contentsline {section}{\numberline {1}Th\IeC {\'e}orie de la transition n\IeC {\'e}matique-isotrope}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}La phase n\IeC {\'e}matique}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Le param\IeC {\`e}tre d'ordre}{4}{subsection.1.2}
+\contentsline {section}{\numberline {2}M\IeC {\'e}thodes num\IeC {\'e}riques}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Mod\IeC {\`e}le de Lebwohl-Lasher}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Algorithme Monte-Carlo}{6}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}\IeC {\'E}quiprobabilit\IeC {\'e} des directions}{6}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Ratio d'acceptation}{7}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}D\IeC {\'e}roulement d'une simulation}{7}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Langage de programmation}{8}{subsection.2.6}
+\contentsline {section}{\numberline {3}Transition n\IeC {\'e}matique-isotrope}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}\IeC {\'E}chelle de temp\IeC {\'e}rature et d'\IeC {\'e}nergies.}{9}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Observation de la transition}{9}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Temp\IeC {\'e}rature de transition}{10}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Histogrammes en \IeC {\'e}nergie}{12}{subsection.3.4}
+\contentsline {section}{\numberline {4}Influence d'un champ \IeC {\'e}lectrique}{15}{section.4}
+\contentsline {subsection}{\numberline {4.1}Ajout au mod\IeC {\`e}le de Lebwohl-Lasher}{15}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Temp\IeC {\'e}rature de transition}{15}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Existence d'un point critique}{16}{subsection.4.3}
+\contentsline {section}{\numberline {5}LCD et transition de Fr\IeC {\'e}edericksz}{18}{section.5}
+\contentsline {subsection}{\numberline {5.1}Fonctionnement d'un \IeC {\'e}cran LCD}{18}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Modification du mod\IeC {\`e}le}{19}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}R\IeC {\'e}sultats}{19}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Perspectives}{20}{subsection.5.4}
+\contentsline {section}{Conclusion}{21}{section*.19}
+\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{22}{section*.20}
