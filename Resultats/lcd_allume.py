@@ -88,5 +88,7 @@ def figure(basename, skiprow, outputname):
 # figure('lcd/lcd_allume.dat',0, 'lcd_allume')
 figure('lcd/lcd_lattice.dat',0, 'lcd_allume')
 
+figure('lcd/lcdbis.dat',0, 'lcd')
+
 
 
