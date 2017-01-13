@@ -259,7 +259,7 @@ Ces interactions auront donc tendance à favoriser les configurations où les mo
 On comprend alors assez bien pourquoi ce système subit une transition de phase. Les deux énergies intervenant dans ce système sont celles de l'interaction entre les molécules et celle de l'agitation thermique dont les échelles sont respectivement $\epsilon$ et $k_B T$.
 À haute température, l'agitation thermique prédomine et l'orientation des molécules est aléatoire. À basse température, c'est l'énergie d'interaction entre les sites qui est la plus importante et les molécules privilégient donc une direction commune.\medskip
 
-Pour toute notre étude de la transition de phase, des conditions aux limites périodiques ont été imposées mais d'autres conditions sont également possibles. Des travaux récents \cite{confined} ont par exemple utilisé une énergie à la surface de la même forme que le potentiel d'interaction pour simuler une cellule avec un ancrage aux parois. 
+Pour toute notre étude de la transition de phase, des conditions aux limites périodiques ont été imposées mais d'autres conditions sont également possibles. Des travaux récents \cite{confined} ont par exemple utilisé une énergie à la surface  pour simuler une cellule avec un ancrage aux parois. La partie \ref{lcd_partie} utilise également ce genre de condition aux limites pour étudier la transition de Fréedericksz.
 
 %L'énergie totale du système qui découle de cette interaction s'écrit simplement comme une somme sur les paires de plus proches voisins :
 %\begin{equation}
@@ -332,7 +332,7 @@ Finalement, il est possible d'obtenir un ratio d'acceptation de $50\%$ sur toute
 Le choix d'un ratio d'acceptation de $50\%$ a été fait de manière arbitraire. Même si certaines recherches \cite{acceptanceratio} semblent montrer qu'un ratio d'acceptation entre $30\%$ et $50\%$ serait optimal, il s'agit encore aujourd'hui d'une question ouverte sur les algorithmes Monte-Carlo \cite{acceptanceratio1}.
 
 \subsection{Déroulement d'une simulation} 
-Les simulations reportées dans ce rapport ont toutes été réalisées sur un réseau cubique de taille $30\times 30\times 30$. Les conditions aux limites sont prises périodiques sauf dans le dernier chapitre où on considère un ancrage aux bords. Les simulations sont commencées depuis l'état fondamental où toutes les molécules sont alignées. Lorsque l'on démarre la simulation, les molécules sont bougées les unes après les autres en utilisant l'algorithme de Monte-Carlo. On nomme "cycle" une suite de $N = 30\times 30\times 30$ mouvements. Durant un cycle, toutes les molécules du réseau sont bougées exactement une fois mais dans un ordre aléatoire. Une telle procédure assure que toutes les molécules ont la même chance d'être bougée en réduisant les irrégularités dues à un tirage totalement aléatoire \cite{fabbri}. 
+Les simulations reportées dans ce rapport ont toutes été réalisées sur un réseau cubique de taille $30\times 30\times 30$. Les simulations sont commencées depuis l'état fondamental où toutes les molécules sont alignées. Lorsque l'on démarre la simulation, les molécules sont bougées les unes après les autres en utilisant l'algorithme de Monte-Carlo. On nomme "cycle" une suite de $N = 30\times 30\times 30$ mouvements. Durant un cycle, toutes les molécules du réseau sont bougées exactement une fois mais dans un ordre aléatoire. Une telle procédure assure que toutes les molécules ont la même chance d'être bougée en réduisant les irrégularités dues à un tirage totalement aléatoire \cite{fabbri}. 
 \medskip
 
 Pour chaque température, au minimum 2000 cycles sont calculés pour faire évoluer le système vers la configuration d'équilibre . Même pour les températures élevées, seuls 300 cycles sont nécessaires. Par précaution, les variations de l'énergie et du paramètre d'ordre sont contrôlées pour vérifier que le système est bien à l'équilibre (Figure \ref{equilibrage}). Ensuite, jusqu'à 30000 cycles sont réalisés afin de calculer les quantités d'intérêt.
@@ -536,6 +536,7 @@ Cette augmentation de la température de transition avec le champ électrique a 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{LCD et transition de Fréedericksz}
+\label{lcd_partie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -593,41 +594,46 @@ Dans l'état éteint, le champ électrique est coupé et la seule contrainte exe
 Dans l'état "allumé", on impose un champ électrique fort selon l'axe $z$ ce qui force les molécules à s'aligner dans sa direction. Les molécules alignées ainsi n'ont alors aucune influence sur la polarisation de la lumière les traversant. La lumière incidente n'est pas affectée par le cristal liquide et elle est donc bloquée par le second filtre polariseur : le système apparaît alors opaque.
 \medskip
 
-\subsection{Description du modèle}
+\subsection{Modification du modèle}
+
+Pour simuler une cellule LCD, on utilise le modèle de Lebwohl-Lasher de la même manière que précédemment. La seule différence avec les études précédentes est que l'on n'utilise pas des conditions aux limites périodiques dans toutes les directions. Dans la direction $z$ qui est celle de propagation de la lumière, on fixe la valeur des molécules aux extrémités du réseau. Les deux extrémités sont toutes les deux fixés avec un ancrage planaire et forme un angle de $\pi/2$ l'une avec l'autre. La configuration de la Figure \ref{freedericksz} est donc bien respectée.
 
 \subsection{Résultats}
+
+Les simulations sont réalisées pour une température relativement basse de $T^\star =0.1$ et 10 000 cycles sont utilisés pour équilibrer le système. À la fin d'une simulation, on récupère les valeurs des angles du réseau et on moyenne selon les directions perpendiculaire à l'axe $z$. La Figure \ref{lcd} représente les directions des molécules le long de l'axe $z$. Le premier site est fixé dans la direction $x$ ($\theta = 0$, $\phi=\pi/2$) et le dernier dans la direction y ($\theta = \pi/2$, $\phi=\pi/2$). Les barres d'erreur représente les variations de ces angles dans le réseau. Ces variations sont dues à l'agitation thermique introduite par l'algorithme Monte-Carlo et deviennent négligeable pour des températures plus basses.
 
 \begin{figure}[h!]
 \center
     \begin{subfigure}[b]{0.49\textwidth}
     \centering	    
-	\includegraphics[scale=0.45]{figures/lcd_allume_T01.pdf}
-    \caption{temp = 0.1}
+	\includegraphics[scale=0.47]{figures/lcd_allume_T01.pdf}
+    \caption{$U^\star = 0$}
     	\label{lcd_allume} 
     \end{subfigure}	
 	\begin{subfigure}[b]{0.49\textwidth}
     \centering	    
-	\includegraphics[scale=0.45]{figures/lcd_etteind.pdf}
-    \caption{temp = 0.1 elec = 0.5}
+	\includegraphics[scale=0.47]{figures/lcd_etteind.pdf}
+    \caption{$U^\star = 0.5$}
     	\label{lcd_etteint} 
     \end{subfigure}
 
-    \caption{yolo}
+    \caption{Orientation des molécules à travers le réseau avec et sans champ électrique.}
     \label{lcd}
 \end{figure}
 
-TO DO LIST
-\begin{itemize}
-\item Ecrire les résultats
-\item Ecrire la conclusion
-\item Ecrire l'abstract
-\item Convertir le tout dans le template de merde
-\item changer le titre
-\item ajouter des références LCD
-\item RELIRE TOUT LE RAPPORT
-\end{itemize}
+Sur la Figure \ref{lcd_allume} pour lequel le champ est éteint, on observe bien la configuration attendue qui est une hélice se propageant dans la direction $z$. 
+La configuration la plus stable n'est plus celle dans laquelle toutes les molécules sont alignées puisque cette dernière contredit les conditions aux bords. On peut vérifier simplement que cette hélice correspond à la configuration d'énergie minimale dans la limite du réseau de taille infinie. 
+\medskip
 
-\newpage
+Pour un champ plus élevé (Figure \ref{lcd_etteint}), cette hélice n'est plus stable et les molécules préfèrent s'aligner avec le champ : l'angle $\theta$ est nul sur la presque totalité du réseau. Les molécules proches des bords sont légèrement déviées de cette orientation sous l'influence de leurs voisins ancrés dans le plan horizontal. Sur cette figure, les barres d'erreurs pour $\phi$ n'ont pas été représenté car elles sont immenses. Ces variations importantes sont dues à la dégénérescence en angle $\phi$ proche du pôle. Les variations le long du réseau sont  également importante pour cette raison mais on constate en moyenne une rotation le long du réseau hélice pour satisfaire les conditions aux bords. 
+
+\subsection{Perspectives}
+Notre modèle permet donc de reproduire le comportement d'une cellule LCD. De manière général, il permet de calculer l'orientation des molécules pour une multitude de situations. Par exemple, il existe d'autre transition que l'on peut étudier avec notre modèle. L'avantage d'un tel code par rapport à ceux de minimisation d'énergie est qu'il prend en compte les variations avec la température. 
+\medskip
+
+On a pu correctement simuler le fonctionnement d'une cellule LCD. Malheureusement, par manque de temps, il a été impossible de réaliser des simulations pour plusieurs champs. Cela aurait permis de déterminer le champ critique pour lequel la transition vers l'état allumé apparaît. Avec plus de temps, on aurait pu également regarder les dépendances de ce champ critique avec la température.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Conclusion}

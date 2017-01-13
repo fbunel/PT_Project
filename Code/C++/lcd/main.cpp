@@ -18,7 +18,7 @@ start = clock();
 
 int size = 30;
 double electricField = 0.5;
-int equiSample = 5000;
+int equiSample = 20000;
 double temp = 0.1;
 string basename = "lcd";
 
