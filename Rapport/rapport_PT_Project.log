@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  13 JAN 2017 17:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  13 JAN 2017 19:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1759,12 +1759,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.135 \newpage
-               [1] <figures/lcd.jpg, id=173, 642.4pt x 291.0875pt>
+l.148 \newpage
+               [1] <figures/lcd.jpg, id=172, 642.4pt x 291.0875pt>
 File: figures/lcd.jpg Graphic file (type jpg)
 
 <use figures/lcd.jpg>
-Package pdftex.def Info: figures/lcd.jpg used on input line 151.
+Package pdftex.def Info: figures/lcd.jpg used on input line 164.
 (pdftex.def)             Requested size: 188.3693pt x 85.35826pt.
  (./figures/iso_vs_nematic.tikz
 Missing character: There is no ; in font nullfont!
@@ -1932,11 +1932,11 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 ) [2 <./figures/lcd.jpg>]
-<figures/distrib.pdf, id=189, 510.81749pt x 433.00337pt>
+<figures/distrib.pdf, id=188, 510.81749pt x 433.00337pt>
 File: figures/distrib.pdf Graphic file (type pdf)
 
 <use figures/distrib.pdf>
-Package pdftex.def Info: figures/distrib.pdf used on input line 191.
+Package pdftex.def Info: figures/distrib.pdf used on input line 204.
 (pdftex.def)             Requested size: 204.32336pt x 173.19827pt.
  [3 <./figures/distrib.pdf>] [4]
 (./figures/lebwohl.tikz
@@ -2097,124 +2097,124 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 ) [5]
-<figures/dessus1.pdf, id=241, 118.07312pt x 115.5798pt>
+<figures/dessus1.pdf, id=240, 118.07312pt x 115.5798pt>
 File: figures/dessus1.pdf Graphic file (type pdf)
 
 <use figures/dessus1.pdf>
-Package pdftex.def Info: figures/dessus1.pdf used on input line 291.
+Package pdftex.def Info: figures/dessus1.pdf used on input line 304.
 (pdftex.def)             Requested size: 101.73367pt x 99.58464pt.
- <figures/side1.pdf, id=242, 120.4771pt x 120.4771pt>
+ <figures/side1.pdf, id=241, 120.4771pt x 120.4771pt>
 File: figures/side1.pdf Graphic file (type pdf)
 
 <use figures/side1.pdf>
-Package pdftex.def Info: figures/side1.pdf used on input line 297.
+Package pdftex.def Info: figures/side1.pdf used on input line 310.
 (pdftex.def)             Requested size: 99.58417pt x 99.58464pt.
 
-<figures/dessus2.pdf, id=243, 118.02193pt x 115.72133pt>
+<figures/dessus2.pdf, id=242, 118.02193pt x 115.72133pt>
 File: figures/dessus2.pdf Graphic file (type pdf)
 
 <use figures/dessus2.pdf>
-Package pdftex.def Info: figures/dessus2.pdf used on input line 307.
+Package pdftex.def Info: figures/dessus2.pdf used on input line 320.
 (pdftex.def)             Requested size: 101.56529pt x 99.58464pt.
- <figures/side2.pdf, id=244, 120.4771pt x 120.4771pt>
+ <figures/side2.pdf, id=243, 120.4771pt x 120.4771pt>
 File: figures/side2.pdf Graphic file (type pdf)
 
 <use figures/side2.pdf>
-Package pdftex.def Info: figures/side2.pdf used on input line 313.
+Package pdftex.def Info: figures/side2.pdf used on input line 326.
 (pdftex.def)             Requested size: 99.58417pt x 99.58464pt.
  [6 <./figures/dessus1.pdf> <./figures/side1.pdf> <./figures/dessus2.pdf> <./fi
 gures/side2.pdf>]
-<figures/equilibrage.pdf, id=270, 578.34435pt x 418.84718pt>
+<figures/equilibrage.pdf, id=269, 578.34435pt x 418.84718pt>
 File: figures/equilibrage.pdf Graphic file (type pdf)
 
 <use figures/equilibrage.pdf>
-Package pdftex.def Info: figures/equilibrage.pdf used on input line 342.
+Package pdftex.def Info: figures/equilibrage.pdf used on input line 355.
 (pdftex.def)             Requested size: 347.00928pt x 251.31024pt.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 349.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 362.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [7 <./figures/equilibrage.pdf>] <figures/00.pdf, id=300, 116.65582pt x 105.27
+) [7 <./figures/equilibrage.pdf>] <figures/00.pdf, id=299, 116.65582pt x 105.27
 531pt>
 File: figures/00.pdf Graphic file (type pdf)
 
 <use figures/00.pdf>
-Package pdftex.def Info: figures/00.pdf used on input line 373.
+Package pdftex.def Info: figures/00.pdf used on input line 386.
 (pdftex.def)             Requested size: 116.65553pt x 105.27504pt.
- <figures/09.pdf, id=301, 116.94089pt x 110.3071pt>
+ <figures/09.pdf, id=300, 116.94089pt x 110.3071pt>
 File: figures/09.pdf Graphic file (type pdf)
 
 <use figures/09.pdf>
-Package pdftex.def Info: figures/09.pdf used on input line 379.
+Package pdftex.def Info: figures/09.pdf used on input line 392.
 (pdftex.def)             Requested size: 116.94058pt x 110.30681pt.
- <figures/15.pdf, id=302, 116.37979pt x 116.4631pt>
+ <figures/15.pdf, id=301, 116.37979pt x 116.4631pt>
 File: figures/15.pdf Graphic file (type pdf)
 
 <use figures/15.pdf>
-Package pdftex.def Info: figures/15.pdf used on input line 385.
+Package pdftex.def Info: figures/15.pdf used on input line 398.
 (pdftex.def)             Requested size: 116.37949pt x 116.4628pt.
- <figures/global.pdf, id=308, 569.17195pt x 418.84718pt>
+ <figures/global.pdf, id=307, 569.17195pt x 418.84718pt>
 File: figures/global.pdf Graphic file (type pdf)
 
 <use figures/global.pdf>
-Package pdftex.def Info: figures/global.pdf used on input line 404.
+Package pdftex.def Info: figures/global.pdf used on input line 417.
 (pdftex.def)             Requested size: 341.5058pt x 251.31024pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [8 <./figures/00.pdf> <./figures/09.pdf> <./figures/15.pdf>]
-<figures/local_energie.pdf, id=325, 587.51674pt x 418.84718pt>
+<figures/local_energie.pdf, id=324, 587.51674pt x 418.84718pt>
 File: figures/local_energie.pdf Graphic file (type pdf)
 
 <use figures/local_energie.pdf>
-Package pdftex.def Info: figures/local_energie.pdf used on input line 416.
+Package pdftex.def Info: figures/local_energie.pdf used on input line 429.
 (pdftex.def)             Requested size: 352.51276pt x 251.31024pt.
  [9 <./figures/global.pdf> <./figures/local_energie.pdf
 
 pdfTeX warning: pdflatex (file ./figures/local_energie.pdf): PDF inclusion: mul
 tiple pdfs with page group included in a single page
->] <figures/local_order.pdf, id=360, 587.51674pt x 418.84718pt>
+>] <figures/local_order.pdf, id=359, 587.51674pt x 418.84718pt>
 File: figures/local_order.pdf Graphic file (type pdf)
 
 <use figures/local_order.pdf>
-Package pdftex.def Info: figures/local_order.pdf used on input line 428.
+Package pdftex.def Info: figures/local_order.pdf used on input line 441.
 (pdftex.def)             Requested size: 352.51276pt x 251.31024pt.
  [10 <./figures/local_order.pdf>]
-<figures/histo_image.pdf, id=384, 867.24pt x 505.89pt>
+<figures/histo_image.pdf, id=383, 867.24pt x 505.89pt>
 File: figures/histo_image.pdf Graphic file (type pdf)
 
 <use figures/histo_image.pdf>
-Package pdftex.def Info: figures/histo_image.pdf used on input line 446.
+Package pdftex.def Info: figures/histo_image.pdf used on input line 459.
 (pdftex.def)             Requested size: 433.61894pt x 252.94437pt.
 
-<figures/histo_11208.pdf, id=392, 578.16pt x 433.62pt>
+<figures/histo_11208.pdf, id=391, 578.16pt x 433.62pt>
 File: figures/histo_11208.pdf Graphic file (type pdf)
 
 <use figures/histo_11208.pdf>
-Package pdftex.def Info: figures/histo_11208.pdf used on input line 462.
+Package pdftex.def Info: figures/histo_11208.pdf used on input line 475.
 (pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
 
-<figures/histo_11228.pdf, id=393, 578.16pt x 433.62pt>
+<figures/histo_11228.pdf, id=392, 578.16pt x 433.62pt>
 File: figures/histo_11228.pdf Graphic file (type pdf)
 
 <use figures/histo_11228.pdf>
-Package pdftex.def Info: figures/histo_11228.pdf used on input line 468.
+Package pdftex.def Info: figures/histo_11228.pdf used on input line 481.
 (pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
 
-<figures/histo_11240.pdf, id=394, 578.16pt x 433.62pt>
+<figures/histo_11240.pdf, id=393, 578.16pt x 433.62pt>
 File: figures/histo_11240.pdf Graphic file (type pdf)
 
 <use figures/histo_11240.pdf>
-Package pdftex.def Info: figures/histo_11240.pdf used on input line 475.
+Package pdftex.def Info: figures/histo_11240.pdf used on input line 488.
 (pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
 
-<figures/histo_11256.pdf, id=395, 578.16pt x 433.62pt>
+<figures/histo_11256.pdf, id=394, 578.16pt x 433.62pt>
 File: figures/histo_11256.pdf Graphic file (type pdf)
 
 <use figures/histo_11256.pdf>
-Package pdftex.def Info: figures/histo_11256.pdf used on input line 481.
+Package pdftex.def Info: figures/histo_11256.pdf used on input line 494.
 (pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
  [11 <./figures/histo_image.pdf>] [12 <./figures/histo_11208.pdf> <./figures/hi
 sto_11228.pdf
@@ -2229,66 +2229,66 @@ ple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex (file ./figures/histo_11256.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
->] <figures/electricField.pdf, id=451, 525.02232pt x 414.56453pt>
+>] <figures/electricField.pdf, id=450, 525.02232pt x 414.56453pt>
 File: figures/electricField.pdf Graphic file (type pdf)
 
 <use figures/electricField.pdf>
-Package pdftex.def Info: figures/electricField.pdf used on input line 512.
+Package pdftex.def Info: figures/electricField.pdf used on input line 525.
 (pdftex.def)             Requested size: 315.01582pt x 248.74063pt.
  [13 <./figures/electricField.pdf>]
-<figures/electricField_calo.pdf, id=484, 532.32843pt x 418.84718pt>
+<figures/electricField_calo.pdf, id=483, 532.32843pt x 418.84718pt>
 File: figures/electricField_calo.pdf Graphic file (type pdf)
 
 <use figures/electricField_calo.pdf>
-Package pdftex.def Info: figures/electricField_calo.pdf used on input line 530.
+Package pdftex.def Info: figures/electricField_calo.pdf used on input line 543.
 
 (pdftex.def)             Requested size: 319.3995pt x 251.31024pt.
  [14 <./figures/electricField_calo.pdf>]
 
-LaTeX Warning: Reference `eteint' on page 15 undefined on input line 558.
+LaTeX Warning: Reference `eteint' on page 15 undefined on input line 571.
 
-<figures/freedericksz_a.pdf, id=505, 96.8418pt x 147.90457pt>
+<figures/freedericksz_a.pdf, id=504, 96.8418pt x 147.90457pt>
 File: figures/freedericksz_a.pdf Graphic file (type pdf)
 
 <use figures/freedericksz_a.pdf>
-Package pdftex.def Info: figures/freedericksz_a.pdf used on input line 567.
+Package pdftex.def Info: figures/freedericksz_a.pdf used on input line 580.
 (pdftex.def)             Requested size: 145.2623pt x 221.85631pt.
 
-<figures/freedericksz_b.pdf, id=506, 101.0726pt x 147.90457pt>
+<figures/freedericksz_b.pdf, id=505, 101.0726pt x 147.90457pt>
 File: figures/freedericksz_b.pdf Graphic file (type pdf)
 
 <use figures/freedericksz_b.pdf>
-Package pdftex.def Info: figures/freedericksz_b.pdf used on input line 579.
+Package pdftex.def Info: figures/freedericksz_b.pdf used on input line 592.
 (pdftex.def)             Requested size: 151.6085pt x 221.85631pt.
 
 
 Package frenchb.ldf Warning: Degrees would look better in TS1-encoding:
 (frenchb.ldf)                add \usepackage{textcomp} to the preamble.
-(frenchb.ldf)                Degrees used on input line 591.
+(frenchb.ldf)                Degrees used on input line 604.
 
 [15 <./figures/freedericksz_a.pdf> <./figures/freedericksz_b.pdf
 
 pdfTeX warning: pdflatex (file ./figures/freedericksz_b.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
->] <figures/lcd_allume_T01.pdf, id=979, 506.50558pt x 409.5273pt>
+>] <figures/lcd_allume_T01.pdf, id=978, 506.50558pt x 409.5273pt>
 File: figures/lcd_allume_T01.pdf Graphic file (type pdf)
 
 <use figures/lcd_allume_T01.pdf>
-Package pdftex.def Info: figures/lcd_allume_T01.pdf used on input line 609.
+Package pdftex.def Info: figures/lcd_allume_T01.pdf used on input line 622.
 (pdftex.def)             Requested size: 238.05765pt x 192.47784pt.
 
-Overfull \hbox (1.04355pt too wide) in paragraph at lines 609--610
+Overfull \hbox (1.04355pt too wide) in paragraph at lines 622--623
  [][] 
  []
 
-<figures/lcd_etteind.pdf, id=980, 506.50558pt x 409.5273pt>
+<figures/lcd_etteind.pdf, id=979, 506.50558pt x 409.5273pt>
 File: figures/lcd_etteind.pdf Graphic file (type pdf)
 
 <use figures/lcd_etteind.pdf>
-Package pdftex.def Info: figures/lcd_etteind.pdf used on input line 615.
+Package pdftex.def Info: figures/lcd_etteind.pdf used on input line 628.
 (pdftex.def)             Requested size: 238.05765pt x 192.47784pt.
 
-Overfull \hbox (1.04355pt too wide) in paragraph at lines 615--616
+Overfull \hbox (1.04355pt too wide) in paragraph at lines 628--629
  [][] 
  []
 
@@ -2296,7 +2296,7 @@ Overfull \hbox (1.04355pt too wide) in paragraph at lines 615--616
 
 pdfTeX warning: pdflatex (file ./figures/lcd_etteind.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
->] [17] (./rapport_PT_Project.bbl
+>] (./rapport_PT_Project.bbl
 
 Package xcolor Warning: Incompatible color definition on input line 7.
 
@@ -2324,6 +2324,7 @@ Package xcolor Warning: Incompatible color definition on input line 52.
 
 Package xcolor Warning: Incompatible color definition on input line 58.
 
+[17]
 
 Package xcolor Warning: Incompatible color definition on input line 66.
 
@@ -2348,7 +2349,6 @@ Package xcolor Warning: Incompatible color definition on input line 111.
 
 Package xcolor Warning: Incompatible color definition on input line 117.
 
-[18]
 
 Package xcolor Warning: Incompatible color definition on input line 124.
 
@@ -2358,14 +2358,14 @@ Package xcolor Warning: Incompatible color definition on input line 131.
 
 Package xcolor Warning: Incompatible color definition on input line 137.
 
-) [19]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 654.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 654.
+) [18]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 672.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 672.
  (./rapport_PT_Project.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 654.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 654.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 672.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 672.
 Package rerunfilecheck Info: File `rapport_PT_Project.out' has not changed.
-(rerunfilecheck)             Checksum: 512D9C78ADD8123A4758785696328685;1952.
+(rerunfilecheck)             Checksum: FF3B5510EBB8B867429B10A9F799056D;1952.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2373,12 +2373,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 654.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 672.
  ) 
 Here is how much of TeX's memory you used:
- 40480 strings out of 493029
- 936332 string characters out of 6136235
- 1056988 words of memory out of 5000000
+ 40478 strings out of 493029
+ 936314 string characters out of 6136235
+ 1057099 words of memory out of 5000000
  43264 multiletter control sequences out of 15000+600000
  31165 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2405,10 +2405,10 @@ nts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-
 super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1095.pfb><
 /usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb>
-Output written on rapport_PT_Project.pdf (20 pages, 3548170 bytes).
+Output written on rapport_PT_Project.pdf (19 pages, 3555638 bytes).
 PDF statistics:
- 1162 PDF objects out of 1200 (max. 8388607)
- 897 compressed objects within 9 object streams
- 94 named destinations out of 1000 (max. 500000)
+ 1157 PDF objects out of 1200 (max. 8388607)
+ 893 compressed objects within 9 object streams
+ 92 named destinations out of 1000 (max. 500000)
  415 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -52,7 +52,7 @@ hyperfigures=false]
 
 % En-tête et pied de page % 
 \pagestyle{fancy}
-\fancyhead[L]{\scriptsize \textsc{Titre}} 
+\fancyhead[L]{\scriptsize \textsc{Transition nématique-isotrope dans le modèle de Lebwohl-Lasher}} 
 \fancyhead[R]{\scriptsize \textsc{BUNEL Félix et VERGNET Hadrien}} 
 \fancyfoot[C]{ \thepage}
 
@@ -97,7 +97,7 @@ M2 Physique 2015-2016
 \begin{center}\bfseries
 \vspace{0.3cm}
 \begin{huge}
-    Exploration numérique de la transition isotrope-nématique
+    Transition nématique-isotrope \\ dans le modèle de Lebwohl-Lasher
 \end{huge}
 \end{center}
 
@@ -110,25 +110,37 @@ M2 Physique 2015-2016
 \begin{center}
 \includegraphics[height=10cm]{figures/cristaux_liquides.png} 
 \end{center} 
-
+\vspace{-0.5cm}
 
 \textbf{Résumé :} 
-Dans ce rapport nous présentons les résultats d'une étude numérique que nous avons réalisée sur la transition de phase nématique-isotrope dans un cristal-liquide. Le modèle numérique que nous avons codé, basé sur le modèle de Lebwohl-Lasher et réalisé via une méthode de Monte-Carlo, nous a permis dans un premier temps d'observer la transition nématique-isotrope et d'obtenir avec précision la température de transition, en accord avec la littérature. Nous avons ensuite repris et amélioré notre modèle numérique pour pouvoir étudier l'influence d'un champ électrique sur cette transition. Finalement, ce dernier modèle nous à aussi permis de mettre en évidence la transition de Fréedericksz qui est au cœur de la technologie des écrans à cristaux liquides.
+Ce rapport présente les résultats d'une étude Monte-Carlo réalisée sur la transition de phase nématique-isotrope dans un cristal-liquide. Le modèle numérique implémenté, basé sur le modèle de Lebwohl-Lasher, permet dans un premier temps d'observer la transition nématique-isotrope et d'obtenir avec précision la température de transition. Le modèle est ensuite repris et amélioré afin d'étudier l'influence d'un champ électrique sur cette transition. Finalement, le modèle est appliqué à une transition de Fréedericksz qui est au cœur de la technologie des écrans à cristaux liquides.
 \vspace{0.3cm}
 
 \textbf{Mots clefs :} cristaux liquides, nématique, Lebwohl-Lasher, Monte-Carlo.
 \vspace{0.3cm}
 
+\textbf{Projet encadré par :} 
+
+\begin{center}
+\begin{multicols}{2}
+
+{\bf Tommaso Roscilde } \\
+tommaso.roscilde@ens-lyon.fr \\
+
+{\bf Andrei Fedorenko} \\
+andrey.fedorenko@ens-lyon.fr\\
+\end{multicols}
+
+ENS de Lyon\\
+46, allée d'Italie\\ 69364 Lyon, Cedex 07\\ France
+
+
+
+\end{center}
 
 \end{titlepage}
 
 \newpage
-
-
-\section*{Remerciements}
-
-
-
 
 \tableofcontents
 
@@ -629,7 +641,7 @@ La configuration la plus stable n'est plus celle dans laquelle toutes les moléc
 Pour un champ plus élevé (Figure \ref{lcd_etteint}), cette hélice n'est plus stable et les molécules préfèrent s'aligner avec le champ : l'angle $\theta$ est nul sur la presque totalité du réseau. Les molécules proches des bords sont légèrement déviées de cette orientation sous l'influence de leurs voisins ancrés dans le plan horizontal. Sur cette figure, les barres d'erreurs pour $\phi$ n'ont pas été représenté car elles sont immenses. Ces variations importantes sont dues à la dégénérescence en angle $\phi$ proche du pôle. Les variations le long du réseau sont  également importante pour cette raison mais on constate en moyenne une rotation le long du réseau hélice pour satisfaire les conditions aux bords. 
 
 \subsection{Perspectives}
-Notre modèle permet donc de reproduire le comportement d'une cellule LCD. De manière général, il permet de calculer l'orientation des molécules pour une multitude de situations. Par exemple, il existe d'autre transition que l'on peut étudier avec notre modèle. L'avantage d'un tel code par rapport à ceux de minimisation d'énergie est qu'il prend en compte les variations avec la température. 
+Ce modèle permet donc de reproduire le comportement d'une cellule LCD. De manière général, il permet de calculer l'orientation des molécules pour une multitude de situations. Par exemple, il existe d'autre transition que l'on peut étudier avec notre modèle. L'avantage d'un tel code par rapport à ceux de minimisation d'énergie est qu'il prend en compte les variations avec la température. 
 \medskip
 
 On a pu correctement simuler le fonctionnement d'une cellule LCD. Malheureusement, par manque de temps, il a été impossible de réaliser des simulations pour plusieurs champs. Cela aurait permis de déterminer le champ critique pour lequel la transition vers l'état allumé apparaît. Avec plus de temps, on aurait pu également regarder les dépendances de ce champ critique avec la température.
@@ -641,9 +653,16 @@ On a pu correctement simuler le fonctionnement d'une cellule LCD. Malheureusemen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addcontentsline{toc}{section}{Conclusion}
+En conclusion de ce rapport, on a pu voir que le modèle de Lebwohl-Lasher permet, à l'aide de méthodes Monte-Carlo efficaces, d'analyser en détail la transition nématique isotrope. 
+\medskip
 
+Tout d'abord, des mesures précises de la température de transition ainsi que de l'évolution des différentes quantités caractérisants le système avec la température ont été réalisées. L'étude de ces courbes ainsi que des histogrammes d'énergie proche de la transition suggère que ce système subit une transition de phase du premier ordre.
+\medskip
 
-\newpage
+Ensuite, l'ajout d'un champ électrique a permis d'obtenir un diagramme de phase en fonction du champ appliqué. Ces résultats montrent également que cette transition de phase se termine en point critique pour les champs forts.
+\medskip
+
+Enfin, le code a été utilisé afin de modéliser une cellule LCD en considérant un ancrage au bord. Les résultats obtenues dans cette partie sont très encourageants pour la suite qui consisterai en une étude plus quantitative de l'influence du champ électrique afin de déterminer le champ critique de cette transition. La dépendance en température de ce champ pourrait également être intéressante.
 
 \bibliographystyle{unsrt}
 \bibliography{biblio} 
