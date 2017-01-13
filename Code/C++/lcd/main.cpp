@@ -6,7 +6,6 @@
 
 #include "montecarlo.h"
 #include "lattice.h"
-#include "study.h"
 #include "color.h"
 
 using namespace std;
@@ -19,22 +18,17 @@ start = clock();
 
 int size = 30;
 double electricField = 0.5;
-int equiSample = 800;
-int meanSample = 5;
-double tempStart = 0.1;
-bool startRandom = false;
-string basename = "Results/classic";
+int equiSample = 5000;
+double temp = 0.1;
+string basename = "lcd";
 
-Montecarlo montecarlo(size, equiSample, meanSample, tempStart, electricField, startRandom);
+
+Montecarlo montecarlo(size, equiSample, temp, electricField);
 montecarlo.equilibrate();
-montecarlo.calculate();
-montecarlo.lattice.saveLatticePart(basename);
-
+montecarlo.lattice.saveLattice(basename);
 
 cout << "Temps de calcul: " << (clock() - start) / (double)(CLOCKS_PER_SEC) 
      << " secondes" << endl;
-
-
 
 return 0;
 }

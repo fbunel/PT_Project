@@ -18,17 +18,18 @@ clock_t start;
 start = clock();
 
 int size = 30;
-double electricField = 0.5;
-int equiSample = 800;
-int meanSample = 5;
-double tempStart = 0.1;
+double electricField = 0.01;
+int equiSample = 5000;
+int meanSample = 1;
+double tempStart = 1;
+double tempEnd = 1.20;
+double tempSample = 1;
 bool startRandom = false;
-string basename = "Results/classic";
+string basename = "Results/electricTest0001";
 
-Montecarlo montecarlo(size, equiSample, meanSample, tempStart, electricField, startRandom);
-montecarlo.equilibrate();
-montecarlo.calculate();
-montecarlo.lattice.saveLatticePart(basename);
+
+Study study(size, electricField, equiSample, meanSample, tempStart, tempEnd, tempSample, startRandom, basename);
+study.run();
 
 
 cout << "Temps de calcul: " << (clock() - start) / (double)(CLOCKS_PER_SEC) 

@@ -74,7 +74,7 @@ void Lattice :: groundstateConfiguration() {
     for (int i = 0; i < size; ++i) {
         for (int j = 0; j < size; ++j) {
             for (int k = 0; k < size; ++k) {
-                latticeArray[i][j][k][0] = 0;
+                latticeArray[i][j][k][0] = 1;
                 latticeArray[i][j][k][1] = 0;
             }
         }
@@ -180,14 +180,17 @@ void Lattice :: saveLatticePart(string basename) const{
     ofstream flux(filename.c_str(), ios::out | ios::trunc);
 
     if(flux) {
-        for (int i = 0; i < 6; ++i) {
-            for (int j = 0; j < 6; ++j) {
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+                for (int k = 0; k < size; ++k) {
                     flux << fixed << setprecision(10) 
-                        << i << ", " 
-                        << j << ", " 
-                        << latticeArray[i][j][0][0] << ", " 
-                        << latticeArray[i][j][0][1]
+                        << i << " " 
+                        << j << " "
+                        << k << " " 
+                        << latticeArray[i][j][k][0] << " " 
+                        << latticeArray[i][j][k][1]
                         << endl;
+                }
             }
         }
         cout << GREEN
@@ -199,7 +202,6 @@ void Lattice :: saveLatticePart(string basename) const{
     }
 
 }
-
 void Lattice :: saveLattice(string basename) const{
     
     string filename = basename + "_lattice.save";

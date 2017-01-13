@@ -23,5 +23,5 @@
 \contentsline {subsection}{\numberline {5.1}Fonctionnement d'un \IeC {\'e}cran LCD}{15}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Description du mod\IeC {\`e}le}{16}{subsection.5.2}
 \contentsline {subsection}{\numberline {5.3}R\IeC {\'e}sultats}{16}{subsection.5.3}
-\contentsline {section}{Conclusion}{17}{section*.19}
-\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{19}{section*.20}
+\contentsline {section}{Conclusion}{17}{section*.20}
+\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{19}{section*.21}
