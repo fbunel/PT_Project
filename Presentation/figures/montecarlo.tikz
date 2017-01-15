@@ -1,0 +1,144 @@
+\begin{tikzpicture}
+
+\pgfmathsetseed{1}
+    
+    \onslide<1-7> {
+    \foreach \i in {0,...,5}{
+        \pgfmathsetmacro{\x}{\i*0.7};
+        \draw (\x,0) -- (\x,0.7*5);
+        \draw (0,\x) -- (0.7*5,\x);
+    }
+
+	\foreach \i in {0,...,5}{
+    \pgfmathsetmacro{\x}{\i*0.7};
+		\foreach \j in {0,1,5}{
+			
+			\pgfmathsetmacro{\y}{\j*0.7};
+			\pgfmathsetmacro{\angle}{rand*60};
+            \pgfmathsetmacro{\size}{0.3};
+			\drawNema{\x}{\y}{\angle}{\size};
+		}
+	}
+
+    \foreach \j in {4,2,3}{
+        \pgfmathsetmacro{\y}{\j*0.7};
+        \foreach \i in {0,4,5}{
+            \pgfmathsetmacro{\x}{\i*0.7};
+            \pgfmathsetmacro{\angle}{rand*60};
+            \pgfmathsetmacro{\size}{0.3};
+            \drawNema{\x}{\y}{\angle}{\size};
+        }
+    }
+    }
+
+    \pgfmathsetmacro{\xc}{2*0.7};
+    \pgfmathsetmacro{\yc}{3*0.7};
+    \pgfmathsetmacro{\anglec}{rand*60};
+    \pgfmathsetmacro{\sizec}{0.3};
+
+    \pgfmathsetmacro{\xul}{1*0.7};
+    \pgfmathsetmacro{\yul}{4*0.7};
+    \pgfmathsetmacro{\angleul}{rand*60};
+    \pgfmathsetmacro{\sizeul}{0.3};
+
+    \pgfmathsetmacro{\xum}{2*0.7};
+    \pgfmathsetmacro{\yum}{4*0.7};
+    \pgfmathsetmacro{\angleum}{rand*60};
+    \pgfmathsetmacro{\sizeum}{0.3};
+
+    \pgfmathsetmacro{\xur}{3*0.7};
+    \pgfmathsetmacro{\yur}{4*0.7};
+    \pgfmathsetmacro{\angleur}{rand*60};
+    \pgfmathsetmacro{\sizeur}{0.3};
+
+    \pgfmathsetmacro{\xmr}{1*0.7};
+    \pgfmathsetmacro{\ymr}{3*0.7};
+    \pgfmathsetmacro{\anglemr}{rand*60};
+    \pgfmathsetmacro{\sizemr}{0.3};
+
+    \pgfmathsetmacro{\xml}{3*0.7};
+    \pgfmathsetmacro{\yml}{3*0.7};
+    \pgfmathsetmacro{\angleml}{rand*60};
+    \pgfmathsetmacro{\sizeml}{0.3};
+
+    \pgfmathsetmacro{\xdl}{1*0.7};
+    \pgfmathsetmacro{\ydl}{2*0.7};
+    \pgfmathsetmacro{\angledl}{rand*60};
+    \pgfmathsetmacro{\sizedl}{0.3};
+
+    \pgfmathsetmacro{\xdr}{3*0.7};
+    \pgfmathsetmacro{\ydr}{2*0.7};
+    \pgfmathsetmacro{\angledr}{rand*60};
+    \pgfmathsetmacro{\sizedr}{0.3};
+
+    \pgfmathsetmacro{\xdm}{2*0.7};
+    \pgfmathsetmacro{\ydm}{2*0.7};
+    \pgfmathsetmacro{\angledm}{rand*60};
+    \pgfmathsetmacro{\sizedm}{0.3};
+
+    \onslide<1-2,7> {
+            \drawNema{\xul}{\yul}{\angleul}{\sizeul};
+            \drawNema{\xum}{\yum}{\angleum}{\sizeum};
+            \drawNema{\xur}{\yur}{\angleur}{\sizeur};
+
+            \drawNema{\xml}{\yml}{\angleml}{\sizeml};
+            \drawNema{\xmr}{\ymr}{\anglemr}{\sizemr};
+
+            \drawNema{\xdr}{\ydr}{\angledr}{\sizedr};
+            \drawNema{\xdl}{\ydl}{\angledl}{\sizedl};
+            \drawNema{\xdm}{\ydm}{\angledm}{\sizedm};
+    }
+
+    \onslide<1> {
+        \drawNema{\xc}{\yc}{\anglec}{\sizec};
+    }
+
+    \onslide<2-4> {
+        \drawblueNema{\xc}{\yc}{\anglec}{\sizec};
+    }
+
+    \onslide<3> {
+            \drawgreenNema{\xul}{\yul}{\angleul}{\sizeul};
+            \drawgreenNema{\xum}{\yum}{\angleum}{\sizeum};
+            \drawgreenNema{\xur}{\yur}{\angleur}{\sizeur};
+
+            \drawgreenNema{\xml}{\yml}{\angleml}{\sizeml};
+            \drawgreenNema{\xmr}{\ymr}{\anglemr}{\sizemr};
+
+            \drawgreenNema{\xdr}{\ydr}{\angledr}{\sizedr};
+            \drawgreenNema{\xdl}{\ydl}{\angledl}{\sizedl};
+            \drawgreenNema{\xdm}{\ydm}{\angledm}{\sizedm};
+    }
+
+    \onslide<4-5> {
+            \drawNema{\xul}{\yul}{\angleul}{\sizeul};
+            \drawNema{\xum}{\yum}{\angleum}{\sizeum};
+            \drawNema{\xur}{\yur}{\angleur}{\sizeur};
+
+            \drawNema{\xml}{\yml}{\angleml}{\sizeml};
+            \drawNema{\xmr}{\ymr}{\anglemr}{\sizemr};
+
+            \drawNema{\xdr}{\ydr}{\angledr}{\sizedr};
+            \drawNema{\xdl}{\ydl}{\angledl}{\sizedl};
+            \drawNema{\xdm}{\ydm}{\angledm}{\sizedm};
+    }
+
+    \pgfmathsetmacro{\anglec}{\anglec +90};
+    \onslide<5-7> {
+        \drawredNema{\xc}{\yc}{\anglec}{\sizec};
+    }
+
+    \onslide<6> {
+            \drawgreenNema{\xul}{\yul}{\angleul}{\sizeul};
+            \drawgreenNema{\xum}{\yum}{\angleum}{\sizeum};
+            \drawgreenNema{\xur}{\yur}{\angleur}{\sizeur};
+
+            \drawgreenNema{\xml}{\yml}{\angleml}{\sizeml};
+            \drawgreenNema{\xmr}{\ymr}{\anglemr}{\sizemr};
+
+            \drawgreenNema{\xdr}{\ydr}{\angledr}{\sizedr};
+            \drawgreenNema{\xdl}{\ydl}{\angledl}{\sizedl};
+            \drawgreenNema{\xdm}{\ydm}{\angledm}{\sizedm};
+    }
+
+\end{tikzpicture}

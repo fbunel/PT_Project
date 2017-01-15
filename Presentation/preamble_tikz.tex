@@ -64,6 +64,24 @@
 		[x radius={#4}, y radius=0.1, rotate={#3}];
 }
 
+% \drawNema {x} {y} {zAngle}
+\newcommand{\drawredNema}[4] {
+	\shade [ball color=red] (#1,#2) ellipse 
+		[x radius={#4}, y radius=0.1, rotate={#3}];
+}
+% \drawNema {x} {y} {zAngle}
+\newcommand{\drawgreenNema}[4] {
+	\shade [ball color=green] (#1,#2) ellipse 
+		[x radius={#4}, y radius=0.1, rotate={#3}];
+}
+
+% \drawNema {x} {y} {zAngle}
+\newcommand{\drawblueNema}[4] {
+	\shade [ball color=blue] (#1,#2) ellipse 
+		[x radius={#4}, y radius=0.1, rotate={#3}];
+}
+
+
 % \plotcylinder { radius } { heigth } { altitude }
 \newcommand{\plotcylinder}[3] {
      \draw [math3d, fill=white, samples=100]

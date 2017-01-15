@@ -3,7 +3,7 @@
 %Rajouter les slides de photoélasticité à fin
 
 \input{preamble_tikz.tex}
-
+\usetikzlibrary{arrows}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{amsmath}
@@ -13,6 +13,12 @@
 \usepackage{graphicx}
 \usepackage{stmaryrd}
 \usepackage{ulem}
+\usepackage{subfigure}
+\usepackage{xcolor}
+\usepackage[thicklines]{cancel}
+
+
+\usepackage{xcolor}
 
 \everymath{\displaystyle}
 
@@ -24,8 +30,8 @@
 \setbeamertemplate{headline}{}
 \addtobeamertemplate{footline}{\ \ \ \ \ \insertframenumber/\inserttotalframenumber\hspace{2em}\null}
 
-\title{Yolo}
-\author{Félix Bunel et Hadrien Vergnet}
+\title{A Monte-Carlo investigation\\ of the nematic-isotropic phase transition}
+\author{Félix Bunel \& Hadrien Vergnet}
 \titlegraphic{\includegraphics[height=1.7cm]{figures/sdm.png}} 
 \date{16/01/2017}
 
@@ -48,7 +54,7 @@
 \includegraphics[height=1.3cm]{figures/logo_ens.jpg}
 \end{column}
 \begin{column}{3.3cm}
-\center
+	\center
 \includegraphics[height=1.3cm]{figures/logo_univ_lyon.jpg}
 \end{column}
 \end{columns}
@@ -57,11 +63,23 @@
 \end{frame}
 %%%%%%%%%%%%%
 
-\title{yolo}
+\title{Nematic-isotropic phase transition}
 %%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Introduction}
 \framesubtitle{\ }
+
+\begin{center}
+\includegraphics[height = 2cm]{figures/lcd.jpg}
+\end{center} 
+
+Nematic phase:
+\begin{itemize}
+\item No positional order
+\item Orientational order
+\end{itemize}
+\vspace{-0.5cm}
+\center \input{figures/iso_vs_nematic.tikz}
 
 \end{frame}
 %%%%%%%%%%%%%
@@ -75,16 +93,305 @@
 \end{frame}
 %%%%%%%%%%%%%
 
-\section{section}
-\subsection{soussection}
+\section{The order parameter}
 
 %%%%%%%%%%%%% 
 \begin{frame}
-	\frametitle{\ }
+	\frametitle{The Order Parameter}
 	\framesubtitle{\ }
+	
+\center \input{figures/nematic.tikz}
+
+
+
+\begin{equation*}
+S = \frac{3 \langle (\bm{a}\cdot \bm{n})^2\rangle -1}{2}
+\end{equation*}
+
+\vspace{0.75cm}
+Nematic phase : $S=1$ \hspace{0.9cm}
+Isotropic phase : $S=0$
+\end{frame}
+%%%%%%%%%%%%%
+
+\section{Numerical methods}
+\subsection{Lebwohl Lasher Model}
+%%%%%%%%%%%%% 
+\begin{frame}
+	\frametitle{Numerical Methods}
+	\framesubtitle{Lebwohl Lasher Model}
+
+\begin{textblock*}{13cm}(0cm,0.75cm) % {block width} (coords)
+\begin{center}
+	\input{figures/lebwohl.tikz}
+\end{center}
+\end{textblock*}
+
+\begin{textblock*}{13cm}(0cm,5cm) % {block width} (coords)
+\begin{center}
+	Size : $ 30 \times 30 \times 30$
+\end{center}
+\end{textblock*}
+
+\begin{textblock*}{13cm}(0cm,7cm) % {block width} (coords)
+\begin{equation*}
+E = - \epsilon\sum_{<i,j>} \frac{3\cos^2\alpha_{i,j}-1}{2}
+\end{equation*}
+\end{textblock*}
+\end{frame}
+%%%%%%%%%%%%%
+
+\subsection{Monte-Carlo Algorithm}
+%%%%%%%%%%%%% 
+\begin{frame}
+	\frametitle{Numerical Methods}
+	\framesubtitle{Monte-Carlo Algorithm}
+
+\begin{textblock*}{13cm}(0cm,0.75cm) % {block width} (coords)
+\begin{center}
+	\input{figures/montecarlo.tikz}
+\end{center}
+\end{textblock*}
+
+\only<2>{
+\begin{textblock*}{10cm}(1.5cm,5cm) % {block width} (coords)
+\begin{itemize}
+\item We select a random site
+\end{itemize}
+\end{textblock*}
+}
+
+\only<3>{
+\begin{textblock*}{10cm}(1.5cm,5cm) % {block width} (coords)
+\begin{itemize}
+\item We select a random site
+\item We compute the energy with the neighboor : $\textcolor{blue}{E_{old}}$
+\end{itemize}
+\end{textblock*}
+}
+
+
+\only<4-5>{
+\begin{textblock*}{10cm}(1.5cm,5cm) % {block width} (coords)
+\begin{itemize}
+\item We select a random site
+\item We compute the energy with the neighboor : $\textcolor{blue}{E_{old}}$
+\item We try to swap the chosen site
+\end{itemize}
+\end{textblock*}
+}
+
+\only<6>{
+\begin{textblock*}{10cm}(1.5cm,5cm) % {block width} (coords)
+\begin{itemize}
+\item We select a random site
+\item We compute the energy with the neighboor : $\textcolor{blue}{E_{old}}$
+\item We try to swap the chosen site
+\item We compute the energy with the neighboor : $\textcolor{red}{E_{new}}$
+\end{itemize}
+\end{textblock*}
+}
+
+\only<7>{
+\begin{textblock*}{10cm}(1.5cm,5cm) % {block width} (coords)
+\begin{itemize}
+\item We select a random site
+\item We compute the energy with the neighboor : $\textcolor{blue}{E_{old}}$
+\item We try to swap the chosen site
+\item We compute the energy with the neighboor : $\textcolor{red}{E_{new}}$
+\item We accept the swap with a probability :
+\vspace{-0.3cm}
+\begin{equation*}
+p = e^{-\dfrac{\textcolor{blue}{E_{old}} -\textcolor{red}{E_{new}}}{k_B T}}
+\end{equation*}
+
+
+
+\end{itemize}
+\end{textblock*}
+}
 
 \end{frame}
 %%%%%%%%%%%%%
+
+\subsection{Equilibration}
+%%%%%%%%%%%%% 
+\begin{frame}
+	\frametitle{Numerical Methods}
+	\framesubtitle{Equilibration}
+
+\begin{figure}
+\includegraphics[scale=0.48]{figures/equilibrage.pdf}
+\end{figure}
+\vspace{-0.6cm}
+\center Equilibration at $T^\star = 1$
+\end{frame}
+%%%%%%%%%%%%%
+
+\section{Nematic Isotropic Phase Transitions}
+\subsection{Direct visualisation}
+%%%%%%%%%%%%% 
+\begin{frame}
+	\frametitle{Nematic Isotropic Phase Transitions}
+	\framesubtitle{Direct visualisation}
+
+\begin{columns}
+    \begin{column}{3cm}
+    	\includegraphics[scale=0.8]{figures/00.pdf}
+	\end{column}
+
+	\begin{column}{3cm}
+    	\includegraphics[scale=0.8]{figures/09.pdf}
+	\end{column}
+	
+	\begin{column}{3cm}
+    	\includegraphics[scale=0.8]{figures/15.pdf}
+	\end{column}
+\end{columns}
+
+\begin{columns}
+    \begin{column}{3cm}
+    	\center $T^\star =  0.05$
+	\end{column}
+
+	\begin{column}{3cm}
+    	\center $T^\star =  0.9$
+	\end{column}
+	
+	\begin{column}{3cm}
+    	\center $T^\star =  1.5$
+	\end{column}
+\end{columns}
+
+\end{frame}
+%%%%%%%%%%%%%
+
+\subsection{Energy}
+%%%%%%%%%%%%% 
+\begin{frame}
+	\frametitle{Nematic Isotropic Phase Transitions}
+	\framesubtitle{Energy}
+
+\begin{figure}
+\includegraphics[scale=0.48]{figures/local_energie.pdf}
+\end{figure}
+\vspace{-0.6cm}
+\center Energy and its variance.
+\end{frame}
+%%%%%%%%%%%%%
+
+\subsection{Energy}
+%%%%%%%%%%%%% 
+\begin{frame}
+	\frametitle{Nematic Isotropic Phase Transitions}
+	\framesubtitle{Energy}
+
+\begin{figure}
+\includegraphics[scale=0.48]{figures/local_order.pdf}
+\end{figure}
+\vspace{-0.6cm}
+\center Order parameter and its variance.
+\end{frame}
+%%%%%%%%%%%%%
+
+\subsection{Histograms}
+%%%%%%%%%%%%% 
+\begin{frame}
+	\frametitle{Nematic Isotropic Phase Transitions}
+	\framesubtitle{Energy Histograms}
+\vspace{-0.3cm}
+\begin{columns}
+    \begin{column}{6cm}
+    \center
+    	\includegraphics[scale=0.28]{figures/histo_11208.pdf}
+	\end{column}
+
+	\begin{column}{6cm}
+	\center
+    	\includegraphics[scale=0.28]{figures/histo_11228.pdf}
+	\end{column}
+
+\end{columns}
+\vspace{-0.7cm}
+
+\begin{columns}
+    \begin{column}{6cm}
+    \center
+    	\includegraphics[scale=0.28]{figures/histo_11240.pdf}
+	\end{column}
+
+	\begin{column}{6cm}
+	\center
+    	\includegraphics[scale=0.28]{figures/histo_11256.pdf}
+	\end{column}
+
+\end{columns}
+
+\end{frame}
+%%%%%%%%%%%%%
+
+
+\section{Influence of an Electric Field}
+\subsection{Lebwohl Lasher Model}
+%%%%%%%%%%%%% 
+\begin{frame}
+	\frametitle{Numerical Methods}
+	\framesubtitle{Lebwohl Lasher Model}
+
+\begin{textblock*}{13cm}(0cm,0.75cm) % {block width} (coords)
+\begin{center}
+	\input{figures/lebwohl.tikz}
+\end{center}
+\end{textblock*}
+
+\begin{textblock*}{13cm}(0cm,5cm) % {block width} (coords)
+\center
+\begin{tikzpicture}[radius=0.1]
+\path[draw=black,solid,line width=1.1mm,fill=black,
+preaction={-triangle 90,thin,draw,shorten >=-1mm}
+] (-1, 0) -- (1, 0);
+
+\draw (0,0) node[below]{$\boldsymbol{U}$};
+\end{tikzpicture}
+\end{textblock*}
+
+\begin{textblock*}{13cm}(0cm,7cm) % {block width} (coords)
+\begin{equation*}
+E = - \epsilon\sum_{<i,j>} \frac{3\cos^2\alpha_{i,j}-1}{2} - \epsilon \xi U^2 \sum_{i}\frac{3\cos^2\beta_i-1}{2}
+\end{equation*}
+
+\end{textblock*}
+\end{frame}
+%%%%%%%%%%%%%
+
+\subsection{Critical point}
+%%%%%%%%%%%%% 
+\begin{frame}
+	\frametitle{Numerical Methods}
+	\framesubtitle{Energy}
+
+\begin{figure}
+\includegraphics[scale=0.48]{figures/electricField_calo.pdf}
+\end{figure}
+\vspace{-0.6cm}
+\center Energy for different electric field.
+\end{frame}
+%%%%%%%%%%%%%
+
+\subsection{Phase diagram}
+%%%%%%%%%%%%% 
+\begin{frame}
+	\frametitle{Numerical Methods}
+	\framesubtitle{Phase diagram}
+
+\begin{figure}
+\includegraphics[scale=0.48]{figures/electricField.pdf}
+\end{figure}
+\vspace{-0.6cm}
+\center Transition temperature as a function of the electric field.
+\end{frame}
+%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%% 
 \begin{frame}
@@ -103,6 +410,8 @@
 \end{frame}
 %%%%%%%%%%%%%
 
+
+
 %%%%%%%%%%%%% 
 \begin{frame}
 	\frametitle{\ }
@@ -113,14 +422,9 @@
 \end{frame}
 %%%%%%%%%%%%%
 
-%%%%%%%%%%%%% 
-\begin{frame}
-	\frametitle{yolo}
-	\framesubtitle{\ }
 
 
-\end{frame}
-%%%%%%%%%%%%%
+
 
 
 %%%%%%%%%%%%%

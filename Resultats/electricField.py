@@ -171,7 +171,7 @@ def figure(basename, skiprow, outputname):
     ax1.set_ylim([0, 0.081])
 
     ax1.tick_params(labelsize = 20)
-    ax1.set_ylabel(r"D\'ecalage de la transition", fontsize = 22)
+    ax1.set_ylabel(r"Shift of the transition temperature", fontsize = 22)
     ax1.set_xlabel(r"$U^\star$", fontsize = 22)
 
     #enregistrement de l'image

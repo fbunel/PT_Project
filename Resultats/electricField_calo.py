@@ -99,7 +99,7 @@ def figure(basename, skiprow, outputname):
 
 
 
-        ax1.plot(temperature, energie, linewidth = 2,label=r"$U^\star = {0:.2f}$".format(electricField[elec]))
+        ax1.plot(temperature, energie, linewidth = 2,label=r"$U^\star = {0:.2f}$".format(np.sqrt(electricField[elec])))
 
         ax1.set_xlim([1.05, 1.25])
         # ax1.set_ylim([0, 0.081])

@@ -1,0 +1,50 @@
+\begin{tikzpicture}[radius=0.1]
+	\draw [->, >=stealth] (-1,2) -- (7.5,2) node[right]{$T$};
+	\draw (3.35,1.9) -- (3.35,2.1) node[above]{$T^t$};
+	\draw [dashed] (3.35,2) -- (3.35,-1);
+
+	\pgfmathsetseed{100}
+	\pgfmathsetmacro{\xi}{0};
+	\pgfmathsetmacro{\yi}{0};
+	\foreach \i in {0,...,3}{
+		\foreach \j in {0,...,2}{
+			\pgfmathsetmacro{\x}{\xi+\i*0.6+0.04*rand};
+			\pgfmathsetmacro{\y}{\yi+\j*0.7+0.1*rand};
+			\pgfmathsetmacro{\angle}{rand*15};
+			\drawZnema{\x}{\y}{\angle};
+		}
+	}
+	\foreach \i in {0,...,3}{
+		\foreach \j in {0,...,1}{
+			\pgfmathsetmacro{\x}{\xi+0.3+\i*0.6+0.04*rand};
+			\pgfmathsetmacro{\y}{\yi+0.35+\j*0.7+0.1*rand};
+			\pgfmathsetmacro{\angle}{rand*15};
+			\drawZnema{\x}{\y}{\angle};
+		}
+	}
+	\draw [->,>=stealth] (0.5,-0.5) -- (1.5,-0.5);
+
+	\pgfmathsetseed{79}
+	\pgfmathsetmacro{\xi}{4.5};
+	\pgfmathsetmacro{\yi}{0};
+	\foreach \i in {0,...,3}{
+		\foreach \j in {0,...,2}{
+			\pgfmathsetmacro{\x}{\xi+\i*0.6+0.04*rand};
+			\pgfmathsetmacro{\y}{\yi+\j*0.7+0.1*rand};
+			\pgfmathsetmacro{\angle}{rand*180};
+			\drawZnema{\x}{\y}{\angle};
+		}
+	}
+	\foreach \i in {0,...,3}{
+		\foreach \j in {0,...,1}{
+			\pgfmathsetmacro{\x}{\xi+0.3+\i*0.6+0.04*rand};
+			\pgfmathsetmacro{\y}{\yi+0.35+\j*0.7+0.1*rand};
+			\pgfmathsetmacro{\angle}{rand*180};
+			\drawZnema{\x}{\y}{\angle};
+		}
+	}
+
+
+	\draw (1,-0.9) node[below]{\small nematic phase};
+	\draw (5.75,-0.9) node[below]{\small isotropic phase};
+\end{tikzpicture}
