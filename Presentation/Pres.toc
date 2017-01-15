@@ -8,9 +8,12 @@
 \beamer@sectionintoc {3}{Nematic Isotropic Phase Transitions}{14}{0}{3}
 \beamer@subsectionintoc {3}{1}{Direct visualisation}{14}{0}{3}
 \beamer@subsectionintoc {3}{2}{Energy}{15}{0}{3}
-\beamer@subsectionintoc {3}{3}{Energy}{16}{0}{3}
+\beamer@subsectionintoc {3}{3}{Order Parameter}{16}{0}{3}
 \beamer@subsectionintoc {3}{4}{Histograms}{17}{0}{3}
 \beamer@sectionintoc {4}{Influence of an Electric Field}{18}{0}{4}
 \beamer@subsectionintoc {4}{1}{Lebwohl Lasher Model}{18}{0}{4}
 \beamer@subsectionintoc {4}{2}{Critical point}{19}{0}{4}
 \beamer@subsectionintoc {4}{3}{Phase diagram}{20}{0}{4}
+\beamer@sectionintoc {5}{Liquid Crystal Display}{21}{0}{5}
+\beamer@subsectionintoc {5}{1}{Fr\IeC {\'e}edericksz transition}{21}{0}{5}
+\beamer@subsectionintoc {5}{2}{Molecular Orientation}{22}{0}{5}
