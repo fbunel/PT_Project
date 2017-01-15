@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  15 JAN 2017 20:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  15 JAN 2017 20:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2338,7 +2338,7 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 
 
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 2/20 [][] 
+[]     \OT1/cmss/m/n/6 2/25 [][] 
  []
 
 [2
@@ -2349,14 +2349,14 @@ Overfull \vbox (4.28267pt too high) detected at line 108
 
 
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 3/20 [][] 
+[]     \OT1/cmss/m/n/6 3/25 [][] 
  []
 
 [3
 
 ] (./Pres.toc)
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 4/20 [][] 
+[]     \OT1/cmss/m/n/6 4/25 [][] 
  []
 
 [4
@@ -2448,14 +2448,14 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 5/20 [][] 
+[]     \OT1/cmss/m/n/6 5/25 [][] 
  []
 
 [5
 
 ] (./Pres.toc)
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 6/20 [][] 
+[]     \OT1/cmss/m/n/6 6/25 [][] 
  []
 
 [6
@@ -2631,7 +2631,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 7/20 [][] 
+[]     \OT1/cmss/m/n/6 7/25 [][] 
  []
 
 [7
@@ -2834,7 +2834,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 8/20 [][] 
+[]     \OT1/cmss/m/n/6 8/25 [][] 
  []
 
 [8
@@ -3037,7 +3037,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 8/20 [][] 
+[]     \OT1/cmss/m/n/6 8/25 [][] 
  []
 
 [9
@@ -3240,7 +3240,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 8/20 [][] 
+[]     \OT1/cmss/m/n/6 8/25 [][] 
  []
 
 [10
@@ -3443,7 +3443,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 8/20 [][] 
+[]     \OT1/cmss/m/n/6 8/25 [][] 
  []
 
 [11
@@ -3646,7 +3646,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 8/20 [][] 
+[]     \OT1/cmss/m/n/6 8/25 [][] 
  []
 
 [12
@@ -3849,7 +3849,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 8/20 [][] 
+[]     \OT1/cmss/m/n/6 8/25 [][] 
  []
 
 [13
@@ -4052,12 +4052,12 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 8/20 [][] 
+[]     \OT1/cmss/m/n/6 8/25 [][] 
  []
 
 [14
 
-] <figures/equilibrage.pdf, id=283, 578.34435pt x 418.84718pt>
+] <figures/equilibrage.pdf, id=286, 578.34435pt x 418.84718pt>
 File: figures/equilibrage.pdf Graphic file (type pdf)
 
 <use figures/equilibrage.pdf>
@@ -4065,19 +4065,19 @@ Package pdftex.def Info: figures/equilibrage.pdf used on input line 243.
 (pdftex.def)             Requested size: 277.60213pt x 201.04436pt.
 
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 9/20 [][] 
+[]     \OT1/cmss/m/n/6 9/25 [][] 
  []
 
 [15
 
  <./figures/equilibrage.pdf>] (./Pres.toc)
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 10/20 [][] 
+[]     \OT1/cmss/m/n/6 10/25 [][] 
  []
 
 [16
 
-] <figures/00.pdf, id=330, 116.65582pt x 105.27531pt>
+] <figures/00.pdf, id=332, 116.65582pt x 105.27531pt>
 File: figures/00.pdf Graphic file (type pdf)
  <use figures/00.pdf>
 Package pdftex.def Info: figures/00.pdf used on input line 281.
@@ -4087,7 +4087,7 @@ Overfull \hbox (7.9665pt too wide) in paragraph at lines 281--281
 [][]  
  []
 
-<figures/09.pdf, id=331, 116.94089pt x 110.3071pt>
+<figures/09.pdf, id=333, 116.94089pt x 110.3071pt>
 File: figures/09.pdf Graphic file (type pdf)
  <use figures/09.pdf>
 Package pdftex.def Info: figures/09.pdf used on input line 281.
@@ -4097,7 +4097,7 @@ Overfull \hbox (8.19455pt too wide) in paragraph at lines 281--281
 [][]  
  []
 
-<figures/15.pdf, id=332, 116.37979pt x 116.4631pt>
+<figures/15.pdf, id=334, 116.37979pt x 116.4631pt>
 File: figures/15.pdf Graphic file (type pdf)
  <use figures/15.pdf>
 Package pdftex.def Info: figures/15.pdf used on input line 281.
@@ -4109,13 +4109,13 @@ Overfull \hbox (7.74568pt too wide) in paragraph at lines 281--281
 
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 11/20 [][] 
+[]     \OT1/cmss/m/n/6 11/25 [][] 
  []
 
 [17
 
  <./figures/00.pdf> <./figures/09.pdf> <./figures/15.pdf>]
-<figures/local_energie.pdf, id=348, 587.51674pt x 418.84718pt>
+<figures/local_energie.pdf, id=349, 587.51674pt x 418.84718pt>
 File: figures/local_energie.pdf Graphic file (type pdf)
 
 <use figures/local_energie.pdf>
@@ -4123,7 +4123,7 @@ Package pdftex.def Info: figures/local_energie.pdf used on input line 295.
 (pdftex.def)             Requested size: 282.00482pt x 201.04436pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 12/20 [][] 
+[]     \OT1/cmss/m/n/6 12/25 [][] 
  []
 
 [18
@@ -4137,34 +4137,34 @@ Package pdftex.def Info: figures/local_order.pdf used on input line 309.
 (pdftex.def)             Requested size: 282.00482pt x 201.04436pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 13/20 [][] 
+[]     \OT1/cmss/m/n/6 13/25 [][] 
  []
 
 [19
 
  <./figures/local_order.pdf>]
-<figures/histo_11208.pdf, id=384, 578.16pt x 433.62pt>
+<figures/histo_11208.pdf, id=383, 578.16pt x 433.62pt>
 File: figures/histo_11208.pdf Graphic file (type pdf)
 
 <use figures/histo_11208.pdf>
 Package pdftex.def Info: figures/histo_11208.pdf used on input line 345.
 (pdftex.def)             Requested size: 161.8837pt x 121.41277pt.
 
-<figures/histo_11228.pdf, id=385, 578.16pt x 433.62pt>
+<figures/histo_11228.pdf, id=384, 578.16pt x 433.62pt>
 File: figures/histo_11228.pdf Graphic file (type pdf)
 
 <use figures/histo_11228.pdf>
 Package pdftex.def Info: figures/histo_11228.pdf used on input line 345.
 (pdftex.def)             Requested size: 161.8837pt x 121.41277pt.
 
-<figures/histo_11240.pdf, id=386, 578.16pt x 433.62pt>
+<figures/histo_11240.pdf, id=385, 578.16pt x 433.62pt>
 File: figures/histo_11240.pdf Graphic file (type pdf)
 
 <use figures/histo_11240.pdf>
 Package pdftex.def Info: figures/histo_11240.pdf used on input line 345.
 (pdftex.def)             Requested size: 161.8837pt x 121.41277pt.
 
-<figures/histo_11256.pdf, id=387, 578.16pt x 433.62pt>
+<figures/histo_11256.pdf, id=386, 578.16pt x 433.62pt>
 File: figures/histo_11256.pdf Graphic file (type pdf)
 
 <use figures/histo_11256.pdf>
@@ -4176,7 +4176,7 @@ Overfull \vbox (14.93036pt too high) detected at line 345
 
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 14/20 [][] 
+[]     \OT1/cmss/m/n/6 14/25 [][] 
  []
 
 [20
@@ -4195,7 +4195,7 @@ pdfTeX warning: pdflatex (file ./figures/histo_11256.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
 >] (./Pres.toc)
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 15/20 [][] 
+[]     \OT1/cmss/m/n/6 15/25 [][] 
  []
 
 [21
@@ -4371,12 +4371,12 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 16/20 [][] 
+[]     \OT1/cmss/m/n/6 16/25 [][] 
  []
 
 [22
 
-] <figures/electricField_calo.pdf, id=452, 532.32843pt x 418.84718pt>
+] <figures/electricField_calo.pdf, id=449, 532.32843pt x 418.84718pt>
 File: figures/electricField_calo.pdf Graphic file (type pdf)
 
 <use figures/electricField_calo.pdf>
@@ -4385,13 +4385,13 @@ Package pdftex.def Info: figures/electricField_calo.pdf used on input line 393.
 (pdftex.def)             Requested size: 255.51474pt x 201.04436pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 17/20 [][] 
+[]     \OT1/cmss/m/n/6 17/25 [][] 
  []
 
 [23
 
  <./figures/electricField_calo.pdf>]
-<figures/electricField.pdf, id=468, 525.02232pt x 414.56453pt>
+<figures/electricField.pdf, id=463, 525.02232pt x 414.56453pt>
 File: figures/electricField.pdf Graphic file (type pdf)
 
 <use figures/electricField.pdf>
@@ -4399,26 +4399,26 @@ Package pdftex.def Info: figures/electricField.pdf used on input line 407.
 (pdftex.def)             Requested size: 252.00784pt x 198.98871pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 18/20 [][] 
+[]     \OT1/cmss/m/n/6 18/25 [][] 
  []
 
 [24
 
  <./figures/electricField.pdf>] (./Pres.toc)
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 19/20 [][] 
+[]     \OT1/cmss/m/n/6 19/25 [][] 
  []
 
 [25
 
-] <figures/freedericksz_a.pdf, id=512, 96.8418pt x 147.90457pt>
+] <figures/freedericksz_a.pdf, id=504, 96.8418pt x 147.90457pt>
 File: figures/freedericksz_a.pdf Graphic file (type pdf)
 
 <use figures/freedericksz_a.pdf>
 Package pdftex.def Info: figures/freedericksz_a.pdf used on input line 450.
 (pdftex.def)             Requested size: 116.20955pt x 177.48459pt.
 
-<figures/freedericksz_b.pdf, id=513, 101.0726pt x 147.90457pt>
+<figures/freedericksz_b.pdf, id=505, 101.0726pt x 147.90457pt>
 File: figures/freedericksz_b.pdf Graphic file (type pdf)
 
 <use figures/freedericksz_b.pdf>
@@ -4426,7 +4426,7 @@ Package pdftex.def Info: figures/freedericksz_b.pdf used on input line 450.
 (pdftex.def)             Requested size: 121.2865pt x 177.48459pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 20/20 [][] 
+[]     \OT1/cmss/m/n/6 20/25 [][] 
  []
 
 [26
@@ -4435,7 +4435,7 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 
 pdfTeX warning: pdflatex (file ./figures/freedericksz_b.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
->] <figures/lcd_allume_T01.pdf, id=989, 506.50558pt x 409.5273pt>
+>] <figures/lcd_allume_T01.pdf, id=979, 506.50558pt x 409.5273pt>
 File: figures/lcd_allume_T01.pdf Graphic file (type pdf)
 
 <use figures/lcd_allume_T01.pdf>
@@ -4443,13 +4443,13 @@ Package pdftex.def Info: figures/lcd_allume_T01.pdf used on input line 463.
 (pdftex.def)             Requested size: 243.11992pt x 196.57086pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 21/20 [][] 
+[]     \OT1/cmss/m/n/6 21/25 [][] 
  []
 
 [27
 
  <./figures/lcd_allume_T01.pdf>]
-<figures/lcd_etteind.pdf, id=1016, 506.50558pt x 409.5273pt>
+<figures/lcd_etteind.pdf, id=1004, 506.50558pt x 409.5273pt>
 File: figures/lcd_etteind.pdf Graphic file (type pdf)
 
 <use figures/lcd_etteind.pdf>
@@ -4457,17 +4457,16 @@ Package pdftex.def Info: figures/lcd_etteind.pdf used on input line 477.
 (pdftex.def)             Requested size: 243.11992pt x 196.57086pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 22/20 [][] 
+[]     \OT1/cmss/m/n/6 22/25 [][] 
  []
 
 [28
 
  <./figures/lcd_etteind.pdf>]
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 23/20 [][] 
+[]     \OT1/cmss/m/n/6 23/25 [][] 
  []
 
-Package atenddvi Info: Last page = 29.
 [29
 
 ]
@@ -4477,7 +4476,7 @@ Package pdftex.def Info: figures/local_energie.pdf used on input line 531.
 (pdftex.def)             Requested size: 235.00253pt x 167.5359pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 23/20 [][] 
+[]     \OT1/cmss/m/n/6 23/25 [][] 
  []
 
 [30
@@ -4490,7 +4489,7 @@ Package pdftex.def Info: figures/electricField_calo.pdf used on input line 531.
 (pdftex.def)             Requested size: 175.66891pt x 138.21999pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 23/20 [][] 
+[]     \OT1/cmss/m/n/6 23/25 [][] 
  []
 
 [31
@@ -4506,23 +4505,24 @@ Package pdftex.def Info: figures/freedericksz_b.pdf used on input line 531.
 (pdftex.def)             Requested size: 65.6964pt x 96.13683pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 23/20 [][] 
+[]     \OT1/cmss/m/n/6 23/25 [][] 
  []
 
 [32
 
 ]
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 24/20 [][] 
+[]     \OT1/cmss/m/n/6 24/25 [][] 
  []
 
 [33
 
 ]
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
-[]     \OT1/cmss/m/n/6 25/20 [][] 
+[]     \OT1/cmss/m/n/6 25/25 [][] 
  []
 
+Package atenddvi Info: Last page = 34.
 [34
 
 ]
@@ -4537,27 +4537,12 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 561.
 Package atveryend Info: Executing hook `AfterLastShipout' on input line 561.
- (./Pres.aux
-
-Package atenddvi Warning: Rerun LaTeX, last page has changed.
-
-
-Package animate Warning: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-(animate)                @@ Rerun to get internal references right! @@
-(animate)                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.
-
-)
+ (./Pres.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 561.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 561.
+Package rerunfilecheck Info: File `Pres.out' has not changed.
+(rerunfilecheck)             Checksum: 881B77BC12FC7CFD6DA816C505887EE4;1103.
 
-
-Package rerunfilecheck Warning: File `Pres.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Pres.out':
-(rerunfilecheck)             Before: 1A4D9693768395FA52E951394BAD6FAE;1103
-(rerunfilecheck)             After:  881B77BC12FC7CFD6DA816C505887EE4;1103.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
@@ -4565,76 +4550,37 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 561.
  ) 
 Here is how much of TeX's memory you used:
- 45343 strings out of 493029
- 1057072 string characters out of 6136235
- 1221213 words of memory out of 5000000
- 47891 multiletter control sequences out of 15000+600000
+ 45341 strings out of 493029
+ 1056974 string characters out of 6136235
+ 1221380 words of memory out of 5000000
+ 47901 multiletter control sequences out of 15000+600000
  16549 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,16n,86p,10424b,936s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Outline0.5.2.22} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.5.1.21} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.4.3.20} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.4.2.19} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.4.1.18} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.3.4.17} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.3.3.16} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.3.2.15} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.3.1.14} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.2.3.13} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.2.2.6} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.2.1.5} has been referenced but does not ex
-ist, replaced by a fixed one
-
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/urw/ncntrsbk/uncr8a.pfb>
-Output written on Pres.pdf (34 pages, 2354902 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb>
+Output written on Pres.pdf (34 pages, 2354591 bytes).
 PDF statistics:
- 1153 PDF objects out of 1200 (max. 8388607)
- 876 compressed objects within 9 object streams
- 103 named destinations out of 1000 (max. 500000)
+ 1139 PDF objects out of 1200 (max. 8388607)
+ 862 compressed objects within 9 object streams
+ 91 named destinations out of 1000 (max. 500000)
  402 words of extra memory for PDF output out of 10000 (max. 10000000)
 
