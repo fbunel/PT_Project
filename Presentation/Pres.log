@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  15 JAN 2017 20:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  16 JAN 2017 13:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1898,20 +1898,20 @@ Package: beamerfontthemeserif 2010/06/17  (rcs-revision d02a7cf4d8ae)
 ) (./Pres.aux)
 \openout1 = `Pres.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1964,7 +1964,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box116
-Package hyperref Info: Link coloring OFF on input line 56.
+Package hyperref Info: Link coloring OFF on input line 58.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1974,9 +1974,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count374
 )
-LaTeX Info: Redefining \ref on input line 56.
-LaTeX Info: Redefining \pageref on input line 56.
-LaTeX Info: Redefining \nameref on input line 56.
+LaTeX Info: Redefining \ref on input line 58.
+LaTeX Info: Redefining \pageref on input line 58.
+LaTeX Info: Redefining \nameref on input line 58.
 
 (./Pres.out) (./Pres.out)
 \@outlinefile=\write6
@@ -2007,7 +2007,7 @@ Dictionary: translator-numbers-dictionary, Language: English
 orem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 56.
+LaTeX Info: Redefining \includegraphics on input line 58.
 
 Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.13} (current compat level: 1.11).
@@ -2092,25 +2092,25 @@ File: ts1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
 File: siunitx-abbreviations.cfg 2016/03/01 v2.6q siunitx: Abbreviated units
 )
 (./Pres.nav)
-Overfull \hbox (19.73047pt too wide) in paragraph at lines 56--56
+Overfull \hbox (19.73047pt too wide) in paragraph at lines 58--58
  [][][][]  
  []
 
 \c__siunitx_mathsf_int=\count375
-LaTeX Font Info:    Try loading font information for U+msa on input line 56.
+LaTeX Font Info:    Try loading font information for U+msa on input line 58.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 56.
+LaTeX Font Info:    Try loading font information for U+msb on input line 58.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 56.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 58.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 56.
+line 58.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
@@ -2118,24 +2118,24 @@ thkerncmss.
 )
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 56.
+(Font)              using `U/stmry/m/n' instead on input line 58.
 
 \c__siunitx_mathtt_int=\count376
 <figures/logo_lyon1.jpg, id=92, 4642.34375pt x 3362.5625pt>
 File: figures/logo_lyon1.jpg Graphic file (type jpg)
 
 <use figures/logo_lyon1.jpg>
-Package pdftex.def Info: figures/logo_lyon1.jpg used on input line 78.
+Package pdftex.def Info: figures/logo_lyon1.jpg used on input line 80.
 (pdftex.def)             Requested size: 51.00218pt x 36.98866pt.
 
 <figures/logo_ens.jpg, id=93, 1032.85875pt x 384.6872pt>
 File: figures/logo_ens.jpg Graphic file (type jpg)
 
 <use figures/logo_ens.jpg>
-Package pdftex.def Info: figures/logo_ens.jpg used on input line 78.
+Package pdftex.def Info: figures/logo_ens.jpg used on input line 80.
 (pdftex.def)             Requested size: 99.30461pt x 36.98866pt.
 
-Overfull \hbox (5.41043pt too wide) in paragraph at lines 78--78
+Overfull \hbox (5.41043pt too wide) in paragraph at lines 80--80
  [] 
  []
 
@@ -2143,13 +2143,13 @@ Overfull \hbox (5.41043pt too wide) in paragraph at lines 78--78
 File: figures/logo_univ_lyon.jpg Graphic file (type jpg)
 
 <use figures/logo_univ_lyon.jpg>
-Package pdftex.def Info: figures/logo_univ_lyon.jpg used on input line 78.
+Package pdftex.def Info: figures/logo_univ_lyon.jpg used on input line 80.
 (pdftex.def)             Requested size: 72.49661pt x 36.98866pt.
 
 <figures/sdm.png, id=101, 437.9072pt x 140.25279pt>
 File: figures/sdm.png Graphic file (type png)
  <use figures/sdm.png>
-Package pdftex.def Info: figures/sdm.png used on input line 78.
+Package pdftex.def Info: figures/sdm.png used on input line 80.
 (pdftex.def)             Requested size: 151.02467pt x 48.36958pt.
 
 [1
@@ -2161,7 +2161,7 @@ igures/lcd.jpg, id=112, 642.4pt x 291.0875pt>
 File: figures/lcd.jpg Graphic file (type jpg)
 
 <use figures/lcd.jpg>
-Package pdftex.def Info: figures/lcd.jpg used on input line 99.
+Package pdftex.def Info: figures/lcd.jpg used on input line 101.
 (pdftex.def)             Requested size: 125.57626pt x 56.9055pt.
  (./figures/iso_vs_nematic.tikz
 Missing character: There is no ; in font nullfont!
@@ -2329,12 +2329,12 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
-Overfull \vbox (1.72408pt too high) detected at line 99
+Overfull \vbox (1.72408pt too high) detected at line 101
  []
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 99.
+(Font)              size <5> substituted on input line 101.
 
 
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
@@ -2344,7 +2344,7 @@ Overfull \hbox (32.58379pt too wide) has occurred while \output is active
 [2
 
  <./figures/lcd.jpg>] (./Pres.toc)
-Overfull \vbox (4.28267pt too high) detected at line 108
+Overfull \vbox (4.28267pt too high) detected at line 110
  []
 
 
@@ -2355,6 +2355,10 @@ Overfull \hbox (32.58379pt too wide) has occurred while \output is active
 [3
 
 ] (./Pres.toc)
+Overfull \vbox (4.28267pt too high) detected at line 113
+ []
+
+
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
 []     \OT1/cmss/m/n/6 4/25 [][] 
  []
@@ -2454,6 +2458,10 @@ Overfull \hbox (32.58379pt too wide) has occurred while \output is active
 [5
 
 ] (./Pres.toc)
+Overfull \vbox (4.28267pt too high) detected at line 134
+ []
+
+
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
 []     \OT1/cmss/m/n/6 6/25 [][] 
  []
@@ -4061,7 +4069,7 @@ Overfull \hbox (32.58379pt too wide) has occurred while \output is active
 File: figures/equilibrage.pdf Graphic file (type pdf)
 
 <use figures/equilibrage.pdf>
-Package pdftex.def Info: figures/equilibrage.pdf used on input line 243.
+Package pdftex.def Info: figures/equilibrage.pdf used on input line 245.
 (pdftex.def)             Requested size: 277.60213pt x 201.04436pt.
 
 Overfull \hbox (32.58379pt too wide) has occurred while \output is active
@@ -4071,6 +4079,10 @@ Overfull \hbox (32.58379pt too wide) has occurred while \output is active
 [15
 
  <./figures/equilibrage.pdf>] (./Pres.toc)
+Overfull \vbox (4.28267pt too high) detected at line 248
+ []
+
+
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 []     \OT1/cmss/m/n/6 10/25 [][] 
  []
@@ -4080,30 +4092,30 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 ] <figures/00.pdf, id=332, 116.65582pt x 105.27531pt>
 File: figures/00.pdf Graphic file (type pdf)
  <use figures/00.pdf>
-Package pdftex.def Info: figures/00.pdf used on input line 281.
+Package pdftex.def Info: figures/00.pdf used on input line 283.
 (pdftex.def)             Requested size: 93.32477pt x 84.22035pt.
 
-Overfull \hbox (7.9665pt too wide) in paragraph at lines 281--281
+Overfull \hbox (7.9665pt too wide) in paragraph at lines 283--283
 [][]  
  []
 
 <figures/09.pdf, id=333, 116.94089pt x 110.3071pt>
 File: figures/09.pdf Graphic file (type pdf)
  <use figures/09.pdf>
-Package pdftex.def Info: figures/09.pdf used on input line 281.
+Package pdftex.def Info: figures/09.pdf used on input line 283.
 (pdftex.def)             Requested size: 93.55281pt x 88.24577pt.
 
-Overfull \hbox (8.19455pt too wide) in paragraph at lines 281--281
+Overfull \hbox (8.19455pt too wide) in paragraph at lines 283--283
 [][]  
  []
 
 <figures/15.pdf, id=334, 116.37979pt x 116.4631pt>
 File: figures/15.pdf Graphic file (type pdf)
  <use figures/15.pdf>
-Package pdftex.def Info: figures/15.pdf used on input line 281.
+Package pdftex.def Info: figures/15.pdf used on input line 283.
 (pdftex.def)             Requested size: 93.10394pt x 93.1706pt.
 
-Overfull \hbox (7.74568pt too wide) in paragraph at lines 281--281
+Overfull \hbox (7.74568pt too wide) in paragraph at lines 283--283
 [][]  
  []
 
@@ -4119,7 +4131,7 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 File: figures/local_energie.pdf Graphic file (type pdf)
 
 <use figures/local_energie.pdf>
-Package pdftex.def Info: figures/local_energie.pdf used on input line 295.
+Package pdftex.def Info: figures/local_energie.pdf used on input line 297.
 (pdftex.def)             Requested size: 282.00482pt x 201.04436pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
@@ -4133,7 +4145,7 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 File: figures/local_order.pdf Graphic file (type pdf)
 
 <use figures/local_order.pdf>
-Package pdftex.def Info: figures/local_order.pdf used on input line 309.
+Package pdftex.def Info: figures/local_order.pdf used on input line 311.
 (pdftex.def)             Requested size: 282.00482pt x 201.04436pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
@@ -4147,31 +4159,31 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 File: figures/histo_11208.pdf Graphic file (type pdf)
 
 <use figures/histo_11208.pdf>
-Package pdftex.def Info: figures/histo_11208.pdf used on input line 345.
+Package pdftex.def Info: figures/histo_11208.pdf used on input line 347.
 (pdftex.def)             Requested size: 161.8837pt x 121.41277pt.
 
 <figures/histo_11228.pdf, id=384, 578.16pt x 433.62pt>
 File: figures/histo_11228.pdf Graphic file (type pdf)
 
 <use figures/histo_11228.pdf>
-Package pdftex.def Info: figures/histo_11228.pdf used on input line 345.
+Package pdftex.def Info: figures/histo_11228.pdf used on input line 347.
 (pdftex.def)             Requested size: 161.8837pt x 121.41277pt.
 
 <figures/histo_11240.pdf, id=385, 578.16pt x 433.62pt>
 File: figures/histo_11240.pdf Graphic file (type pdf)
 
 <use figures/histo_11240.pdf>
-Package pdftex.def Info: figures/histo_11240.pdf used on input line 345.
+Package pdftex.def Info: figures/histo_11240.pdf used on input line 347.
 (pdftex.def)             Requested size: 161.8837pt x 121.41277pt.
 
 <figures/histo_11256.pdf, id=386, 578.16pt x 433.62pt>
 File: figures/histo_11256.pdf Graphic file (type pdf)
 
 <use figures/histo_11256.pdf>
-Package pdftex.def Info: figures/histo_11256.pdf used on input line 345.
+Package pdftex.def Info: figures/histo_11256.pdf used on input line 347.
 (pdftex.def)             Requested size: 161.8837pt x 121.41277pt.
 
-Overfull \vbox (14.93036pt too high) detected at line 345
+Overfull \vbox (14.93036pt too high) detected at line 347
  []
 
 
@@ -4194,6 +4206,10 @@ ple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./figures/histo_11256.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
 >] (./Pres.toc)
+Overfull \vbox (4.28267pt too high) detected at line 351
+ []
+
+
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 []     \OT1/cmss/m/n/6 15/25 [][] 
  []
@@ -4380,7 +4396,7 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 File: figures/electricField_calo.pdf Graphic file (type pdf)
 
 <use figures/electricField_calo.pdf>
-Package pdftex.def Info: figures/electricField_calo.pdf used on input line 393.
+Package pdftex.def Info: figures/electricField_calo.pdf used on input line 395.
 
 (pdftex.def)             Requested size: 255.51474pt x 201.04436pt.
 
@@ -4395,7 +4411,7 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 File: figures/electricField.pdf Graphic file (type pdf)
 
 <use figures/electricField.pdf>
-Package pdftex.def Info: figures/electricField.pdf used on input line 407.
+Package pdftex.def Info: figures/electricField.pdf used on input line 409.
 (pdftex.def)             Requested size: 252.00784pt x 198.98871pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
@@ -4405,6 +4421,10 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 [24
 
  <./figures/electricField.pdf>] (./Pres.toc)
+Overfull \vbox (4.28267pt too high) detected at line 413
+ []
+
+
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 []     \OT1/cmss/m/n/6 19/25 [][] 
  []
@@ -4415,14 +4435,14 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 File: figures/freedericksz_a.pdf Graphic file (type pdf)
 
 <use figures/freedericksz_a.pdf>
-Package pdftex.def Info: figures/freedericksz_a.pdf used on input line 450.
+Package pdftex.def Info: figures/freedericksz_a.pdf used on input line 452.
 (pdftex.def)             Requested size: 116.20955pt x 177.48459pt.
 
 <figures/freedericksz_b.pdf, id=505, 101.0726pt x 147.90457pt>
 File: figures/freedericksz_b.pdf Graphic file (type pdf)
 
 <use figures/freedericksz_b.pdf>
-Package pdftex.def Info: figures/freedericksz_b.pdf used on input line 450.
+Package pdftex.def Info: figures/freedericksz_b.pdf used on input line 452.
 (pdftex.def)             Requested size: 121.2865pt x 177.48459pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
@@ -4439,7 +4459,7 @@ ltiple pdfs with page group included in a single page
 File: figures/lcd_allume_T01.pdf Graphic file (type pdf)
 
 <use figures/lcd_allume_T01.pdf>
-Package pdftex.def Info: figures/lcd_allume_T01.pdf used on input line 463.
+Package pdftex.def Info: figures/lcd_allume_T01.pdf used on input line 465.
 (pdftex.def)             Requested size: 243.11992pt x 196.57086pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
@@ -4453,7 +4473,7 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 File: figures/lcd_etteind.pdf Graphic file (type pdf)
 
 <use figures/lcd_etteind.pdf>
-Package pdftex.def Info: figures/lcd_etteind.pdf used on input line 477.
+Package pdftex.def Info: figures/lcd_etteind.pdf used on input line 479.
 (pdftex.def)             Requested size: 243.11992pt x 196.57086pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
@@ -4472,7 +4492,7 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 ]
 File: figures/local_energie.pdf Graphic file (type pdf)
  <use figures/local_energie.pdf>
-Package pdftex.def Info: figures/local_energie.pdf used on input line 531.
+Package pdftex.def Info: figures/local_energie.pdf used on input line 533.
 (pdftex.def)             Requested size: 235.00253pt x 167.5359pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
@@ -4484,7 +4504,7 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 ]
 File: figures/electricField_calo.pdf Graphic file (type pdf)
  <use figures/electricField_calo.pdf>
-Package pdftex.def Info: figures/electricField_calo.pdf used on input line 531.
+Package pdftex.def Info: figures/electricField_calo.pdf used on input line 533.
 
 (pdftex.def)             Requested size: 175.66891pt x 138.21999pt.
 
@@ -4497,11 +4517,11 @@ Overfull \hbox (35.77133pt too wide) has occurred while \output is active
 ]
 File: figures/freedericksz_a.pdf Graphic file (type pdf)
  <use figures/freedericksz_a.pdf>
-Package pdftex.def Info: figures/freedericksz_a.pdf used on input line 531.
+Package pdftex.def Info: figures/freedericksz_a.pdf used on input line 533.
 (pdftex.def)             Requested size: 62.9464pt x 96.13683pt.
 File: figures/freedericksz_b.pdf Graphic file (type pdf)
  <use figures/freedericksz_b.pdf>
-Package pdftex.def Info: figures/freedericksz_b.pdf used on input line 531.
+Package pdftex.def Info: figures/freedericksz_b.pdf used on input line 533.
 (pdftex.def)             Requested size: 65.6964pt x 96.13683pt.
 
 Overfull \hbox (35.77133pt too wide) has occurred while \output is active
@@ -4535,11 +4555,11 @@ Package atenddvi Info: Last page = 34.
 \tf@snm=\write9
 \openout9 = `Pres.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 561.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 561.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 563.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 563.
  (./Pres.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 561.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 561.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 563.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 563.
 Package rerunfilecheck Info: File `Pres.out' has not changed.
 (rerunfilecheck)             Checksum: 881B77BC12FC7CFD6DA816C505887EE4;1103.
 
@@ -4550,12 +4570,12 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 561.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 563.
  ) 
 Here is how much of TeX's memory you used:
  45341 strings out of 493029
- 1056974 string characters out of 6136235
- 1221380 words of memory out of 5000000
+ 1056954 string characters out of 6136235
+ 1221128 words of memory out of 5000000
  47901 multiletter control sequences out of 15000+600000
  16549 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -4577,7 +4597,7 @@ hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/ncntrsbk/uncr8a.pfb>
-Output written on Pres.pdf (34 pages, 2354591 bytes).
+Output written on Pres.pdf (34 pages, 2354693 bytes).
 PDF statistics:
  1139 PDF objects out of 1200 (max. 8388607)
  862 compressed objects within 9 object streams
